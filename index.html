@@ -340,8 +340,8 @@
             display: inline-flex;
             align-items: center;
             gap: 1rem;
-            font-size: 0.75rem;
-            letter-spacing: 0.3em;
+            font-size: 1rem;
+            letter-spacing: 0.2em;
             color: var(--accent);
             margin-bottom: 3rem;
             text-transform: uppercase;
@@ -474,8 +474,15 @@
             letter-spacing: -0.02em;
         }
 
+        .stat-plus {
+            font-size: 0.85rem;
+            vertical-align: super;
+            margin-left: 0.02em;
+            font-weight: 300;
+        }
+
         .stat-label {
-            font-size: 0.8rem;
+            font-size: 0.95rem;
             color: var(--silver);
             text-transform: uppercase;
             letter-spacing: 0.15em;
@@ -501,8 +508,8 @@
             display: inline-flex;
             align-items: center;
             gap: 1rem;
-            font-size: 0.72rem;
-            letter-spacing: 0.25em;
+            font-size: 1.05rem;
+            letter-spacing: 0.1em;
             color: var(--accent);
             margin-bottom: 2rem;
             text-transform: uppercase;
@@ -642,30 +649,30 @@
         .strategy-number {
             font-family: 'DM Serif Display', serif;
             font-size: 3.5rem;
-            color: var(--off-white);
+            color: var(--platinum);
             font-weight: 400;
             margin-bottom: 1.5rem;
             transition: color 0.5s ease;
         }
 
         .strategy-card:hover .strategy-number {
-            color: var(--accent-light);
+            color: var(--accent);
         }
 
         .strategy-card h3 {
             font-family: 'DM Serif Display', serif;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 400;
             margin-bottom: 1.5rem;
             color: var(--charcoal);
         }
 
         .strategy-card p {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--steel);
             line-height: 1.8;
             margin-bottom: 1.5rem;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         .strategy-list {
@@ -674,19 +681,19 @@
         }
 
         .strategy-list li {
-            padding: 0.8rem 0 0.8rem 1.5rem;
+            padding: 0.9rem 0 0.9rem 1.5rem;
             position: relative;
             color: var(--steel);
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             line-height: 1.7;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         .strategy-list li::before {
             content: '';
             position: absolute;
             left: 0;
-            top: 1.2rem;
+            top: 1.3rem;
             width: 6px;
             height: 1px;
             background: var(--accent);
@@ -788,7 +795,7 @@
 
         .advantage-title {
             font-family: 'DM Serif Display', serif;
-            font-size: 2rem;
+            font-size: 2.4rem;
             font-weight: 400;
             color: var(--charcoal);
             position: sticky;
@@ -798,21 +805,21 @@
 
         .advantage-title span {
             display: block;
-            font-size: 0.72rem;
+            font-size: 0.85rem;
             font-family: 'Outfit', sans-serif;
             color: var(--accent);
-            letter-spacing: 0.2em;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
             margin-bottom: 1rem;
             font-weight: 500;
         }
 
         .advantage-content p {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             color: var(--steel);
             line-height: 1.9;
             margin-bottom: 1.5rem;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         /* Leadership Section */
@@ -1235,7 +1242,7 @@
         <div class="hero-content">
             <div class="hero-eyebrow">
                 <span lang="en">Institutional Alternative Investment</span>
-                <span lang="ko">기관전용 대체투자 운용사</span>
+                <span lang="ko">기관전용 대체투자</span>
             </div>
             
             <h1 lang="en">Building <em>Enduring</em><br>Infrastructure Platforms</h1>
@@ -1248,7 +1255,7 @@
             </p>
             <p class="hero-description" lang="ko">
                 실버스타인베스트먼트는 인프라 및 실물자산 섹터에서 운영형 플랫폼을 구축하고
-                장기적 가치를 창출하는 기관전용 대체투자 운용사입니다.
+                장기적 가치를 창출하는 기관전용 사모펀드 GP입니다.
             </p>
             
             <a href="#about" class="hero-cta">
@@ -1276,9 +1283,9 @@
             <div class="stat-label" lang="ko">핵심 투자 분야</div>
         </div>
         <div class="stat">
-            <div class="stat-value">20+</div>
-            <div class="stat-label" lang="en">Years Experience</div>
-            <div class="stat-label" lang="ko">경영진 경력 (년)</div>
+            <div class="stat-value">20<span class="stat-plus">+</span></div>
+            <div class="stat-label" lang="en">Founder's Years of Experience</div>
+            <div class="stat-label" lang="ko">창립자 경력 (년)</div>
         </div>
         <div class="stat">
             <div class="stat-value">Global</div>
@@ -1557,7 +1564,7 @@
                 </div>
                 <div class="advantage-content">
                     <p lang="en">Our proactive approach to structural value enhancement elevates the intrinsic value of portfolio companies, translating into superior outcomes at exit. We maintain in-house operating professionals and an industry advisory network, ensuring strong execution and management capabilities beyond deal closing.</p>
-                    <p lang="ko">피투자기업의 본질적 가치를 높여 투자 회수 시 우수한 성과로 연결됩니다. 운용사 자체적으로 운영 전문 인력과 산업 자문단을 보유하여, 딜 체결 이후의 실행 및 관리 능력에서 높은 역량을 보유합니다.</p>
+                    <p lang="ko">피투자기업의 본질적 가치를 높여 투자 회수 시 우수한 성과로 연결됩니다. 자체적으로 운영 전문 인력과 산업 자문단을 보유하여, 딜 체결 이후의 실행 및 관리 능력에서 높은 역량을 보유합니다.</p>
                 </div>
             </div>
 
@@ -1569,7 +1576,7 @@
                 </div>
                 <div class="advantage-content">
                     <p lang="en">This capability combines global experience with local expertise. Our founder built Brookfield's Korea investment team as Head of Korea. We maintain investment principles and ethics honed at global alternative asset managers, with institutional-grade governance, transparent decision-making, and rigorous compliance.</p>
-                    <p lang="ko">글로벌 경험과 현지 전문성을 결합한 역량입니다. 창립자는 브룩필드자산운용 한국 투자팀을 창립한 한국대표 출신입니다. 글로벌 대체자산운용사에서 단련된 투자 원칙과 윤리를 보유하며, 기관급 거버넌스와 투명한 의사결정, 철저한 준법감시 등 글로벌 스탠더드를 준수합니다.</p>
+                    <p lang="ko">글로벌 경험과 현지 전문성을 결합한 역량입니다. 창립자는 브룩필드자산운용 한국 투자팀을 창립한 한국대표 출신입니다. 글로벌 대체투자사에서 단련된 투자 원칙과 윤리를 보유하며, 기관급 거버넌스와 투명한 의사결정, 철저한 준법감시 등 글로벌 스탠더드를 준수합니다.</p>
                 </div>
             </div>
         </div>
@@ -1646,16 +1653,22 @@
                         <li lang="ko">독일에서 POBA와 Dream Global REIT 간 장기 합작투자 자문 (8개 오피스 자산 포트폴리오)</li>
                         <li lang="en">Advised Blackstone on its first commercial real estate investment in Korea (major Gangnam office building)</li>
                         <li lang="ko">블랙스톤의 한국 첫 상업용 부동산 투자 자문 (강남 대형 오피스 빌딩)</li>
-                        <li lang="en">Advised Brookfield on divestiture of North American wind power portfolio to KEPCO</li>
-                        <li lang="ko">브룩필드 북미지역 풍력발전소 포트폴리오 매각 자문 (한국전력 대상)</li>
+                        <li lang="en">Advised Brookfield on divestiture of North American wind power portfolio</li>
+                        <li lang="ko">브룩필드 북미지역 풍력발전소 포트폴리오 매각 자문</li>
                     </ul>
                 </div>
 
                 <div class="leadership-section">
                     <h4 lang="en">Prior Experience</h4>
                     <h4 lang="ko">이전 경력</h4>
-                    <p lang="en">Conducted feasibility studies, research, and valuations for large-scale mixed-use real estate portfolios and platforms for major domestic and international clients including Lotte Group, Samsung Group, CJ Group, SK Group, GIC, and AIG across Korea, China, India, Southeast Asia, and Africa.</p>
-                    <p lang="ko">국내외 대기업 고객들의 대규모 복합부동산 포트폴리오 및 플랫폼에 대한 개발타당성 검토, 리서치, 평가 등을 수행했습니다. 국내 고객으로는 롯데그룹, 삼성그룹, CJ그룹, SK그룹 외 다수, 해외 고객으로는 GIC, AIG 등이 있으며, 프로젝트 지역은 한국, 중국, 인도, 동남아시아, 아프리카 등입니다.</p>
+                    <ul class="leadership-list">
+                        <li lang="en">Global Real Asset Consulting Firm: Conducted feasibility studies, research, and valuations for large-scale mixed-use real estate portfolios and platforms for major domestic and international clients including Lotte Group, Samsung Group, CJ Group, SK Group, GIC, and AIG across Korea, China, India, Southeast Asia, and Africa</li>
+                        <li lang="ko">글로벌 실물자산 컨설팅회사에서 국내외 대기업 고객들의 대규모 복합부동산 포트폴리오 및 플랫폼에 대한 개발타당성 검토, 리서치, 평가 등 수행 (국내: 롯데그룹, 삼성그룹, CJ그룹, SK그룹 외 다수 / 해외: GIC, AIG 등 / 지역: 한국, 중국, 인도, 동남아시아, 아프리카 등)</li>
+                        <li lang="en">Samsung C&T Infrastructure Division: Executed Songdo City Development Project and reviewed various infrastructure/SOC projects including ports and roads</li>
+                        <li lang="ko">삼성물산 인프라사업본부에서 송도 도시개발 프로젝트 수행 및 항만, 도로 등 인프라/SOC 사업 검토</li>
+                        <li lang="en">ROK Air Force Accounting & Finance Wing: Served as technical review and cost estimation officer for base infrastructure and facility construction contracts including runway improvement projects (discharged as First Lieutenant)</li>
+                        <li lang="ko">공군 중앙관리단에서 활주로 개선공사 등 기지 관련 인프라 및 시설공사 계약처의 기술심사 및 원가계산 담당 장교로 근무 (중위 제대)</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -1685,14 +1698,14 @@
                 <h3 lang="en">Partnership Model</h3>
                 <h3 lang="ko">파트너십 모델</h3>
                 <p lang="en">We foster transparent and efficient partnership models. We serve as a local partner for global managers entering Korea, recognizing that success often hinges on working with a partner who best understands the local market.</p>
-                <p lang="ko">투명하고 효율적인 파트너십 모델을 구축합니다. 글로벌 운용사의 한국 시장 진출 시 현지 파트너로서 역할을 수행합니다.</p>
+                <p lang="ko">투명하고 효율적인 파트너십 모델을 구축합니다. 글로벌 GP의 한국 시장 진출 시 현지 파트너로서 역할을 수행합니다.</p>
             </div>
 
             <div class="partnership-card reveal">
                 <h3 lang="en">Local Co-GP Role</h3>
                 <h3 lang="ko">현지 공동 GP 역할</h3>
                 <p lang="en">Silverstar stands ready to serve as a local co-GP or operating partner. Understanding of the local market and networks are crucial when global managers enter Korea.</p>
-                <p lang="ko">실버스타는 현지 공동 GP 또는 운영 파트너로서의 역할을 수행할 준비가 되어 있습니다. 글로벌 운용사가 한국 시장에 진출할 때 가장 중요한 것은 현지 시장에 대한 이해와 네트워크입니다.</p>
+                <p lang="ko">실버스타는 현지 공동 GP 또는 운영 파트너로서의 역할을 수행할 준비가 되어 있습니다. 글로벌 GP가 한국 시장에 진출할 때 가장 중요한 것은 현지 시장에 대한 이해와 네트워크입니다.</p>
             </div>
 
             <div class="partnership-card reveal">
@@ -1832,17 +1845,17 @@
     }
 
     // Counter animation for stats
-    function animateCounter(element, target, duration = 2000) {
+    function animateCounter(element, target, suffix = '', duration = 2000) {
         let start = 0;
         const increment = target / (duration / 16);
         
         function updateCounter() {
             start += increment;
             if (start < target) {
-                element.textContent = Math.floor(start);
+                element.textContent = Math.floor(start) + suffix;
                 requestAnimationFrame(updateCounter);
             } else {
-                element.textContent = target;
+                element.textContent = target + suffix;
             }
         }
         
@@ -1855,9 +1868,12 @@
             if (entry.isIntersecting) {
                 const statValue = entry.target.querySelector('.stat-value');
                 const value = statValue.textContent;
+                const numMatch = value.match(/^(\d+)(.*)$/);
                 
-                if (!isNaN(parseInt(value))) {
-                    animateCounter(statValue, parseInt(value));
+                if (numMatch) {
+                    const num = parseInt(numMatch[1]);
+                    const suffix = numMatch[2] || '';
+                    animateCounter(statValue, num, suffix);
                 }
                 
                 statsObserver.unobserve(entry.target);
