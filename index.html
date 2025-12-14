@@ -6,7 +6,8 @@
     <title>Silverstar Investment | Infrastructure & Real Asset Platform</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@200;300;400;500;600;700&family=Noto+Sans+KR:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@200;300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
     
     <style>
         :root {
@@ -35,13 +36,84 @@
         }
 
         body {
-            font-family: 'Outfit', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Outfit', 'Pretendard Variable', 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
             color: var(--charcoal);
             line-height: 1.7;
             background: var(--white);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Korean specific font settings */
+        html[lang="ko"] body {
+            font-family: 'Pretendard Variable', 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            letter-spacing: 0em;
+            word-spacing: 0.08em;
+        }
+
+        html[lang="ko"] .hero h1 {
+            letter-spacing: 0em;
+            word-spacing: 0.1em;
+        }
+
+        html[lang="ko"] .hero-description {
+            letter-spacing: 0.01em;
+            word-spacing: 0.12em;
+            line-height: 2;
+        }
+
+        html[lang="ko"] .hero-eyebrow {
+            letter-spacing: 0.08em;
+        }
+
+        html[lang="ko"] .section-title,
+        html[lang="ko"] .stat-value,
+        html[lang="ko"] .about-info h3,
+        html[lang="ko"] .strategy-card h3,
+        html[lang="ko"] .focus-card h3,
+        html[lang="ko"] .advantage-title,
+        html[lang="ko"] .leadership-name,
+        html[lang="ko"] .leadership-section h4,
+        html[lang="ko"] .partnership-card h3 {
+            font-family: 'Pretendard Variable', 'Pretendard', 'Noto Sans KR', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        html[lang="ko"] .section-intro,
+        html[lang="ko"] .about-content p,
+        html[lang="ko"] .strategy-card p,
+        html[lang="ko"] .focus-card p,
+        html[lang="ko"] .advantage-content p,
+        html[lang="ko"] .leadership-section p,
+        html[lang="ko"] .partnership-card p {
+            letter-spacing: 0.01em;
+            word-spacing: 0.1em;
+            line-height: 1.95;
+        }
+
+        html[lang="ko"] .hero-eyebrow,
+        html[lang="ko"] .section-eyebrow,
+        html[lang="ko"] .stat-label,
+        html[lang="ko"] .contact-item h4,
+        html[lang="ko"] .leadership-badge {
+            font-family: 'Pretendard Variable', 'Pretendard', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+
+        html[lang="ko"] .info-label {
+            font-family: 'Pretendard Variable', 'Pretendard', sans-serif;
+            font-weight: 500;
+            text-transform: none;
+            letter-spacing: -0.01em;
+            color: var(--steel);
+        }
+
+        html[lang="ko"] .info-value {
+            font-family: 'Pretendard Variable', 'Pretendard', sans-serif;
+            font-weight: 400;
         }
 
         ::selection {
@@ -486,10 +558,15 @@
 
         .info-item {
             display: grid;
-            grid-template-columns: 120px 1fr;
-            gap: 2rem;
+            grid-template-columns: 100px 1fr;
+            gap: 2.5rem;
             padding: 1.2rem 0;
             border-bottom: 1px solid var(--off-white);
+            align-items: baseline;
+        }
+
+        html[lang="ko"] .info-item {
+            grid-template-columns: 80px 1fr;
         }
 
         .info-item:last-child {
@@ -497,10 +574,8 @@
         }
 
         .info-label {
-            font-size: 0.72rem;
+            font-size: 0.95rem;
             color: var(--silver);
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
             font-weight: 500;
         }
 
@@ -933,31 +1008,16 @@
         .footer-container {
             max-width: 1600px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            text-align: center;
         }
 
         footer p {
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             color: var(--silver);
             font-weight: 300;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .footer-links a {
-            font-size: 0.82rem;
-            color: var(--silver);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         /* Language Toggle */
@@ -1255,7 +1315,8 @@
                 <div class="info-item">
                     <span class="info-label" lang="en">Company</span>
                     <span class="info-label" lang="ko">회사명</span>
-                    <span class="info-value">Silverstar Investment Co., Ltd.</span>
+                    <span class="info-value" lang="en">Silverstar Investment Co., Ltd.</span>
+                    <span class="info-value" lang="ko">(주)실버스타인베스트먼트</span>
                 </div>
                 <div class="info-item">
                     <span class="info-label" lang="en">Address</span>
@@ -1272,12 +1333,14 @@
                 <div class="info-item">
                     <span class="info-label" lang="en">Date</span>
                     <span class="info-label" lang="ko">등록일</span>
-                    <span class="info-value">January 21, 2025</span>
+                    <span class="info-value" lang="en">January 21, 2025</span>
+                    <span class="info-value" lang="ko">2025년 1월 21일</span>
                 </div>
                 <div class="info-item">
                     <span class="info-label" lang="en">CEO</span>
                     <span class="info-label" lang="ko">대표이사</span>
-                    <span class="info-value">Wonbin Suh</span>
+                    <span class="info-value" lang="en">Wonbin Suh</span>
+                    <span class="info-value" lang="ko">서원빈</span>
                 </div>
             </div>
         </div>
@@ -1520,31 +1583,32 @@
         <div class="leadership-card reveal">
             <div class="leadership-header">
                 <div>
-                    <h3 class="leadership-name">Wonbin Suh</h3>
+                    <h3 class="leadership-name" lang="en">Wonbin Suh</h3>
+                    <h3 class="leadership-name" lang="ko">서원빈</h3>
                     <p class="leadership-role" lang="en">Representative Director · Founder</p>
                     <p class="leadership-role" lang="ko">대표이사 · 창립자</p>
                 </div>
                 <div class="leadership-badge" lang="en">Former Head of Korea, Brookfield</div>
-                <div class="leadership-badge" lang="ko">前 브룩필드 한국대표</div>
+                <div class="leadership-badge" lang="ko">전 브룩필드자산운용 한국대표</div>
             </div>
 
             <div class="leadership-details">
                 <div class="leadership-section">
-                    <h4 lang="en">Career</h4>
-                    <h4 lang="ko">경력</h4>
-                    <p lang="en">Founder and CEO of Silverstar. A seasoned expert with over 20 years of experience in Korea's alternative investment industry.</p>
-                    <p lang="ko">실버스타의 창립자이자 경영 총괄입니다. 한국 대체투자 업계에서 20년 이상의 경력을 보유한 전문가입니다.</p>
+                    <h4 lang="en">Leadership Across Investment Strategies in Korea</h4>
+                    <h4 lang="ko">한국 투자 전략 전반의 리더십</h4>
+                    <p lang="en">Since joining Brookfield in early 2013, Wonbin has amassed approximately 12 years of expertise across diverse business verticals. From 2013 to 2017, he worked at Brookfield Financial, the firm's in-house investment bank, specializing in cross-border M&A advisory and capital raise. Transitioning to Brookfield Asset Management (BAM) in 2018, he established and led the Korea investment team, spearheading business development across real estate, infrastructure, renewable energy, and private equity. Since 2020, Wonbin has served as the Korea Country Head for Brookfield's Real Estate Group, driving strategic investments and operational excellence in the region.</p>
+                    <p lang="ko">2013년 초 브룩필드 입사 이후, 약 12년간 다양한 사업 영역에서 전문성을 축적했습니다. 2013년부터 2017년까지 브룩필드의 사내 투자은행인 브룩필드 파이낸셜에서 크로스보더 M&A 자문 및 자본조달 업무를 담당했습니다. 2018년 브룩필드자산운용(BAM)으로 이동하여 한국 투자팀을 설립하고 이끌며, 부동산, 인프라, 신재생에너지, 프라이빗에쿼티 전반의 사업개발을 주도했습니다. 2020년부터는 브룩필드 부동산그룹의 한국 대표로서 전략적 투자와 운영 역량 강화를 이끌었습니다.</p>
                 </div>
 
                 <div class="leadership-section">
-                    <h4 lang="en">Key Achievements</h4>
-                    <h4 lang="ko">주요 실적</h4>
-                    <p lang="en">Former Head of Korea, Brookfield Asset Management</p>
-                    <p lang="ko">브룩필드자산운용 한국 투자 총괄 대표 역임</p>
+                    <h4 lang="en">Key Achievements at Brookfield</h4>
+                    <h4 lang="ko">브룩필드 주요 실적</h4>
+                    <p lang="en">As Head of Korea, Brookfield Real Estate Group (2020-2024)</p>
+                    <p lang="ko">브룩필드 부동산그룹 한국대표 (2020-2024)</p>
                     <ul class="leadership-list">
-                        <li lang="en">Established Korea investment team</li>
-                        <li lang="ko">한국 투자팀 창립</li>
-                        <li lang="en">Acquisition of IFC Seoul and operating company</li>
+                        <li lang="en">Established Korea investment team from the ground up</li>
+                        <li lang="ko">한국 투자팀 신규 설립</li>
+                        <li lang="en">Acquisition of IFC Seoul and its operating company</li>
                         <li lang="ko">IFC Seoul 및 운영법인 인수</li>
                         <li lang="en">Purchase of Incheon Cheongna Logistics Center and establishment of logistics platform</li>
                         <li lang="ko">인천 청라 물류센터 매입 및 물류 플랫폼 설립</li>
@@ -1554,10 +1618,30 @@
                 </div>
 
                 <div class="leadership-section">
-                    <h4 lang="en">Expertise</h4>
-                    <h4 lang="ko">전문 분야</h4>
-                    <p lang="en">Experience accumulated across construction, infrastructure, real estate, M&A, and capital markets forms the foundation of Silverstar's growth.</p>
-                    <p lang="ko">건설, 인프라, 부동산, M&A, 자본시장 등 다양한 분야에서 축적한 경험이 실버스타의 성장 기반이 됩니다.</p>
+                    <h4 lang="en">Head of Investment, Brookfield Asset Management (2018-2020)</h4>
+                    <h4 lang="ko">브룩필드자산운용 투자총괄 (2018-2020)</h4>
+                    <p lang="en">Led domestic investment review across all Brookfield investment verticals including M&A, infrastructure, data centers, renewable energy (solar, wind), and real estate platforms in Korea.</p>
+                    <p lang="ko">국내 다양한 M&A, 인프라, 데이터센터, 신재생에너지(태양광, 풍력), 부동산 플랫폼 등 브룩필드의 모든 투자영역에 대한 국내 투자검토 업무를 총괄 수행했습니다.</p>
+                </div>
+
+                <div class="leadership-section">
+                    <h4 lang="en">Notable Transactions at Brookfield Financial (2013-2017)</h4>
+                    <h4 lang="ko">브룩필드 파이낸셜 주요 딜 (2013-2017)</h4>
+                    <ul class="leadership-list">
+                        <li lang="en">Advised on long-term joint venture between POBA and Dream Global REIT in Germany (8-asset office portfolio)</li>
+                        <li lang="ko">독일에서 POBA와 Dream Global REIT 간 장기 합작투자 자문 (8개 오피스 자산 포트폴리오)</li>
+                        <li lang="en">Advised Blackstone on its first commercial real estate investment in Korea (major Gangnam office building)</li>
+                        <li lang="ko">블랙스톤의 한국 첫 상업용 부동산 투자 자문 (강남 대형 오피스 빌딩)</li>
+                        <li lang="en">Advised Brookfield on divestiture of North American wind power portfolio to KEPCO</li>
+                        <li lang="ko">브룩필드 북미지역 풍력발전소 포트폴리오 매각 자문 (한국전력 대상)</li>
+                    </ul>
+                </div>
+
+                <div class="leadership-section">
+                    <h4 lang="en">Prior Experience</h4>
+                    <h4 lang="ko">이전 경력</h4>
+                    <p lang="en">Conducted feasibility studies, research, and valuations for large-scale mixed-use real estate portfolios and platforms for major domestic and international clients including Lotte Group, Samsung Group, CJ Group, SK Group, GIC, and AIG across Korea, China, India, Southeast Asia, and Africa.</p>
+                    <p lang="ko">국내외 대기업 고객들의 대규모 복합부동산 포트폴리오 및 플랫폼에 대한 개발타당성 검토, 리서치, 평가 등을 수행했습니다. 국내 고객으로는 롯데그룹, 삼성그룹, CJ그룹, SK그룹 외 다수, 해외 고객으로는 GIC, AIG 등이 있으며, 프로젝트 지역은 한국, 중국, 인도, 동남아시아, 아프리카 등입니다.</p>
                 </div>
             </div>
         </div>
@@ -1629,7 +1713,8 @@
             <div class="contact-item">
                 <h4 lang="en">Company</h4>
                 <h4 lang="ko">회사</h4>
-                <p>Silverstar Investment Co., Ltd.</p>
+                <p lang="en">Silverstar Investment Co., Ltd.</p>
+                <p lang="ko">(주)실버스타인베스트먼트</p>
             </div>
 
             <div class="contact-item">
@@ -1642,7 +1727,7 @@
             <div class="contact-item">
                 <h4 lang="en">Email</h4>
                 <h4 lang="ko">이메일</h4>
-                <p><a href="mailto:wonbin.suh@silverstars.co.kr">wonbin.suh@silverstars.co.kr</a></p>
+                <p><a href="/cdn-cgi/l/email-protection#c4b3abaaa6adaaeab7b1ac84b7ada8b2a1b6b7b0a5b6b7eaa7abeaafb6"><span class="__cf_email__" data-cfemail="92e5fdfcf0fbfcbce1e7fad2e1fbfee4f7e0e1e6f3e0e1bcf1fdbcf9e0">[email&#160;protected]</span></a></p>
             </div>
         </div>
     </div>
@@ -1651,17 +1736,12 @@
 <!-- Footer -->
 <footer>
     <div class="footer-container">
-        <p>© 2025 Silverstar Investment Co., Ltd. All rights reserved.</p>
-        <div class="footer-links">
-            <a href="#" lang="en">Privacy Policy</a>
-            <a href="#" lang="ko">개인정보처리방침</a>
-            <a href="#" lang="en">Terms of Use</a>
-            <a href="#" lang="ko">이용약관</a>
-        </div>
+        <p lang="en">© 2025 Silverstar Investment Co., Ltd. All rights reserved. This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities.</p>
+        <p lang="ko">© 2025 (주)실버스타인베스트먼트. 본 웹사이트의 내용은 정보 제공 목적으로만 작성되었으며, 투자 권유나 증권의 매수·매도 청약을 구성하지 않습니다.</p>
     </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Language Toggle
     function toggleLanguage() {
         const html = document.documentElement;
