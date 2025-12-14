@@ -3,859 +3,1257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>실버스타인베스트먼트 | Silverstar Investment</title>
-
-    <!-- Fonts -->
+    <title>Silverstar Investment | 실버스타인베스트먼트</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    
     <style>
         :root {
-            --primary-dark: #1a1a1a;
-            --primary-light: #f8f7f4;
-            --accent-gold: #c9a961;
-            --accent-silver: #8a8d91;
-            --text-primary: #2c2c2c;
-            --text-secondary: #5a5a5a;
-            --border-color: #d4d0c8;
+            --primary: #0a0a0a;
+            --gold: #b89861;
+            --text: #1a1a1a;
+            --text-light: #666;
+            --bg-dark: #0f0f0f;
+            --bg-light: #fafafa;
         }
 
-        * { margin:0; padding:0; box-sizing:border-box; }
-        html { scroll-behavior:smooth; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
-            font-family:'Malgun Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background:var(--primary-light);
-            color:var(--text-primary);
-            line-height:1.85;
-        }
-
-        /* Progress bar */
-        .progress-bar {
-            position:fixed;
-            top:0; left:0;
-            height:3px;
-            background:var(--accent-gold);
-            width:100%;
-            transform:scaleX(0);
-            transform-origin:left;
-            z-index:2000;
+            font-family: 'Malgun Gothic', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* Navigation */
         nav {
-            position:fixed;
-            top:0;
-            width:100%;
-            background:rgba(248,247,244,0.95);
-            backdrop-filter:blur(10px);
-            border-bottom:1px solid var(--border-color);
-            z-index:1500;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: all 0.3s;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.05);
         }
 
         .nav-container {
-            max-width:1400px;
-            margin:0 auto;
-            padding:1.5rem 3rem;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 1.2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
-            font-family:'Archivo', sans-serif;
-            font-size:1.6rem;
-            font-weight:600;
-            letter-spacing:0.08em;
+            font-family: 'Archivo', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            color: var(--primary);
+            text-transform: uppercase;
         }
 
-        .nav-links {
-            list-style:none;
-            display:flex;
-            gap:2.5rem;
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
         }
 
-        .nav-links a {
-            text-decoration:none;
-            font-size:0.9rem;
-            color:var(--text-secondary);
-            position:relative;
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
         }
 
-        .nav-links a::after {
-            content:'';
-            position:absolute;
-            left:0; bottom:-6px;
-            width:0; height:1px;
-            background:var(--accent-gold);
-            transition:width .3s;
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: color 0.3s;
+            letter-spacing: 0.02em;
         }
 
-        .nav-links a:hover {
-            color:var(--accent-gold);
+        .nav-menu a:hover {
+            color: var(--gold);
         }
 
-        .nav-links a:hover::after {
-            width:100%;
+        .lang-toggle {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid #ddd;
+            color: var(--text);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+
+        .lang-toggle:hover {
+            border-color: var(--gold);
+            color: var(--gold);
         }
 
         /* Hero */
         .hero {
-            height:100vh;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            background:linear-gradient(135deg,#f8f7f4,#ebe9e4);
-            padding:0 2rem;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+            display: flex;
+            align-items: center;
+            padding: 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(184, 152, 97, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 30%, rgba(184, 152, 97, 0.1) 0%, transparent 40%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .hero-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            padding: 120px 0 80px;
         }
 
         .hero-content {
-            max-width:1100px;
-            text-align:center;
+            max-width: 1000px;
         }
 
-        .hero .subtitle {
-            font-family:'Archivo', sans-serif;
-            font-size:1.1rem;
-            letter-spacing:0.25em;
-            color:var(--text-secondary);
-            margin-bottom:1.5rem;
-            font-weight:400;
+        .hero-label {
+            font-family: 'Archivo', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.3em;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            font-weight: 500;
+            text-transform: uppercase;
         }
 
         .hero h1 {
-            font-family:'Archivo', 'Malgun Gothic', sans-serif;
-            font-size:4.2rem;
-            font-weight:300;
-            line-height:1.2;
-            margin-bottom:2.5rem;
-            letter-spacing:-0.02em;
+            font-family: 'Archivo', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 400;
+            line-height: 1.15;
+            color: white;
+            margin-bottom: 2.5rem;
+            letter-spacing: -0.02em;
         }
 
-        .divider {
-            width:120px;
-            height:1px;
-            background:var(--accent-gold);
-            margin:0 auto 2.5rem;
-            opacity:.6;
+        .hero-tagline {
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 800px;
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 3rem;
         }
 
-        .hero .tagline {
-            font-size:1.15rem;
-            color:var(--text-secondary);
-            max-width:820px;
-            margin:0 auto;
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.1rem 2.5rem;
+            background: transparent;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.3);
+            text-transform: uppercase;
+            font-weight: 500;
         }
 
-        /* Sections */
+        .hero-cta:hover {
+            background: white;
+            color: var(--primary);
+            border-color: white;
+        }
+
+        /* Stats */
+        .stats {
+            background: linear-gradient(to bottom, #0f0f0f 0%, #1a1a1a 100%);
+            padding: 6rem 4rem;
+        }
+
+        .stats-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5rem;
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-value {
+            font-family: 'Archivo', sans-serif;
+            font-size: 4rem;
+            font-weight: 300;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 0.05em;
+        }
+
+        /* Section Base */
         section {
-            max-width:1400px;
-            margin:0 auto;
-            padding:8rem 3rem;
-            opacity:0;
-            transform:translateY(30px);
-            transition:all .8s ease;
+            padding: 10rem 4rem;
         }
 
-        section.visible {
-            opacity:1;
-            transform:translateY(0);
+        .section-container {
+            max-width: 1600px;
+            margin: 0 auto;
         }
 
         .section-header {
-            margin-bottom:5rem;
+            max-width: 1000px;
+            margin-bottom: 6rem;
         }
 
-        .section-number {
-            font-family:'Archivo', sans-serif;
-            letter-spacing:.25em;
-            color:var(--accent-gold);
-            font-size:.85rem;
-            margin-bottom:1rem;
-            display:block;
-            font-weight:400;
+        .section-label {
+            font-family: 'Archivo', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.3em;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
         }
 
         .section-title {
-            font-family:'Archivo', 'Malgun Gothic', sans-serif;
-            font-size:3rem;
-            font-weight:500;
-            margin-bottom:1.5rem;
-            letter-spacing:-0.02em;
+            font-family: 'Archivo', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
         }
 
-        .section-description {
-            max-width:900px;
-            font-size:1.05rem;
-            color:var(--text-secondary);
+        .section-intro {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            font-weight: 300;
         }
 
         /* About */
-        #about { background:var(--primary-light); }
+        .about {
+            background: white;
+        }
 
         .about-grid {
-            display:grid;
-            grid-template-columns:1fr 1fr;
-            gap:5rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
         }
 
         .about-card {
-            background:#fff;
-            border:1px solid var(--border-color);
-            padding:3rem;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            padding: 4rem;
+            transition: all 0.4s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
         }
 
         .about-card h3 {
-            font-family:'Archivo', 'Malgun Gothic', sans-serif;
-            font-size:1.9rem;
-            margin-bottom:1.5rem;
-            font-weight:600;
+            font-family: 'Archivo', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            letter-spacing: -0.01em;
         }
 
         .about-card p {
-            font-size:1rem;
-            color:var(--text-secondary);
-            margin-bottom:1rem;
+            font-size: 1.05rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
         }
 
-        .info-list {
-            list-style:none;
-            margin-top:1.5rem;
+        .info-grid {
+            display: grid;
+            gap: 1.2rem;
+            margin-top: 2rem;
         }
 
-        .info-list li {
-            display:flex;
-            justify-content:space-between;
-            padding:.8rem 0;
-            border-bottom:1px solid var(--border-color);
-            font-size:.95rem;
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .info-label {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .info-value {
+            font-weight: 500;
+            text-align: right;
+            font-size: 0.95rem;
         }
 
         /* Strategy */
-        #strategy { background:#fff; }
-
-        .strategy-grid {
-            display:grid;
-            grid-template-columns:repeat(2,1fr);
-            gap:4.5rem;
+        .strategy {
+            background: linear-gradient(to bottom, #fafafa 0%, white 100%);
         }
 
-        .strategy-item {
-            position:relative;
-            padding-left:3rem;
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+        }
+
+        .strategy-card {
+            background: white;
+            padding: 4rem;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .strategy-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+            transform-origin: left;
+        }
+
+        .strategy-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .strategy-card:hover {
+            box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
         }
 
         .strategy-number {
-            position:absolute;
-            left:0; top:0;
-            font-family:'Archivo', sans-serif;
-            font-size:2.1rem;
-            color:var(--accent-gold);
-            font-weight:300;
+            font-family: 'Archivo', sans-serif;
+            font-size: 0.85rem;
+            color: var(--gold);
+            letter-spacing: 0.2em;
+            margin-bottom: 1.5rem;
+            display: block;
+            font-weight: 500;
         }
 
-        .strategy-item h3 {
-            font-family:'Archivo', 'Malgun Gothic', sans-serif;
-            font-size:1.9rem;
-            margin-bottom:1rem;
-            font-weight:600;
+        .strategy-card h3 {
+            font-family: 'Archivo', sans-serif;
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
         }
 
-        .strategy-item p {
-            font-size:1rem;
-            color:var(--text-secondary);
-            margin-bottom:1rem;
+        .strategy-card p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
         }
 
-        .strategy-details {
-            border-left:2px solid var(--border-color);
-            padding-left:1.5rem;
-            margin-top:2rem;
+        .strategy-list {
+            list-style: none;
+            margin-top: 2rem;
         }
 
-        .strategy-details h4 {
-            font-size:1.05rem;
-            margin:1.4rem 0 .6rem;
-            font-weight:600;
+        .strategy-list li {
+            padding: 1rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-light);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        .strategy-details ul {
-            list-style:none;
-        }
-
-        .strategy-details li {
-            padding:.4rem 0;
-            padding-left:1.2rem;
-            position:relative;
-            color:var(--text-secondary);
-        }
-
-        .strategy-details li::before {
-            content:'—';
-            position:absolute;
-            left:0;
-            color:var(--accent-gold);
+        .strategy-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 1.5rem;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
         }
 
         /* Focus */
-        #focus { background:var(--primary-light); }
+        .focus {
+            background: var(--bg-dark);
+            color: white;
+        }
+
+        .focus .section-title {
+            color: white;
+        }
+
+        .focus .section-intro {
+            color: rgba(255,255,255,0.7);
+        }
 
         .focus-grid {
-            display:grid;
-            grid-template-columns:repeat(2,1fr);
-            gap:3.5rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
         }
 
         .focus-card {
-            background:#fff;
-            border:1px solid var(--border-color);
-            padding:3rem;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            padding: 4rem;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .focus-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(184, 152, 97, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .focus-card:hover::before {
+            opacity: 1;
+        }
+
+        .focus-card:hover {
+            transform: translateY(-5px);
         }
 
         .focus-card h3 {
-            font-family:'Archivo', 'Malgun Gothic', sans-serif;
-            font-size:1.9rem;
-            margin-bottom:1.4rem;
-            font-weight:600;
+            font-family: 'Archivo', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            position: relative;
+            z-index: 1;
         }
 
         .focus-card p {
-            font-size:1rem;
-            color:var(--text-secondary);
-            margin-bottom:1rem;
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
         }
 
         /* Advantages */
-        #advantages { background:#fff; }
+        .advantages {
+            background: white;
+        }
 
         .advantage-item {
-            display:grid;
-            grid-template-columns:300px 1fr;
-            gap:4rem;
-            padding:3rem 0;
-            border-bottom:1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 5rem;
+            padding: 4rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .advantage-item:last-child {
+            border-bottom: none;
         }
 
         .advantage-title {
-            font-family:'Archivo', 'Malgun Gothic', sans-serif;
-            font-size:1.9rem;
-            position:sticky;
-            top:140px;
-            font-weight:600;
+            font-family: 'Archivo', sans-serif;
+            font-size: 2rem;
+            font-weight: 500;
+            position: sticky;
+            top: 150px;
         }
 
         .advantage-content p {
-            font-size:1rem;
-            color:var(--text-secondary);
-            margin-bottom:1rem;
+            font-size: 1.05rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
         }
 
         /* Leadership */
-        #leadership {
-            background:var(--primary-dark);
-            color:#fff;
-        }
-
-        #leadership .section-number {
-            color:var(--accent-gold);
-        }
-
-        #leadership .section-title {
-            color:#fff;
-        }
-
-        #leadership .section-description {
-            color:rgba(255,255,255,.7);
+        .leadership {
+            background: linear-gradient(to bottom, #fafafa 0%, white 100%);
         }
 
         .leadership-content {
-            max-width:900px;
+            max-width: 1200px;
+        }
+
+        .leadership-header {
+            margin-bottom: 3rem;
         }
 
         .leadership-name {
-            font-family:'Archivo', 'Malgun Gothic', sans-serif;
-            font-size:2.6rem;
-            color:var(--accent-gold);
-            margin-bottom:.5rem;
-            font-weight:600;
+            font-family: 'Archivo', sans-serif;
+            font-size: 3rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
         }
 
-        .leadership-title {
-            font-size:1.15rem;
-            margin-bottom:3rem;
-            color:rgba(255,255,255,.8);
+        .leadership-role {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
         }
 
-        .leadership-section {
-            margin-bottom:3rem;
+        .leadership-details {
+            display: grid;
+            gap: 3rem;
         }
 
         .leadership-section h4 {
-            font-family:'Archivo', 'Malgun Gothic', sans-serif;
-            font-size:1.5rem;
-            margin-bottom:1rem;
-            font-weight:600;
+            font-family: 'Archivo', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
         }
 
         .leadership-section p {
-            color:rgba(255,255,255,.7);
-            font-size:1rem;
-            margin-bottom:1rem;
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1rem;
         }
 
-        .leadership-section ul {
-            list-style:none;
+        .leadership-list {
+            list-style: none;
+            display: grid;
+            gap: 1rem;
         }
 
-        .leadership-section li {
-            padding:.6rem 0;
-            padding-left:1.2rem;
-            position:relative;
-            border-bottom:1px solid rgba(255,255,255,.1);
-            color:rgba(255,255,255,.7);
+        .leadership-list li {
+            padding: 1.2rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-light);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
         }
 
-        .leadership-section li::before {
-            content:'—';
-            position:absolute;
-            left:0;
-            color:var(--accent-gold);
+        .leadership-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 1.7rem;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
         }
 
         /* Partnership */
-        #partnership { background:var(--primary-light); }
+        .partnership {
+            background: white;
+        }
 
         .partnership-content {
-            max-width:900px;
+            max-width: 1200px;
         }
 
         .partnership-block {
-            margin-bottom:3rem;
+            margin-bottom: 4rem;
         }
 
         .partnership-block h3 {
-            font-family:'Archivo', 'Malgun Gothic', sans-serif;
-            font-size:1.9rem;
-            margin-bottom:1.2rem;
-            font-weight:600;
+            font-family: 'Archivo', sans-serif;
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
         }
 
         .partnership-block p {
-            font-size:1rem;
-            color:var(--text-secondary);
-            margin-bottom:1rem;
+            font-size: 1.05rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
         }
 
         /* Contact */
-        #contact { background:#fff; padding:6rem 3rem; }
-
-        .contact-container {
-            max-width:800px;
-            margin:0 auto;
-            text-align:center;
+        .contact {
+            background: var(--bg-dark);
+            color: white;
         }
 
-        .contact-container h2 {
-            font-family:'Archivo', 'Malgun Gothic', sans-serif;
-            font-size:2.5rem;
-            font-weight:500;
-            margin-bottom:3rem;
+        .contact .section-title {
+            color: white;
         }
 
-        .contact-info {
-            text-align:left;
-            margin-top:3rem;
+        .contact .section-intro {
+            color: rgba(255,255,255,0.7);
         }
 
-        .contact-item {
-            padding:1.4rem 0;
-            border-bottom:1px solid var(--border-color);
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5rem;
+            max-width: 1400px;
         }
 
-        .contact-label {
-            font-size:.8rem;
-            letter-spacing:.15em;
-            color:var(--text-secondary);
-            margin-bottom:.5rem;
+        .contact-item h4 {
+            font-family: 'Archivo', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-weight: 500;
         }
 
-        .contact-value {
-            font-size:1.05rem;
-            color:var(--text-primary);
+        .contact-item p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
         }
 
-        .contact-value a {
-            color:var(--text-primary);
-            text-decoration:none;
-            transition:color .3s;
+        .contact-item a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
         }
 
-        .contact-value a:hover {
-            color:var(--accent-gold);
+        .contact-item a:hover {
+            color: var(--gold);
         }
 
+        /* Footer */
         footer {
-            background:var(--primary-dark);
-            color:rgba(255,255,255,.6);
-            padding:3rem;
-            text-align:center;
-            font-size:.9rem;
+            background: var(--bg-dark);
+            color: rgba(255,255,255,0.4);
+            padding: 3rem 4rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.9rem;
         }
 
-        footer p {
-            margin:.5rem 0;
+        /* Language Specific */
+        [lang="ko"],
+        [lang="en"] {
+            display: block;
+        }
+        
+        /* Hide opposite language */
+        html[lang="ko"] [lang="en"] {
+            display: none !important;
         }
 
-        @media(max-width:1024px){
-            .about-grid, .strategy-grid, .focus-grid { grid-template-columns:1fr; }
-            .advantage-item { grid-template-columns:1fr; }
-            .advantage-title { position:static; }
+        html[lang="en"] [lang="ko"] {
+            display: none !important;
+        }
+        
+        /* For inline text elements like spans */
+        span[lang="ko"],
+        span[lang="en"],
+        a[lang="ko"],
+        a[lang="en"] {
+            display: inline;
+        }
+        
+        html[lang="ko"] span[lang="en"],
+        html[lang="ko"] a[lang="en"] {
+            display: none !important;
+        }
+        
+        html[lang="en"] span[lang="ko"],
+        html[lang="en"] a[lang="ko"] {
+            display: none !important;
         }
 
-        @media(max-width:768px){
-            .nav-container { padding:1rem 1.5rem; }
-            .nav-links { gap:1rem; font-size:.8rem; }
-            section { padding:5rem 1.5rem; }
-            .hero h1 { font-size:2.6rem; }
-            .section-title { font-size:2rem; }
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .nav-container,
+            section {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+
+            .hero {
+                padding: 0 2rem;
+            }
+
+            .stats-container,
+            .about-grid,
+            .strategy-grid,
+            .focus-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .advantage-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .advantage-title {
+                position: static;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .stat-value {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-
 <body>
-<div class="progress-bar"></div>
 
 <nav>
     <div class="nav-container">
         <div class="logo">SILVERSTAR</div>
-        <ul class="nav-links">
-            <li><a href="#about">회사</a></li>
-            <li><a href="#strategy">전략</a></li>
-            <li><a href="#focus">분야</a></li>
-            <li><a href="#advantages">경쟁우위</a></li>
-            <li><a href="#leadership">경영진</a></li>
-            <li><a href="#partnership">파트너십</a></li>
-            <li><a href="#contact">연락</a></li>
-        </ul>
+        <div class="nav-right">
+            <ul class="nav-menu">
+                <li><a href="#about" lang="ko">회사 소개</a><a href="#about" lang="en">About</a></li>
+                <li><a href="#strategy" lang="ko">투자 전략</a><a href="#strategy" lang="en">Strategy</a></li>
+                <li><a href="#focus" lang="ko">투자 분야</a><a href="#focus" lang="en">Focus</a></li>
+                <li><a href="#advantages" lang="ko">경쟁우위</a><a href="#advantages" lang="en">Competitive Edge</a></li>
+                <li><a href="#leadership" lang="ko">경영진</a><a href="#leadership" lang="en">Leadership</a></li>
+                <li><a href="#partnership" lang="ko">파트너십</a><a href="#partnership" lang="en">Partnership</a></li>
+                <li><a href="#contact" lang="ko">연락처</a><a href="#contact" lang="en">Contact</a></li>
+            </ul>
+            <button class="lang-toggle" onclick="toggleLanguage()">
+                <span lang="ko">EN</span>
+                <span lang="en">KR</span>
+            </button>
+        </div>
     </div>
 </nav>
 
 <section class="hero">
-    <div class="hero-content">
-        <div class="subtitle">SILVERSTAR INVESTMENT</div>
-        <h1>Infrastructure & Real Asset<br>Platform Investment</h1>
-        <div class="divider"></div>
-        <p class="tagline">
-            실버스타인베스트먼트는 인프라 및 부동산 섹터에서 운영형 플랫폼을 구축하고
-            장기적 가치를 창출하는 기관전용 대체투자 운용사입니다.
-        </p>
-    </div>
-</section>
-
-<section id="about">
-    <div class="section-header">
-        <span class="section-number">01</span>
-        <h2 class="section-title">회사 소개</h2>
-        <p class="section-description">
-            실버스타인베스트먼트는 한국 시장에서 실물자산 중심의 대체투자 플랫폼을 구축합니다.
-            글로벌 운용 경험과 현지 실행 역량을 결합하여 구조적 가치를 만듭니다.
-        </p>
-    </div>
-
-    <div class="about-grid">
-        <div class="about-card">
-            <h3>비전</h3>
-            <p>사회 주요 실물자산 인프라 섹터별 운영 플랫폼을 구축합니다.</p>
-            <p>각 산업에서 장기 경쟁력을 갖춘 핵심 기업을 육성합니다.</p>
-            <p>국제 자본과 국내 기회를 연결하는 현지 파트너 역할을 수행합니다.</p>
-        </div>
-        <div class="about-card">
-            <h3>사명</h3>
-            <p>미래사회 경제를 움직이는 인프라 및 부동산 플랫폼 기업을 육성합니다.</p>
-            <p>책임 있는 자본 운용을 통해 투자자에게 지속적인 가치를 제공합니다.</p>
-            <p>글로벌 기준의 투자 원칙과 거버넌스를 준수합니다.</p>
-        </div>
-    </div>
-
-    <div class="about-grid" style="margin-top:3rem;">
-        <div class="about-card">
-            <h3>등록 정보</h3>
-            <ul class="info-list">
-                <li>
-                    <span>회사명</span>
-                    <span>주식회사 실버스타인베스트먼트</span>
-                </li>
-                <li>
-                    <span>소재지</span>
-                    <span>서울 종로구 사직로 130</span>
-                </li>
-                <li>
-                    <span>등록</span>
-                    <span>기관전용 사모집합투자기구</span>
-                </li>
-                <li>
-                    <span>등록일</span>
-                    <span>2025년 1월 21일</span>
-                </li>
-                <li>
-                    <span>대표이사</span>
-                    <span>서원빈</span>
-                </li>
-            </ul>
-        </div>
-
-        <div class="about-card">
-            <h3>회사 개요</h3>
-            <p>실버스타인베스트먼트는 인프라 및 부동산 섹터의 플랫폼 기업 육성을 목표로 하는 대체자산운용사입니다.</p>
-            <p>자본시장법에 따른 기관전용 사모집합투자기구의 업무집행사원으로 등록되어 기관급 거버넌스와 투명한 의사결정 체계를 갖추고 있습니다.</p>
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="hero-label" lang="ko">SILVERSTAR INVESTMENT</div>
+            <div class="hero-label" lang="en">SILVERSTAR INVESTMENT</div>
+            
+            <h1 lang="ko">Infrastructure & Real Asset<br>Platform Investment</h1>
+            <h1 lang="en">Infrastructure & Real Asset<br>Platform Investment</h1>
+            
+            <p class="hero-tagline" lang="ko">
+                실버스타인베스트먼트는 인프라 및 부동산 섹터에서 운영형 플랫폼을 구축하고
+                장기적 가치를 창출하는 기관전용 대체투자 운용사입니다.
+            </p>
+            <p class="hero-tagline" lang="en">
+                Silverstar Investment is an institutional alternative investment manager dedicated to building operating platforms in infrastructure and real estate sectors, creating long-term value.
+            </p>
+            
+            <a href="#about" class="hero-cta">
+                <span lang="ko">더 알아보기</span>
+                <span lang="en">Learn More</span>
+                <span>→</span>
+            </a>
         </div>
     </div>
 </section>
 
-<section id="strategy">
-    <div class="section-header">
-        <span class="section-number">02</span>
-        <h2 class="section-title">투자 전략</h2>
-        <p class="section-description">
-            실버스타는 네 가지 핵심 원칙에 기반하여 투자 전략을 전개합니다.
-            차별화된 투자 성과와 파트너십 가치를 창출합니다.
-        </p>
-    </div>
-
-    <div class="strategy-grid">
-        <div class="strategy-item">
-            <span class="strategy-number">01</span>
-            <h3>플랫폼 구축</h3>
-            <p>섹터별 기업형 운영 플랫폼 구축을 통해 규모의 경제와 시너지 효과를 창출합니다.</p>
-            <p>단일 자산 투자를 넘어 관련 운영 인력과 시스템을 갖춘 전문 운영법인을 동반 매입하거나 신규 설립합니다.</p>
-            <p>추가 시설을 연계 확보하여 장기적 포트폴리오를 구축합니다. 투자 자산들 간 운영 노하우와 글로벌 모범 사례를 공유하여 부가가치를 극대화합니다.</p>
+<div class="stats">
+    <div class="stats-container">
+        <div class="stat">
+            <div class="stat-value">2025</div>
+            <div class="stat-label" lang="ko">설립</div>
+            <div class="stat-label" lang="en">Founded</div>
         </div>
-
-        <div class="strategy-item">
-            <span class="strategy-number">02</span>
-            <h3>구조적 가치 창출</h3>
-            <p>능동적 밸류업 활동을 통해 투자 자산의 가치를 구조적으로 높입니다.</p>
-            <div class="strategy-details">
-                <h4>운영 효율 개선</h4>
-                <ul>
-                    <li>포트폴리오 기업의 운영 효율 개선</li>
-                    <li>재무 구조 최적화</li>
-                    <li>내재 가치 향상</li>
-                </ul>
-                <h4>액티브 오너십</h4>
-                <ul>
-                    <li>기업 경영진과 적극 협업</li>
-                    <li>성장 전략 수립</li>
-                    <li>운영 개선 주도</li>
-                </ul>
-                <h4>전략적 제휴</h4>
-                <ul>
-                    <li>합작투자 활용</li>
-                    <li>새로운 성장 동력 확보</li>
-                    <li>시너지 창출</li>
-                </ul>
-            </div>
+        <div class="stat">
+            <div class="stat-value">4</div>
+            <div class="stat-label" lang="ko">핵심 투자 분야</div>
+            <div class="stat-label" lang="en">Core Focus Areas</div>
         </div>
-
-        <div class="strategy-item">
-            <span class="strategy-number">03</span>
-            <h3>가치 투자 원칙</h3>
-            <p>내재가치 대비 충분히 낮은 진입 밸류에이션에서만 투자를 실행합니다.</p>
-            <div class="strategy-details">
-                <h4>내재가치 중심 투자</h4>
-                <ul>
-                    <li>원칙을 지키는 절제된 투자</li>
-                    <li>엄격한 펀더멘탈 분석</li>
-                    <li>리스크 평가를 통한 거래 선별</li>
-                </ul>
-                <h4>안전마진 확보</h4>
-                <ul>
-                    <li>글로벌 기준의 투자위원회 프로세스</li>
-                    <li>다운사이드 보호</li>
-                    <li>안전마진 필수 확보</li>
-                </ul>
-            </div>
-            <p>투자 후에도 가치가 현실화될 때까지 인내심을 갖고 기다리는 장기 투자자의 태도를 유지합니다.</p>
+        <div class="stat">
+            <div class="stat-value">20+</div>
+            <div class="stat-label" lang="ko">경영진 경력 (년)</div>
+            <div class="stat-label" lang="en">Years of Experience</div>
         </div>
-
-        <div class="strategy-item">
-            <span class="strategy-number">04</span>
-            <h3>기업가 파트너십</h3>
-            <p>창업자 및 경영진과 동반자적 파트너십을 구축합니다. 성장의 전환기에 있는 기업들의 신뢰할 수 있는 파트너가 됩니다.</p>
-            <p>단순한 자본 공급자를 넘어 함께 성장하는 조력자 역할을 수행합니다.</p>
-            <div class="strategy-details">
-                <h4>지원 영역</h4>
-                <ul>
-                    <li>경영 전략 수립</li>
-                    <li>핵심 인재 영입</li>
-                    <li>글로벌 시장 진출</li>
-                </ul>
-            </div>
-            <p>창업자들이 본연의 비전 실현에 집중할 수 있도록 전문성을 제공합니다.</p>
+        <div class="stat">
+            <div class="stat-value">Global</div>
+            <div class="stat-label" lang="ko">투자 기준</div>
+            <div class="stat-label" lang="en">Investment Standards</div>
         </div>
     </div>
-</section>
+</div>
 
-<section id="focus">
-    <div class="section-header">
-        <span class="section-number">03</span>
-        <h2 class="section-title">투자 분야</h2>
-        <p class="section-description">
-            성장성과 안정성을 모두 갖춘 대체투자 분야에 중점을 둡니다.
-        </p>
-    </div>
-
-    <div class="focus-grid">
-        <div class="focus-card">
-            <h3>물류 및 콜드체인<br>3PL 인프라</h3>
-            <p>이커머스 확산과 유통 환경 변화로 최첨단 물류 인프라 수요가 지속 증가합니다. 콜드체인 특화 3PL에 대한 수요가 특히 높습니다.</p>
-            <p>수도권 및 핵심 거점 지역의 대형 물류센터 개발사업에 주력합니다. 기존 물류 자산의 인수 및 리노베이션을 추진합니다.</p>
+<section id="about" class="about">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <div class="section-label" lang="ko">01 — 회사 소개</div>
+            <div class="section-label" lang="en">01 — ABOUT US</div>
+            
+            <h2 class="section-title" lang="ko">Our Mission</h2>
+            <h2 class="section-title" lang="en">Our Mission</h2>
+            
+            <p class="section-intro" lang="ko">
+                실버스타인베스트먼트는 한국 시장에서 실물자산 중심의 대체투자 플랫폼을 구축합니다. 
+                글로벌 운용 경험과 현지 실행 역량을 결합하여 구조적 가치를 만듭니다.
+            </p>
+            <p class="section-intro" lang="en">
+                Silverstar Investment builds a real-asset-focused alternative investment platform in the Korean market. 
+                We create structural value by combining global operational experience with local execution capabilities.
+            </p>
         </div>
 
-        <div class="focus-card">
-            <h3>데이터센터 및<br>디지털 인프라</h3>
-            <p>디지털 경제 시대에 데이터센터는 필수 자산으로 부상했습니다. 국내 하이퍼스케일 데이터센터 수요 증가에 대응합니다.</p>
-            <p>전략적 입지에 대형 데이터센터 개발 프로젝트를 모색합니다.</p>
-        </div>
-
-        <div class="focus-card">
-            <h3>시니어/헬스케어<br>소셜 인프라</h3>
-            <p>고령화 사회에서 주간보호센터와 요양원 수요가 빠르게 증가합니다.</p>
-            <p>의료·돌봄 서비스와 부동산 주거 기능이 균형 있게 결합된 인프라를 구축합니다. 차별화된 포트폴리오 구성을 계획합니다.</p>
-        </div>
-
-        <div class="focus-card">
-            <h3>에너지<br>인프라스트럭처</h3>
-            <p>에너지 전환과 탄소중립 트렌드 속에서 에너지 인프라 자산에 주목합니다.</p>
-            <p>LNG 터미널, 도시가스 네트워크, 태양광·풍력 발전소 등이 포함됩니다. 안정적인 장기 현금흐름을 창출하는 대체투자 자산군입니다.</p>
-        </div>
-    </div>
-</section>
-
-<section id="advantages">
-    <div class="section-header">
-        <span class="section-number">04</span>
-        <h2 class="section-title">경쟁우위</h2>
-        <p class="section-description">
-            전략적 깊이, 운영 전문성, 원칙 준수, 신뢰 구축으로 차별화됩니다.
-        </p>
-    </div>
-
-    <div class="advantages-container">
-        <div class="advantage-item">
-            <h3 class="advantage-title">플랫폼 구축 역량</h3>
-            <div class="advantage-content">
-                <p>국내 대부분의 사모펀드들이 단일 자산 위주 투자에 집중하는 것과 차별화됩니다.</p>
-                <p>여러 자산을 하나의 플랫폼으로 묶어 투자하여 시너지 효과를 극대화합니다. 시장 변화에 유연하게 대응할 수 있는 구조를 갖춥니다.</p>
-            </div>
-        </div>
-
-        <div class="advantage-item">
-            <h3 class="advantage-title">구조적 가치 향상</h3>
-            <div class="advantage-content">
-                <p>피투자기업의 본질적 가치를 높여 투자 회수 시 우수한 성과로 연결됩니다.</p>
-                <p>운용사 자체적으로 운영 전문 인력과 산업 자문단을 보유합니다. 딜 체결 이후의 실행 및 관리 능력에서 높은 역량을 보유합니다.</p>
-            </div>
-        </div>
-
-        <div class="advantage-item">
-            <h3 class="advantage-title">글로벌+로컬<br>이중 역량</h3>
-            <div class="advantage-content">
-                <p>글로벌 경험과 현지 전문성을 결합한 역량입니다. 창립자는 브룩필드자산운용 한국 투자팀을 창립한 한국대표 출신입니다.</p>
-                <p>글로벌 대체자산운용사에서 단련된 투자 원칙과 윤리를 보유합니다. 기관급 거버넌스와 투명한 의사결정, 철저한 준법감시 등 글로벌 스탠더드를 준수합니다.</p>
-                <p>한국 시장에 대한 깊은 이해와 네트워크를 갖추었습니다.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="leadership">
-    <div class="section-header">
-        <span class="section-number">05</span>
-        <h2 class="section-title">경영진</h2>
-        <p class="section-description">
-            한국 대체투자 업계에서 20년 이상의 경력을 보유한 전문가가 이끕니다.
-        </p>
-    </div>
-
-    <div class="leadership-content">
-        <h3 class="leadership-name">서원빈</h3>
-        <p class="leadership-title">대표이사 | 창립자</p>
-
-        <div class="leadership-section">
-            <h4>경력</h4>
-            <p>실버스타의 창립자이자 경영 총괄입니다. 한국 대체투자 업계에서 20년 이상의 경력을 보유한 전문가입니다.</p>
-        </div>
-
-        <div class="leadership-section">
-            <h4>주요 실적</h4>
-            <p>브룩필드자산운용 한국 투자 총괄 대표 역임</p>
-            <ul>
-                <li>한국 투자팀 창립</li>
-                <li>IFC Seoul 및 운영법인 인수</li>
-                <li>인천 청라 물류센터 매입 및 물류 플랫폼 설립</li>
-                <li>가산 데이터센터 개발 합작투자 결성</li>
-            </ul>
-        </div>
-
-        <div class="leadership-section">
-            <h4>전문 분야</h4>
-            <p>건설, 인프라, 부동산, M&A, 자본시장 등 다양한 분야에서 축적한 경험이 실버스타의 성장 기반이 됩니다.</p>
-        </div>
-    </div>
-</section>
-
-<section id="partnership">
-    <div class="section-header">
-        <span class="section-number">06</span>
-        <h2 class="section-title">파트너십</h2>
-        <p class="section-description">
-            해외 GP 및 LP들과의 협업을 사업 전략의 중요한 축으로 삼습니다.
-        </p>
-    </div>
-
-    <div class="partnership-content">
-        <div class="partnership-block">
-            <h3>파트너십 모델</h3>
-            <p>투명하고 효율적인 파트너십 모델을 구축합니다.</p>
-            <p>글로벌 운용사의 한국 시장 진출 시 현지 파트너로서 역할을 수행합니다. 현지 사정을 가장 잘 아는 파트너와의 협력이 성공의 핵심입니다.</p>
-        </div>
-
-        <div class="partnership-block">
-            <h3>현지 공동 GP 역할</h3>
-            <p>실버스타는 현지 공동 GP 또는 운영 파트너로서의 역할을 수행할 준비가 되어 있습니다.</p>
-            <p>글로벌 운용사가 한국 시장에 진출할 때 가장 중요한 것은 현지 시장에 대한 이해와 네트워크입니다.</p>
-        </div>
-
-        <div class="partnership-block">
-            <h3>장기적 신뢰 구축</h3>
-            <p>단발적 거래 관계가 아닌 지속적 공동 투자 기회를 모색합니다.</p>
-            <p>전략적 파트너로서 함께 성장하고 가치를 창출하는 동반자 관계를 지향합니다.</p>
-        </div>
-    </div>
-</section>
-
-<section id="contact">
-    <div class="contact-container">
-        <h2>연락처</h2>
-        
-        <div class="contact-info">
-            <div class="contact-item">
-                <div class="contact-label">회사명</div>
-                <div class="contact-value">주식회사 실버스타인베스트먼트</div>
+        <div class="about-grid">
+            <div class="about-card reveal">
+                <h3 lang="ko">비전</h3>
+                <h3 lang="en">Vision</h3>
+                <p lang="ko">사회 주요 실물자산 인프라 섹터별 운영 플랫폼을 구축합니다.</p>
+                <p lang="en">We build operating platforms across major real-asset infrastructure sectors.</p>
+                <p lang="ko">각 산업에서 장기 경쟁력을 갖춘 핵심 기업을 육성하며, 국제 자본과 국내 기회를 연결하는 현지 파트너 역할을 수행합니다.</p>
+                <p lang="en">We nurture core enterprises with long-term competitiveness and serve as a local partner connecting international capital with domestic opportunities.</p>
             </div>
 
-            <div class="contact-item">
-                <div class="contact-label">주소</div>
-                <div class="contact-value">서울특별시 종로구 사직로 130, 적선현대빌딩 2층</div>
-            </div>
-
-            <div class="contact-item">
-                <div class="contact-label">이메일</div>
-                <div class="contact-value">
-                    <a href="mailto:wonbin.suh@silverstars.co.kr">wonbin.suh@silverstars.co.kr</a>
+            <div class="about-card reveal">
+                <h3 lang="ko">회사 정보</h3>
+                <h3 lang="en">Company Information</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label" lang="ko">회사명</span>
+                        <span class="info-label" lang="en">Company</span>
+                        <span class="info-value">Silverstar Investment Co., Ltd.</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label" lang="ko">소재지</span>
+                        <span class="info-label" lang="en">Address</span>
+                        <span class="info-value" lang="ko">서울 종로구 사직로 130</span>
+                        <span class="info-value" lang="en">130 Sajik-ro, Jongno-gu, Seoul</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label" lang="ko">등록</span>
+                        <span class="info-label" lang="en">Registration</span>
+                        <span class="info-value" lang="ko">기관전용 사모집합투자기구</span>
+                        <span class="info-value" lang="en">Institution-only Private Fund GP</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label" lang="ko">등록일</span>
+                        <span class="info-label" lang="en">Date</span>
+                        <span class="info-value" lang="ko">2025년 1월 21일</span>
+                        <span class="info-value" lang="en">January 21, 2025</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label" lang="ko">대표이사</span>
+                        <span class="info-label" lang="en">CEO</span>
+                        <span class="info-value">Wonbin Suh</span>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="strategy" class="strategy">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <div class="section-label" lang="ko">02 — 투자 전략</div>
+            <div class="section-label" lang="en">02 — INVESTMENT STRATEGY</div>
+            
+            <h2 class="section-title" lang="ko">Investment Strategy</h2>
+            <h2 class="section-title" lang="en">Investment Strategy</h2>
+            
+            <p class="section-intro" lang="ko">
+                네 가지 핵심 원칙에 기반하여 차별화된 투자 성과와 파트너십 가치를 창출합니다.
+            </p>
+            <p class="section-intro" lang="en">
+                We deliver differentiated investment performance and partnership value based on four core principles.
+            </p>
+        </div>
+
+        <div class="strategy-grid">
+            <div class="strategy-card reveal">
+                <span class="strategy-number">01</span>
+                <h3 lang="ko">플랫폼 구축</h3>
+                <h3 lang="en">Platform Building</h3>
+                <p lang="ko">섹터별 기업형 운영 플랫폼 구축을 통해 규모의 경제와 시너지 효과를 창출합니다.</p>
+                <p lang="en">Building sector-specific operating platforms to generate economies of scale and synergies.</p>
+                <p lang="ko">단일 자산 투자를 넘어 관련 운영 인력과 시스템을 갖춘 전문 운영법인을 동반 매입하거나 신규 설립합니다.</p>
+                <p lang="en">Beyond single-asset investments, we acquire or establish operating companies with specialized personnel and systems.</p>
+            </div>
+
+            <div class="strategy-card reveal">
+                <span class="strategy-number">02</span>
+                <h3 lang="ko">구조적 가치 창출</h3>
+                <h3 lang="en">Structural Value Creation</h3>
+                <p lang="ko">능동적 밸류업 활동을 통해 투자 자산의 가치를 구조적으로 높입니다.</p>
+                <p lang="en">Driving structural value enhancement through proactive value-up initiatives.</p>
+                <ul class="strategy-list">
+                    <li lang="ko">포트폴리오 기업의 운영 효율 개선 및 재무 구조 최적화</li>
+                    <li lang="en">Operational efficiency and financial optimization of portfolio companies</li>
+                    <li lang="ko">기업 경영진과 적극 협업하여 성장 전략 수립</li>
+                    <li lang="en">Active collaboration with management to shape growth strategies</li>
+                    <li lang="ko">전략적 제휴를 통한 시너지 창출</li>
+                    <li lang="en">Synergy creation through strategic partnerships</li>
+                </ul>
+            </div>
+
+            <div class="strategy-card reveal">
+                <span class="strategy-number">03</span>
+                <h3 lang="ko">가치 투자 원칙</h3>
+                <h3 lang="en">Disciplined Value Investing</h3>
+                <p lang="ko">내재가치 대비 충분히 낮은 진입 밸류에이션에서만 투자를 실행합니다.</p>
+                <p lang="en">Executing investments only at entry valuations well below intrinsic value.</p>
+                <ul class="strategy-list">
+                    <li lang="ko">엄격한 펀더멘탈 분석 및 리스크 평가</li>
+                    <li lang="en">Rigorous fundamental analysis and risk assessment</li>
+                    <li lang="ko">글로벌 기준의 투자위원회 프로세스</li>
+                    <li lang="en">Global-standard investment committee process</li>
+                    <li lang="ko">다운사이드 보호 및 안전마진 확보</li>
+                    <li lang="en">Downside protection and margin of safety</li>
+                </ul>
+            </div>
+
+            <div class="strategy-card reveal">
+                <span class="strategy-number">04</span>
+                <h3 lang="ko">기업가 파트너십</h3>
+                <h3 lang="en">Entrepreneurial Partnership</h3>
+                <p lang="ko">창업자 및 경영진과 동반자적 파트너십을 구축합니다.</p>
+                <p lang="en">Fostering collaborative partnerships with founders and management.</p>
+                <ul class="strategy-list">
+                    <li lang="ko">경영 전략 수립 지원</li>
+                    <li lang="en">Business strategy development</li>
+                    <li lang="ko">핵심 인재 영입</li>
+                    <li lang="en">Key talent acquisition</li>
+                    <li lang="ko">글로벌 시장 진출 지원</li>
+                    <li lang="en">Global market expansion support</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="focus" class="focus">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <div class="section-label" lang="ko">03 — 투자 분야</div>
+            <div class="section-label" lang="en">03 — INVESTMENT FOCUS</div>
+            
+            <h2 class="section-title" lang="ko">Investment Focus</h2>
+            <h2 class="section-title" lang="en">Investment Focus</h2>
+            
+            <p class="section-intro" lang="ko">
+                성장성과 안정성을 모두 갖춘 대체투자 분야에 중점을 둡니다.
+            </p>
+            <p class="section-intro" lang="en">
+                We focus on alternative investment sectors that combine both growth potential and stability.
+            </p>
+        </div>
+
+        <div class="focus-grid">
+            <div class="focus-card reveal">
+                <h3 lang="ko">물류 및 콜드체인<br>3PL 인프라</h3>
+                <h3 lang="en">Logistics & Cold Chain<br>3PL Infrastructure</h3>
+                <p lang="ko">이커머스 확산과 유통 환경 변화로 최첨단 물류 인프라 수요가 지속 증가합니다. 콜드체인 특화 3PL에 대한 수요가 특히 높습니다.</p>
+                <p lang="en">With e-commerce growth and evolving distribution, demand for advanced logistics infrastructure, especially cold chain 3PL, continues to rise.</p>
+                <p lang="ko">수도권 및 핵심 거점 지역의 대형 물류센터 개발사업에 주력하며, 기존 물류 자산의 인수 및 리노베이션을 추진합니다.</p>
+                <p lang="en">We focus on large logistics center development in the Seoul metro area and acquire or upgrade existing logistics assets.</p>
+            </div>
+
+            <div class="focus-card reveal">
+                <h3 lang="ko">데이터센터 및<br>디지털 인프라</h3>
+                <h3 lang="en">Data Centers &<br>Digital Infrastructure</h3>
+                <p lang="ko">디지털 경제 시대에 데이터센터는 필수 자산으로 부상했습니다. 국내 하이퍼스케일 데이터센터 수요 증가에 대응합니다.</p>
+                <p lang="en">Data centers have emerged as essential assets in the digital economy. We respond to rising domestic demand for hyperscale data centers.</p>
+                <p lang="ko">전략적 입지에 대형 데이터센터 개발 프로젝트를 모색합니다.</p>
+                <p lang="en">We pursue large-scale data center development projects in strategic locations.</p>
+            </div>
+
+            <div class="focus-card reveal">
+                <h3 lang="ko">시니어/헬스케어<br>소셜 인프라</h3>
+                <h3 lang="en">Senior & Healthcare<br>Social Infrastructure</h3>
+                <p lang="ko">고령화 사회에서 주간보호센터와 요양원 수요가 빠르게 증가합니다.</p>
+                <p lang="en">In an aging society, demand for day-care centers and nursing homes is rapidly increasing.</p>
+                <p lang="ko">의료·돌봄 서비스와 부동산 주거 기능이 균형 있게 결합된 차별화된 인프라를 구축합니다.</p>
+                <p lang="en">We build differentiated infrastructure that balances healthcare services with residential functions.</p>
+            </div>
+
+            <div class="focus-card reveal">
+                <h3 lang="ko">에너지<br>인프라스트럭처</h3>
+                <h3 lang="en">Energy<br>Infrastructure</h3>
+                <p lang="ko">에너지 전환과 탄소중립 트렌드 속에서 에너지 인프라 자산에 주목합니다.</p>
+                <p lang="en">Amid the energy transition and carbon-neutrality trend, we focus on energy infrastructure assets.</p>
+                <p lang="ko">LNG 터미널, 도시가스 네트워크, 태양광·풍력 발전소 등 안정적인 장기 현금흐름을 창출하는 대체투자 자산군입니다.</p>
+                <p lang="en">Including LNG terminals, city gas networks, and solar/wind power plants that generate stable long-term cash flows.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="advantages" class="advantages">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <div class="section-label" lang="ko">04 — 경쟁우위</div>
+            <div class="section-label" lang="en">04 — COMPETITIVE EDGE</div>
+            
+            <h2 class="section-title" lang="ko">Differentiation</h2>
+            <h2 class="section-title" lang="en">Differentiation</h2>
+            
+            <p class="section-intro" lang="ko">
+                전략적 깊이, 운영 전문성, 원칙 준수, 신뢰 구축으로 차별화됩니다.
+            </p>
+            <p class="section-intro" lang="en">
+                We differentiate through strategic depth, operational expertise, principled discipline, and trust building.
+            </p>
+        </div>
+
+        <div class="advantage-item reveal">
+            <h3 class="advantage-title" lang="ko">플랫폼 구축 역량</h3>
+            <h3 class="advantage-title" lang="en">Platform-Building Capability</h3>
+            <div class="advantage-content">
+                <p lang="ko">국내 대부분의 사모펀드들이 단일 자산 위주 투자에 집중하는 것과 차별화됩니다.</p>
+                <p lang="en">Unlike most private equity funds in Korea that focus on single-asset investments, our differentiated strength lies in our platform approach.</p>
+                <p lang="ko">여러 자산을 하나의 플랫폼으로 묶어 투자하여 시너지 효과를 극대화하고, 시장 변화에 유연하게 대응할 수 있는 구조를 갖춥니다.</p>
+                <p lang="en">By aggregating multiple assets into a single platform, we maximize synergies and establish a structure that can flexibly adapt to market changes.</p>
+            </div>
+        </div>
+
+        <div class="advantage-item reveal">
+            <h3 class="advantage-title" lang="ko">구조적 가치 향상</h3>
+            <h3 class="advantage-title" lang="en">Structural Value Enhancement</h3>
+            <div class="advantage-content">
+                <p lang="ko">피투자기업의 본질적 가치를 높여 투자 회수 시 우수한 성과로 연결됩니다.</p>
+                <p lang="en">Our proactive approach to structural value enhancement elevates the intrinsic value of portfolio companies, translating into superior outcomes at exit.</p>
+                <p lang="ko">운용사 자체적으로 운영 전문 인력과 산업 자문단을 보유하여, 딜 체결 이후의 실행 및 관리 능력에서 높은 역량을 보유합니다.</p>
+                <p lang="en">We maintain in-house operating professionals and an industry advisory network, ensuring strong execution and management capabilities beyond deal closing.</p>
+            </div>
+        </div>
+
+        <div class="advantage-item reveal">
+            <h3 class="advantage-title" lang="ko">글로벌+로컬 이중 역량</h3>
+            <h3 class="advantage-title" lang="en">Global + Local Dual Capability</h3>
+            <div class="advantage-content">
+                <p lang="ko">글로벌 경험과 현지 전문성을 결합한 역량입니다. 창립자는 브룩필드자산운용 한국 투자팀을 창립한 한국대표 출신입니다.</p>
+                <p lang="en">This capability combines global experience with local expertise. Our founder built Brookfield's Korea investment team as Head of Korea.</p>
+                <p lang="ko">글로벌 대체자산운용사에서 단련된 투자 원칙과 윤리를 보유하며, 기관급 거버넌스와 투명한 의사결정, 철저한 준법감시 등 글로벌 스탠더드를 준수합니다.</p>
+                <p lang="en">We maintain investment principles and ethics honed at global alternative asset managers, with institutional-grade governance, transparent decision-making, and rigorous compliance.</p>
+                <p lang="ko">한국 시장에 대한 깊은 이해와 네트워크를 갖추었습니다.</p>
+                <p lang="en">We possess deep knowledge of and networks in the Korean market.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="leadership" class="leadership">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <div class="section-label" lang="ko">05 — 경영진</div>
+            <div class="section-label" lang="en">05 — LEADERSHIP</div>
+            
+            <h2 class="section-title" lang="ko">Leadership</h2>
+            <h2 class="section-title" lang="en">Leadership</h2>
+            
+            <p class="section-intro" lang="ko">
+                한국 대체투자 업계에서 20년 이상의 경력을 보유한 전문가가 이끕니다.
+            </p>
+            <p class="section-intro" lang="en">
+                Led by an expert with over 20 years of experience in Korea's alternative investment industry.
+            </p>
+        </div>
+
+        <div class="leadership-content reveal">
+            <div class="leadership-header">
+                <h3 class="leadership-name">Wonbin Suh</h3>
+                <p class="leadership-role" lang="ko">대표이사 · 창립자</p>
+                <p class="leadership-role" lang="en">Representative Director · Founder</p>
+            </div>
+
+            <div class="leadership-details">
+                <div class="leadership-section">
+                    <h4 lang="ko">경력</h4>
+                    <h4 lang="en">Career</h4>
+                    <p lang="ko">실버스타의 창립자이자 경영 총괄입니다. 한국 대체투자 업계에서 20년 이상의 경력을 보유한 전문가입니다.</p>
+                    <p lang="en">Founder and CEO of Silverstar. A seasoned expert with over 20 years of experience in Korea's alternative investment industry.</p>
+                </div>
+
+                <div class="leadership-section">
+                    <h4 lang="ko">주요 실적</h4>
+                    <h4 lang="en">Key Achievements</h4>
+                    <p lang="ko">브룩필드자산운용 한국 투자 총괄 대표 역임</p>
+                    <p lang="en">Former Head of Korea, Brookfield Asset Management</p>
+                    <ul class="leadership-list">
+                        <li lang="ko">한국 투자팀 창립</li>
+                        <li lang="en">Established Korea investment team</li>
+                        <li lang="ko">IFC Seoul 및 운영법인 인수</li>
+                        <li lang="en">Acquisition of IFC Seoul and operating company</li>
+                        <li lang="ko">인천 청라 물류센터 매입 및 물류 플랫폼 설립</li>
+                        <li lang="en">Purchase of Incheon Cheongna Logistics Center and establishment of logistics platform</li>
+                        <li lang="ko">가산 데이터센터 개발 합작투자 결성</li>
+                        <li lang="en">Formation of joint venture for Gasan Data Center development</li>
+                    </ul>
+                </div>
+
+                <div class="leadership-section">
+                    <h4 lang="ko">전문 분야</h4>
+                    <h4 lang="en">Expertise</h4>
+                    <p lang="ko">건설, 인프라, 부동산, M&A, 자본시장 등 다양한 분야에서 축적한 경험이 실버스타의 성장 기반이 됩니다.</p>
+                    <p lang="en">Experience accumulated across construction, infrastructure, real estate, M&A, and capital markets forms the foundation of Silverstar's growth.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="partnership" class="partnership">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <div class="section-label" lang="ko">06 — 파트너십</div>
+            <div class="section-label" lang="en">06 — PARTNERSHIP</div>
+            
+            <h2 class="section-title" lang="ko">Partnership</h2>
+            <h2 class="section-title" lang="en">Partnership</h2>
+            
+            <p class="section-intro" lang="ko">
+                해외 GP 및 LP들과의 협업을 사업 전략의 중요한 축으로 삼습니다.
+            </p>
+            <p class="section-intro" lang="en">
+                We position collaboration with global GPs and LPs as a core strategic pillar.
+            </p>
+        </div>
+
+        <div class="partnership-content">
+            <div class="partnership-block reveal">
+                <h3 lang="ko">파트너십 모델</h3>
+                <h3 lang="en">Partnership Model</h3>
+                <p lang="ko">투명하고 효율적인 파트너십 모델을 구축합니다.</p>
+                <p lang="en">We foster transparent and efficient partnership models.</p>
+                <p lang="ko">글로벌 운용사의 한국 시장 진출 시 현지 파트너로서 역할을 수행합니다. 현지 사정을 가장 잘 아는 파트너와의 협력이 성공의 핵심입니다.</p>
+                <p lang="en">We serve as a local partner for global managers entering Korea, recognizing that success often hinges on working with a partner who best understands the local market.</p>
+            </div>
+
+            <div class="partnership-block reveal">
+                <h3 lang="ko">현지 공동 GP 역할</h3>
+                <h3 lang="en">Local Co-GP Role</h3>
+                <p lang="ko">실버스타는 현지 공동 GP 또는 운영 파트너로서의 역할을 수행할 준비가 되어 있습니다.</p>
+                <p lang="en">Silverstar stands ready to serve as a local co-GP or operating partner.</p>
+                <p lang="ko">글로벌 운용사가 한국 시장에 진출할 때 가장 중요한 것은 현지 시장에 대한 이해와 네트워크입니다.</p>
+                <p lang="en">Understanding of the local market and networks are crucial when global managers enter Korea.</p>
+            </div>
+
+            <div class="partnership-block reveal">
+                <h3 lang="ko">장기적 신뢰 구축</h3>
+                <h3 lang="en">Long-term Trust Building</h3>
+                <p lang="ko">단발적 거래 관계가 아닌 지속적 공동 투자 기회를 모색합니다.</p>
+                <p lang="en">We seek continued co-investment opportunities beyond one-time transactions.</p>
+                <p lang="ko">전략적 파트너로서 함께 성장하고 가치를 창출하는 동반자 관계를 지향합니다.</p>
+                <p lang="en">As a strategic partner, we aim to grow together and create value as true collaborators.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <div class="section-label" lang="ko">07 — 연락처</div>
+            <div class="section-label" lang="en">07 — CONTACT</div>
+            
+            <h2 class="section-title" lang="ko">Contact</h2>
+            <h2 class="section-title" lang="en">Contact</h2>
+            
+            <p class="section-intro" lang="ko">
+                실버스타인베스트먼트에 관심을 가져주셔서 감사합니다.
+            </p>
+            <p class="section-intro" lang="en">
+                Thank you for your interest in Silverstar Investment.
+            </p>
+        </div>
+        
+        <div class="contact-grid reveal">
+            <div class="contact-item">
+                <h4 lang="ko">회사</h4>
+                <h4 lang="en">COMPANY</h4>
+                <p lang="ko">주식회사 실버스타인베스트먼트<br>Silverstar Investment Co., Ltd.</p>
+                <p lang="en">Silverstar Investment Co., Ltd.</p>
+            </div>
+
+            <div class="contact-item">
+                <h4 lang="ko">주소</h4>
+                <h4 lang="en">ADDRESS</h4>
+                <p lang="ko">서울특별시 종로구 사직로 130<br>적선현대빌딩 2층</p>
+                <p lang="en">2F, Jeokseon Hyundai Building<br>130 Sajik-ro, Jongno-gu, Seoul</p>
+            </div>
+
+            <div class="contact-item">
+                <h4 lang="ko">이메일</h4>
+                <h4 lang="en">EMAIL</h4>
+                <p><a href="mailto:wonbin.suh@silverstars.co.kr">wonbin.suh@silverstars.co.kr</a></p>
             </div>
         </div>
     </div>
@@ -863,26 +1261,57 @@
 
 <footer>
     <p>© 2025 Silverstar Investment Co., Ltd. All rights reserved.</p>
-    <p>주식회사 실버스타인베스트먼트</p>
 </footer>
 
 <script>
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        document.querySelector('.progress-bar').style.transform =
-            `scaleX(${scrollTop / scrollHeight})`;
+    // Language Toggle
+    function toggleLanguage() {
+        const html = document.documentElement;
+        const currentLang = html.getAttribute('lang');
+        const newLang = currentLang === 'ko' ? 'en' : 'ko';
+        html.setAttribute('lang', newLang);
+        
+        // Store preference
+        localStorage.setItem('preferredLang', newLang);
+    }
+    
+    // Load saved language preference
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('preferredLang');
+        if (savedLang) {
+            document.documentElement.setAttribute('lang', savedLang);
+        }
     });
 
-    const observer = new IntersectionObserver(entries => {
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 100) {
+            nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+        } else {
+            nav.style.boxShadow = '0 1px 0 rgba(0,0,0,0.05)';
+        }
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if(entry.isIntersecting) entry.target.classList.add('visible');
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
         });
-    }, { threshold:0.12 });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    });
 
-    document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+    reveals.forEach(reveal => {
+        revealObserver.observe(reveal);
+    });
 
-    // Smooth scroll for navigation
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -898,5 +1327,6 @@
         });
     });
 </script>
+
 </body>
 </html>
