@@ -14,7 +14,6 @@ html{scroll-behavior:smooth}
 body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--gray-200);background:var(--darker);line-height:1.6;-webkit-font-smoothing:antialiased}
 html[lang="ko"] body{font-family:'Noto Sans KR','Inter',sans-serif}
 ::selection{background:var(--primary);color:var(--dark)}
-
 nav{position:fixed;top:0;width:100%;z-index:1000;transition:all .4s ease;background:transparent}
 nav.scrolled{background:rgba(13,13,13,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06)}
 .nav-container{max-width:1440px;margin:0 auto;padding:1.5rem 4%;display:flex;justify-content:space-between;align-items:center}
@@ -31,7 +30,6 @@ nav.scrolled{background:rgba(13,13,13,.95);backdrop-filter:blur(20px);border-bot
 .lang-toggle:hover{background:var(--primary);border-color:var(--primary);color:var(--dark)}
 .mobile-menu-btn{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
 .mobile-menu-btn span{width:22px;height:2px;background:var(--white);border-radius:2px}
-
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--gradient-dark)}
 .hero-gradient{position:absolute;top:-50%;right:-20%;width:80%;height:150%;background:radial-gradient(ellipse at center,rgba(212,168,75,.08) 0%,transparent 60%);pointer-events:none}
 .hero-grid-lines{position:absolute;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:100px 100px}
@@ -60,7 +58,6 @@ nav.scrolled{background:rgba(13,13,13,.95);backdrop-filter:blur(20px);border-bot
 .hero-stat-value sup{font-size:1rem;font-weight:400}
 .hero-stat-desc{font-size:.875rem;color:var(--gray-400)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-
 section{padding:8rem 4%;position:relative}
 .section-container{max-width:1440px;margin:0 auto}
 .section-header{max-width:800px;margin-bottom:5rem}
@@ -72,7 +69,6 @@ section{padding:8rem 4%;position:relative}
 .section-intro{font-size:1.125rem;line-height:1.8;max-width:640px}
 .section-intro.light{color:var(--gray-400)}
 .section-intro.dark{color:var(--gray-600)}
-
 .about{background:var(--white);color:var(--dark)}
 .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:6rem;align-items:start}
 .about-content p{font-size:1.125rem;color:var(--gray-600);line-height:1.9;margin-bottom:1.5rem}
@@ -84,7 +80,6 @@ section{padding:8rem 4%;position:relative}
 .info-row:last-child{border-bottom:none}
 .info-label{font-size:.875rem;color:var(--gray-500);font-weight:500}
 .info-value{font-size:.875rem;color:var(--dark);font-weight:600;text-align:right}
-
 .strategy{background:var(--darker)}
 .strategy-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
 .strategy-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:2.5rem;transition:all .4s ease;position:relative;overflow:hidden}
@@ -98,7 +93,6 @@ section{padding:8rem 4%;position:relative}
 .strategy-list{list-style:none}
 .strategy-list li{padding:.75rem 0 .75rem 1.5rem;position:relative;color:var(--gray-400);font-size:.9375rem;line-height:1.6}
 .strategy-list li::before{content:'';position:absolute;left:0;top:1.1rem;width:6px;height:6px;background:var(--primary);border-radius:50%}
-
 .focus{background:var(--gray-900)}
 .focus-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
 .focus-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:2.5rem;transition:all .4s ease}
@@ -107,7 +101,6 @@ section{padding:8rem 4%;position:relative}
 .focus-icon svg{width:24px;height:24px}
 .focus-card h3{font-size:1.375rem;font-weight:600;color:var(--white);margin-bottom:1rem;line-height:1.3}
 .focus-card p{font-size:1rem;color:var(--gray-400);line-height:1.8}
-
 .advantages{background:var(--white);color:var(--dark)}
 .advantage-list{display:flex;flex-direction:column}
 .advantage-item{display:grid;grid-template-columns:320px 1fr;gap:4rem;padding:4rem 0;border-bottom:1px solid var(--gray-200);position:relative}
@@ -117,7 +110,6 @@ section{padding:8rem 4%;position:relative}
 .advantage-number{font-size:.875rem;font-weight:700;color:var(--primary);letter-spacing:.1em;margin-bottom:1rem}
 .advantage-title{font-size:2rem;font-weight:600;color:var(--dark);line-height:1.3}
 .advantage-content p{font-size:1.125rem;color:var(--gray-600);line-height:1.9}
-
 .leadership{background:var(--darker)}
 .leadership-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:20px;overflow:hidden;max-width:1100px}
 .leadership-header{background:linear-gradient(135deg,rgba(212,168,75,.1),rgba(212,168,75,.02));padding:3rem;display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid rgba(255,255,255,.06)}
@@ -136,7 +128,6 @@ section{padding:8rem 4%;position:relative}
 .leadership-list li{padding:.625rem 0 .625rem 1.25rem;position:relative;color:var(--gray-400);font-size:.9375rem;line-height:1.7}
 .leadership-list li::before{content:'';position:absolute;left:0;top:1rem;width:6px;height:6px;background:var(--primary);border-radius:50%}
 .leadership-list li strong{color:var(--white)}
-
 .partnership{background:var(--gray-900)}
 .partnership-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .partnership-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:2.5rem;transition:all .4s ease;position:relative}
@@ -145,7 +136,6 @@ section{padding:8rem 4%;position:relative}
 .partnership-card:hover::before{opacity:1}
 .partnership-card h3{font-size:1.375rem;font-weight:600;color:var(--white);margin-bottom:1rem;position:relative;z-index:1}
 .partnership-card p{font-size:1rem;color:var(--gray-400);line-height:1.8;position:relative;z-index:1}
-
 .contact{background:var(--darker)}
 .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:4rem}
 .contact-item{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:2rem;position:relative;transition:all .3s ease}
@@ -155,30 +145,18 @@ section{padding:8rem 4%;position:relative}
 .contact-item p{font-size:1.0625rem;color:var(--gray-300);line-height:1.8}
 .contact-item a{color:var(--gray-300);text-decoration:none;transition:color .3s ease}
 .contact-item a:hover{color:var(--primary)}
-
 footer{background:var(--darker);border-top:1px solid rgba(255,255,255,.06);padding:3rem 4%}
 .footer-container{max-width:1440px;margin:0 auto;text-align:center}
 footer p{font-size:.8125rem;color:var(--gray-500);line-height:1.8;max-width:900px;margin:0 auto}
-
-[lang="ko"],[lang="en"]{display:block}
-html[lang="ko"] [lang="en"]{display:none!important}
-html[lang="en"] [lang="ko"]{display:none!important}
-span[lang="ko"],span[lang="en"],a[lang="ko"],a[lang="en"]{display:inline}
-html[lang="ko"] span[lang="en"],html[lang="ko"] a[lang="en"]{display:none!important}
-html[lang="en"] span[lang="ko"],html[lang="en"] a[lang="ko"]{display:none!important}
-
+.lang-en,.lang-ko{display:block}
+html[lang="ko"] .lang-en{display:none !important}
+html[lang="en"] .lang-ko{display:none !important}
 .reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
 .reveal.active{opacity:1;transform:translateY(0)}
-
 @media(max-width:1200px){.hero-container{grid-template-columns:1fr}.hero-stats{max-width:500px}.about-grid{grid-template-columns:1fr;gap:3rem}.advantage-item{grid-template-columns:1fr;gap:1.5rem}.partnership-grid{grid-template-columns:1fr}}
-@media(max-width:992px){.stats-container{grid-template-columns:repeat(2,1fr)}.strategy-grid,.focus-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.leadership-header{flex-direction:column;align-items:flex-start;gap:1.5rem}.hero-stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:992px){.strategy-grid,.focus-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.leadership-header{flex-direction:column;align-items:flex-start;gap:1.5rem}.hero-stats{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:768px){section{padding:4rem 5%}.nav-container{padding:1rem 5%}.nav-menu{display:none}.mobile-menu-btn{display:flex}.logo{font-size:1.2rem}.logo-icon{width:28px;height:28px}.hero{min-height:auto;padding-top:80px}.hero-container{padding:100px 5% 60px;gap:2.5rem}.hero h1{font-size:1.75rem;line-height:1.2}.hero-badge{font-size:.65rem;padding:.4rem .8rem;margin-bottom:1.5rem}.hero-description{font-size:1rem;margin-bottom:2rem}.hero-cta-group{flex-direction:column;gap:.75rem}.btn-primary,.btn-secondary{width:100%;justify-content:center;padding:.875rem 1.5rem}.hero-stats{grid-template-columns:1fr 1fr;gap:1rem;max-width:100%}.hero-stat-card{padding:1.25rem}.hero-stat-label{font-size:.65rem;margin-bottom:.5rem}.hero-stat-value{font-size:1.75rem}.hero-stat-desc{font-size:.75rem}.section-header{margin-bottom:3rem}.section-label{font-size:.7rem;margin-bottom:1rem}.section-title{font-size:1.5rem;margin-bottom:1rem}.section-intro{font-size:1rem}.about-content p{font-size:1rem}.about-info-card{padding:1.5rem}.about-info-card h3{font-size:1.1rem}.info-row{flex-direction:column;gap:.25rem}.info-value{text-align:left}.strategy-card,.focus-card,.partnership-card{padding:1.5rem}.strategy-number{font-size:2.5rem}.strategy-card h3,.focus-card h3{font-size:1.25rem}.strategy-card p,.focus-card p{font-size:.9375rem}.advantage-item{padding:2.5rem 0}.advantage-number{font-size:.75rem}.advantage-title{font-size:1.5rem}.advantage-content p{font-size:1rem}.leadership-name{font-size:1.5rem}.leadership-role{font-size:1rem}.leadership-badge{font-size:.65rem;padding:.5rem 1rem}.leadership-header,.leadership-body{padding:1.25rem}.leadership-section{padding:1.25rem;margin-bottom:1rem}.leadership-section h4{font-size:1.1rem}.leadership-section p{font-size:.9375rem}.leadership-list li{font-size:.875rem;padding-left:1rem}.partnership-card h3{font-size:1.2rem}.partnership-card p{font-size:.9375rem}.contact-grid{gap:1rem}.contact-item{padding:1.5rem}.contact-item h4{font-size:.8rem}.contact-item p{font-size:1rem}footer{padding:2rem 5%}footer p{font-size:.75rem}}
 @media(max-width:480px){.hero h1{font-size:1.5rem}.hero-stats{grid-template-columns:1fr}.section-title{font-size:1.35rem}.advantage-title{font-size:1.35rem}.leadership-name{font-size:1.35rem}}
-
-::-webkit-scrollbar{width:8px}
-::-webkit-scrollbar-track{background:var(--darker)}
-::-webkit-scrollbar-thumb{background:var(--gray-700);border-radius:4px}
-::-webkit-scrollbar-thumb:hover{background:var(--primary)}
 </style>
 </head>
 <body>
@@ -191,14 +169,14 @@ SILVERSTAR
 </a>
 <div class="nav-right">
 <ul class="nav-menu">
-<li><a href="#about"><span lang="en">About</span><span lang="ko">회사소개</span></a></li>
-<li><a href="#strategy"><span lang="en">Strategy</span><span lang="ko">전략</span></a></li>
-<li><a href="#focus"><span lang="en">Focus</span><span lang="ko">투자분야</span></a></li>
-<li><a href="#advantages"><span lang="en">Edge</span><span lang="ko">경쟁우위</span></a></li>
-<li><a href="#leadership"><span lang="en">Leadership</span><span lang="ko">경영진</span></a></li>
-<li><a href="#contact"><span lang="en">Contact</span><span lang="ko">연락처</span></a></li>
+<li><a href="#about"><span class="lang-en">About</span><span class="lang-ko">회사소개</span></a></li>
+<li><a href="#strategy"><span class="lang-en">Strategy</span><span class="lang-ko">전략</span></a></li>
+<li><a href="#focus"><span class="lang-en">Focus</span><span class="lang-ko">투자분야</span></a></li>
+<li><a href="#advantages"><span class="lang-en">Edge</span><span class="lang-ko">경쟁우위</span></a></li>
+<li><a href="#leadership"><span class="lang-en">Leadership</span><span class="lang-ko">경영진</span></a></li>
+<li><a href="#contact"><span class="lang-en">Contact</span><span class="lang-ko">연락처</span></a></li>
 </ul>
-<button class="lang-toggle" onclick="toggleLanguage()"><span lang="en">한국어</span><span lang="ko">ENG</span></button>
+<button class="lang-toggle" id="langBtn"><span class="lang-en">한국어</span><span class="lang-ko">ENG</span></button>
 <button class="mobile-menu-btn"><span></span><span></span><span></span></button>
 </div>
 </div>
@@ -209,36 +187,36 @@ SILVERSTAR
 <div class="hero-grid-lines"></div>
 <div class="hero-container">
 <div class="hero-content">
-<div class="hero-badge"><span lang="en">Institutional Alternative Investment</span><span lang="ko">기관전용 대체투자</span></div>
-<h1 lang="en">Building <span class="highlight">Enduring</span> Infrastructure & Real Asset Platforms</h1>
-<h1 lang="ko"><span class="highlight">지속가능한</span> 인프라 및 실물자산 플랫폼을 구축합니다</h1>
-<p class="hero-description" lang="en">Silverstar Investment is an institutional alternative investment manager creating long-term value through operating platforms in infrastructure and real asset sectors.</p>
-<p class="hero-description" lang="ko">실버스타인베스트먼트는 인프라 및 실물자산 섹터에서 운영형 플랫폼을 구축하고 장기적 가치를 창출하는 기관전용 사모펀드 GP입니다.</p>
+<div class="hero-badge"><span class="lang-en">Institutional Alternative Investment</span><span class="lang-ko">기관전용 대체투자</span></div>
+<h1 class="lang-en">Building <span class="highlight">Enduring</span> Infrastructure & Real Asset Platforms</h1>
+<h1 class="lang-ko"><span class="highlight">지속가능한</span> 인프라 및 실물자산 플랫폼을 구축합니다</h1>
+<p class="hero-description lang-en">Silverstar Investment is an institutional alternative investment manager creating long-term value through operating platforms in infrastructure and real asset sectors.</p>
+<p class="hero-description lang-ko">실버스타인베스트먼트는 인프라 및 실물자산 섹터에서 운영형 플랫폼을 구축하고 장기적 가치를 창출하는 기관전용 사모펀드 GP입니다.</p>
 <div class="hero-cta-group">
-<a href="#about" class="btn-primary"><span lang="en">Learn More</span><span lang="ko">더 알아보기</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-<a href="#contact" class="btn-secondary"><span lang="en">Contact Us</span><span lang="ko">문의하기</span></a>
+<a href="#about" class="btn-primary"><span class="lang-en">Learn More</span><span class="lang-ko">더 알아보기</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+<a href="#contact" class="btn-secondary"><span class="lang-en">Contact Us</span><span class="lang-ko">문의하기</span></a>
 </div>
 </div>
 <div class="hero-stats">
 <div class="hero-stat-card">
-<div class="hero-stat-label" lang="en">Founded</div><div class="hero-stat-label" lang="ko">설립</div>
+<div class="hero-stat-label lang-en">Founded</div><div class="hero-stat-label lang-ko">설립</div>
 <div class="hero-stat-value">2025</div>
-<div class="hero-stat-desc" lang="en">Institutional-only Private Fund GP</div><div class="hero-stat-desc" lang="ko">기관전용 사모펀드 GP</div>
+<div class="hero-stat-desc lang-en">Institutional-only Private Fund GP</div><div class="hero-stat-desc lang-ko">기관전용 사모펀드 GP</div>
 </div>
 <div class="hero-stat-card">
-<div class="hero-stat-label" lang="en">Experience</div><div class="hero-stat-label" lang="ko">경력</div>
+<div class="hero-stat-label lang-en">Experience</div><div class="hero-stat-label lang-ko">경력</div>
 <div class="hero-stat-value">20<sup>+</sup></div>
-<div class="hero-stat-desc" lang="en">Years in Alternative Investments</div><div class="hero-stat-desc" lang="ko">대체투자 경력 (년)</div>
+<div class="hero-stat-desc lang-en">Years in Alternative Investments</div><div class="hero-stat-desc lang-ko">대체투자 경력 (년)</div>
 </div>
 <div class="hero-stat-card">
-<div class="hero-stat-label" lang="en">Focus Areas</div><div class="hero-stat-label" lang="ko">핵심 분야</div>
+<div class="hero-stat-label lang-en">Focus Areas</div><div class="hero-stat-label lang-ko">핵심 분야</div>
 <div class="hero-stat-value">4</div>
-<div class="hero-stat-desc" lang="en">Core Investment Sectors</div><div class="hero-stat-desc" lang="ko">핵심 투자 섹터</div>
+<div class="hero-stat-desc lang-en">Core Investment Sectors</div><div class="hero-stat-desc lang-ko">핵심 투자 섹터</div>
 </div>
 <div class="hero-stat-card">
-<div class="hero-stat-label" lang="en">Standards</div><div class="hero-stat-label" lang="ko">기준</div>
+<div class="hero-stat-label lang-en">Standards</div><div class="hero-stat-label lang-ko">기준</div>
 <div class="hero-stat-value" style="font-size:1.75rem">Global</div>
-<div class="hero-stat-desc" lang="en">Investment Standards</div><div class="hero-stat-desc" lang="ko">글로벌 투자 기준</div>
+<div class="hero-stat-desc lang-en">Investment Standards</div><div class="hero-stat-desc lang-ko">글로벌 투자 기준</div>
 </div>
 </div>
 </div>
@@ -247,24 +225,24 @@ SILVERSTAR
 <section id="about" class="about">
 <div class="section-container">
 <div class="section-header reveal">
-<div class="section-label"><span lang="en">About Us</span><span lang="ko">회사 소개</span></div>
-<h2 class="section-title dark" lang="en">Creating Structural Value Through Platform Building</h2>
-<h2 class="section-title dark" lang="ko">플랫폼 구축을 통한 구조적 가치 창출</h2>
+<div class="section-label"><span class="lang-en">About Us</span><span class="lang-ko">회사 소개</span></div>
+<h2 class="section-title dark lang-en">Creating Structural Value Through Platform Building</h2>
+<h2 class="section-title dark lang-ko">플랫폼 구축을 통한 구조적 가치 창출</h2>
 </div>
 <div class="about-grid">
 <div class="about-content reveal">
-<p lang="en">Silverstar Investment builds a real-asset-focused alternative investment platform in the Korean market. We create structural value by combining global operational experience with local execution capabilities.</p>
-<p lang="ko">실버스타인베스트먼트는 한국 시장에서 실물자산 중심의 대체투자 플랫폼을 구축합니다. 글로벌 운용 경험과 현지 실행 역량을 결합하여 구조적 가치를 만듭니다.</p>
-<p lang="en">We build operating platforms across major real-asset infrastructure sectors. We nurture core enterprises with long-term competitiveness and serve as a local partner connecting international capital with domestic opportunities.</p>
-<p lang="ko">사회 주요 실물자산 인프라 섹터별 운영 플랫폼을 구축합니다. 각 산업에서 장기 경쟁력을 갖춘 핵심 기업을 육성하며, 국제 자본과 국내 기회를 연결하는 현지 파트너 역할을 수행합니다.</p>
+<p class="lang-en">Silverstar Investment builds a real-asset-focused alternative investment platform in the Korean market. We create structural value by combining global operational experience with local execution capabilities.</p>
+<p class="lang-ko">실버스타인베스트먼트는 한국 시장에서 실물자산 중심의 대체투자 플랫폼을 구축합니다. 글로벌 운용 경험과 현지 실행 역량을 결합하여 구조적 가치를 만듭니다.</p>
+<p class="lang-en">We build operating platforms across major real-asset infrastructure sectors. We nurture core enterprises with long-term competitiveness and serve as a local partner connecting international capital with domestic opportunities.</p>
+<p class="lang-ko">사회 주요 실물자산 인프라 섹터별 운영 플랫폼을 구축합니다. 각 산업에서 장기 경쟁력을 갖춘 핵심 기업을 육성하며, 국제 자본과 국내 기회를 연결하는 현지 파트너 역할을 수행합니다.</p>
 </div>
 <div class="about-info-card reveal">
-<h3 lang="en">Company Information</h3><h3 lang="ko">회사 정보</h3>
-<div class="info-row"><span class="info-label" lang="en">Company</span><span class="info-label" lang="ko">회사명</span><span class="info-value" lang="en">Silverstar Investment Co., Ltd.</span><span class="info-value" lang="ko">(주)실버스타인베스트먼트</span></div>
-<div class="info-row"><span class="info-label" lang="en">Address</span><span class="info-label" lang="ko">소재지</span><span class="info-value" lang="en">130 Sajik-ro, Jongno-gu, Seoul</span><span class="info-value" lang="ko">서울 종로구 사직로 130</span></div>
-<div class="info-row"><span class="info-label" lang="en">Registration</span><span class="info-label" lang="ko">등록</span><span class="info-value" lang="en">Institution-only Private Fund</span><span class="info-value" lang="ko">기관전용 사모펀드</span></div>
-<div class="info-row"><span class="info-label" lang="en">Date</span><span class="info-label" lang="ko">등록일</span><span class="info-value" lang="en">January 21, 2025</span><span class="info-value" lang="ko">2025년 1월 21일</span></div>
-<div class="info-row"><span class="info-label" lang="en">CEO</span><span class="info-label" lang="ko">대표이사</span><span class="info-value" lang="en">Wonbin Suh</span><span class="info-value" lang="ko">서원빈</span></div>
+<h3 class="lang-en">Company Information</h3><h3 class="lang-ko">회사 정보</h3>
+<div class="info-row"><span class="info-label lang-en">Company</span><span class="info-label lang-ko">회사명</span><span class="info-value lang-en">Silverstar Investment Co., Ltd.</span><span class="info-value lang-ko">(주)실버스타인베스트먼트</span></div>
+<div class="info-row"><span class="info-label lang-en">Address</span><span class="info-label lang-ko">소재지</span><span class="info-value lang-en">130 Sajik-ro, Jongno-gu, Seoul</span><span class="info-value lang-ko">서울 종로구 사직로 130</span></div>
+<div class="info-row"><span class="info-label lang-en">Registration</span><span class="info-label lang-ko">등록</span><span class="info-value lang-en">Institution-only Private Fund</span><span class="info-value lang-ko">기관전용 사모펀드</span></div>
+<div class="info-row"><span class="info-label lang-en">Date</span><span class="info-label lang-ko">등록일</span><span class="info-value lang-en">January 21, 2025</span><span class="info-value lang-ko">2025년 1월 21일</span></div>
+<div class="info-row"><span class="info-label lang-en">CEO</span><span class="info-label lang-ko">대표이사</span><span class="info-value lang-en">Wonbin Suh</span><span class="info-value lang-ko">서원빈</span></div>
 </div>
 </div>
 </div>
@@ -273,47 +251,47 @@ SILVERSTAR
 <section id="strategy" class="strategy">
 <div class="section-container">
 <div class="section-header reveal">
-<div class="section-label"><span lang="en">Investment Strategy</span><span lang="ko">투자 전략</span></div>
-<h2 class="section-title light" lang="en">Four Principles Driving Performance</h2>
-<h2 class="section-title light" lang="ko">성과를 이끄는 네 가지 핵심 원칙</h2>
-<p class="section-intro light" lang="en">We deliver differentiated investment performance and partnership value based on four core principles.</p>
-<p class="section-intro light" lang="ko">네 가지 핵심 원칙에 기반하여 차별화된 투자 성과와 파트너십 가치를 창출합니다.</p>
+<div class="section-label"><span class="lang-en">Investment Strategy</span><span class="lang-ko">투자 전략</span></div>
+<h2 class="section-title light lang-en">Four Principles Driving Performance</h2>
+<h2 class="section-title light lang-ko">성과를 이끄는 네 가지 핵심 원칙</h2>
+<p class="section-intro light lang-en">We deliver differentiated investment performance and partnership value based on four core principles.</p>
+<p class="section-intro light lang-ko">네 가지 핵심 원칙에 기반하여 차별화된 투자 성과와 파트너십 가치를 창출합니다.</p>
 </div>
 <div class="strategy-grid">
 <div class="strategy-card reveal">
 <div class="strategy-number">01</div>
-<h3 lang="en">Platform Building</h3><h3 lang="ko">플랫폼 구축</h3>
-<p lang="en">Building sector-specific operating platforms to generate economies of scale and synergies.</p>
-<p lang="ko">섹터별 기업형 운영 플랫폼 구축을 통해 규모의 경제와 시너지 효과를 창출합니다.</p>
+<h3 class="lang-en">Platform Building</h3><h3 class="lang-ko">플랫폼 구축</h3>
+<p class="lang-en">Building sector-specific operating platforms to generate economies of scale and synergies.</p>
+<p class="lang-ko">섹터별 기업형 운영 플랫폼 구축을 통해 규모의 경제와 시너지 효과를 창출합니다.</p>
 </div>
 <div class="strategy-card reveal">
 <div class="strategy-number">02</div>
-<h3 lang="en">Structural Value Creation</h3><h3 lang="ko">구조적 가치 창출</h3>
-<p lang="en">Driving structural value enhancement through proactive value-up initiatives.</p>
-<p lang="ko">능동적 밸류업 활동을 통해 투자 자산의 가치를 구조적으로 높입니다.</p>
+<h3 class="lang-en">Structural Value Creation</h3><h3 class="lang-ko">구조적 가치 창출</h3>
+<p class="lang-en">Driving structural value enhancement through proactive value-up initiatives.</p>
+<p class="lang-ko">능동적 밸류업 활동을 통해 투자 자산의 가치를 구조적으로 높입니다.</p>
 <ul class="strategy-list">
-<li lang="en">Operational efficiency and financial optimization</li><li lang="ko">포트폴리오 기업의 운영 효율 개선 및 재무 구조 최적화</li>
-<li lang="en">Active collaboration with management</li><li lang="ko">기업 경영진과 적극 협업하여 성장 전략 수립</li>
+<li class="lang-en">Operational efficiency and financial optimization</li><li class="lang-ko">포트폴리오 기업의 운영 효율 개선 및 재무 구조 최적화</li>
+<li class="lang-en">Active collaboration with management</li><li class="lang-ko">기업 경영진과 적극 협업하여 성장 전략 수립</li>
 </ul>
 </div>
 <div class="strategy-card reveal">
 <div class="strategy-number">03</div>
-<h3 lang="en">Disciplined Value Investing</h3><h3 lang="ko">가치 투자 원칙</h3>
-<p lang="en">Executing investments only at entry valuations well below intrinsic value.</p>
-<p lang="ko">내재가치 대비 충분히 낮은 진입 밸류에이션에서만 투자를 실행합니다.</p>
+<h3 class="lang-en">Disciplined Value Investing</h3><h3 class="lang-ko">가치 투자 원칙</h3>
+<p class="lang-en">Executing investments only at entry valuations well below intrinsic value.</p>
+<p class="lang-ko">내재가치 대비 충분히 낮은 진입 밸류에이션에서만 투자를 실행합니다.</p>
 <ul class="strategy-list">
-<li lang="en">Rigorous fundamental analysis and risk assessment</li><li lang="ko">엄격한 펀더멘탈 분석 및 리스크 평가</li>
-<li lang="en">Global-standard investment committee process</li><li lang="ko">글로벌 기준의 투자위원회 프로세스</li>
+<li class="lang-en">Rigorous fundamental analysis and risk assessment</li><li class="lang-ko">엄격한 펀더멘탈 분석 및 리스크 평가</li>
+<li class="lang-en">Global-standard investment committee process</li><li class="lang-ko">글로벌 기준의 투자위원회 프로세스</li>
 </ul>
 </div>
 <div class="strategy-card reveal">
 <div class="strategy-number">04</div>
-<h3 lang="en">Entrepreneurial Partnership</h3><h3 lang="ko">기업가 파트너십</h3>
-<p lang="en">Fostering collaborative partnerships with founders and management.</p>
-<p lang="ko">창업자 및 경영진과 동반자적 파트너십을 구축합니다.</p>
+<h3 class="lang-en">Entrepreneurial Partnership</h3><h3 class="lang-ko">기업가 파트너십</h3>
+<p class="lang-en">Fostering collaborative partnerships with founders and management.</p>
+<p class="lang-ko">창업자 및 경영진과 동반자적 파트너십을 구축합니다.</p>
 <ul class="strategy-list">
-<li lang="en">Business strategy development</li><li lang="ko">경영 전략 수립 지원</li>
-<li lang="en">Global market expansion support</li><li lang="ko">글로벌 시장 진출 지원</li>
+<li class="lang-en">Business strategy development</li><li class="lang-ko">경영 전략 수립 지원</li>
+<li class="lang-en">Global market expansion support</li><li class="lang-ko">글로벌 시장 진출 지원</li>
 </ul>
 </div>
 </div>
@@ -323,36 +301,36 @@ SILVERSTAR
 <section id="focus" class="focus">
 <div class="section-container">
 <div class="section-header reveal">
-<div class="section-label"><span lang="en">Investment Focus</span><span lang="ko">투자 분야</span></div>
-<h2 class="section-title light" lang="en">Four Sectors Shaping Tomorrow</h2>
-<h2 class="section-title light" lang="ko">미래를 만드는 네 가지 투자 분야</h2>
-<p class="section-intro light" lang="en">We focus on alternative investment sectors that combine both growth potential and stability.</p>
-<p class="section-intro light" lang="ko">성장성과 안정성을 모두 갖춘 대체투자 분야에 중점을 둡니다.</p>
+<div class="section-label"><span class="lang-en">Investment Focus</span><span class="lang-ko">투자 분야</span></div>
+<h2 class="section-title light lang-en">Four Sectors Shaping Tomorrow</h2>
+<h2 class="section-title light lang-ko">미래를 만드는 네 가지 투자 분야</h2>
+<p class="section-intro light lang-en">We focus on alternative investment sectors that combine both growth potential and stability.</p>
+<p class="section-intro light lang-ko">성장성과 안정성을 모두 갖춘 대체투자 분야에 중점을 둡니다.</p>
 </div>
 <div class="focus-grid">
 <div class="focus-card reveal">
 <div class="focus-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="6" height="15" rx="1"/><rect x="9" y="3" width="6" height="19" rx="1"/><rect x="16" y="10" width="6" height="12" rx="1"/></svg></div>
-<h3 lang="en">Logistics & Cold Chain Infrastructure</h3><h3 lang="ko">물류 및 콜드체인 3PL 인프라</h3>
-<p lang="en">With e-commerce growth and evolving distribution, demand for advanced logistics infrastructure continues to rise.</p>
-<p lang="ko">이커머스 확산과 유통 환경 변화로 최첨단 물류 인프라 수요가 지속 증가합니다.</p>
+<h3 class="lang-en">Logistics & Cold Chain Infrastructure</h3><h3 class="lang-ko">물류 및 콜드체인 3PL 인프라</h3>
+<p class="lang-en">Driven by e-commerce growth, distribution sophistication, and the expansion of temperature-sensitive industries such as pharmaceuticals and biotech, demand for large-scale, automated logistics and cold chain infrastructure is expanding over the medium to long term.</p>
+<p class="lang-ko">이커머스 성장과 유통 구조의 고도화에 더해, 의약품·바이오 등 온도 민감 산업의 확장에 따라 대형화·자동화된 물류 및 콜드체인 인프라에 대한 수요가 중장기적으로 확대되고 있습니다.</p>
 </div>
 <div class="focus-card reveal">
 <div class="focus-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="12" cy="12" r="4"/><path d="M12 8v8M8 12h8"/></svg></div>
-<h3 lang="en">Data Centers & Digital Infrastructure</h3><h3 lang="ko">데이터센터 및 디지털 인프라</h3>
-<p lang="en">Data centers have emerged as essential assets in the digital economy.</p>
-<p lang="ko">디지털 경제 시대에 데이터센터는 필수 자산으로 부상했습니다.</p>
+<h3 class="lang-en">Data Centers & Digital Infrastructure</h3><h3 class="lang-ko">데이터센터 및 디지털 인프라</h3>
+<p class="lang-en">With the acceleration of digital transformation and AI adoption, demand for data centers and digital infrastructure supporting large-scale computing and reliable operations is structurally increasing.</p>
+<p class="lang-ko">디지털 전환과 AI 확산에 따라, 대규모 연산과 안정적인 운영을 지원하는 데이터센터 및 디지털 인프라에 대한 수요가 구조적으로 증가하고 있습니다.</p>
 </div>
 <div class="focus-card reveal">
 <div class="focus-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg></div>
-<h3 lang="en">Senior & Healthcare Social Infrastructure</h3><h3 lang="ko">시니어/헬스케어 소셜 인프라</h3>
-<p lang="en">In an aging society, demand for day-care centers and nursing homes is rapidly increasing.</p>
-<p lang="ko">고령화 사회에서 주간보호센터와 요양원 수요가 빠르게 증가합니다.</p>
+<h3 class="lang-en">Senior & Healthcare Social Infrastructure</h3><h3 class="lang-ko">시니어·헬스케어 소셜 인프라</h3>
+<p class="lang-en">With structural demographic aging, demand continues to grow across senior healthcare infrastructure that organically integrates care, medical, and residential functions.</p>
+<p class="lang-ko">고령화의 구조적 진전에 따라, 돌봄·의료·주거 기능이 유기적으로 결합된 시니어 헬스케어 인프라 전반에 대한 수요가 지속적으로 확대되고 있습니다.</p>
 </div>
 <div class="focus-card reveal">
 <div class="focus-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-<h3 lang="en">Energy Infrastructure</h3><h3 lang="ko">에너지 인프라스트럭처</h3>
-<p lang="en">Amid the energy transition and carbon-neutrality trend, we focus on energy infrastructure assets.</p>
-<p lang="ko">에너지 전환과 탄소중립 트렌드 속에서 에너지 인프라 자산에 주목합니다.</p>
+<h3 class="lang-en">Energy Infrastructure</h3><h3 class="lang-ko">에너지 인프라스트럭처</h3>
+<p class="lang-en">Amid the energy transition and carbon neutrality trends, energy infrastructure assets with long-term cash flows and strong policy alignment are emerging as core investment areas.</p>
+<p class="lang-ko">에너지 전환과 탄소중립 기조 속에서, 장기적 현금흐름과 정책적 연계성이 높은 에너지 인프라 자산이 핵심 투자 영역으로 부상하고 있습니다.</p>
 </div>
 </div>
 </div>
@@ -361,22 +339,22 @@ SILVERSTAR
 <section id="advantages" class="advantages">
 <div class="section-container">
 <div class="section-header reveal">
-<div class="section-label"><span lang="en">Competitive Edge</span><span lang="ko">경쟁우위</span></div>
-<h2 class="section-title dark" lang="en">What Sets Us Apart</h2>
-<h2 class="section-title dark" lang="ko">차별화된 경쟁력</h2>
+<div class="section-label"><span class="lang-en">Competitive Edge</span><span class="lang-ko">경쟁우위</span></div>
+<h2 class="section-title dark lang-en">What Sets Us Apart</h2>
+<h2 class="section-title dark lang-ko">차별화된 경쟁력</h2>
 </div>
 <div class="advantage-list">
 <div class="advantage-item reveal">
-<div><div class="advantage-number">01</div><h3 class="advantage-title" lang="en">Platform-Building Capability</h3><h3 class="advantage-title" lang="ko">플랫폼 구축 역량</h3></div>
-<div class="advantage-content"><p lang="en">Unlike most private equity funds in Korea that focus on single-asset investments, our differentiated strength lies in our platform approach.</p><p lang="ko">국내 대부분의 사모펀드들이 단일 자산 위주 투자에 집중하는 것과 차별화됩니다.</p></div>
+<div><div class="advantage-number">01</div><h3 class="advantage-title lang-en">Platform-Building Capability</h3><h3 class="advantage-title lang-ko">플랫폼 구축 역량</h3></div>
+<div class="advantage-content"><p class="lang-en">Rather than pursuing individual asset-level investments, we focus on building platform-level portfolios as a core strategy, identifying investment opportunities where economies of scale and operational synergies can be realized.</p><p class="lang-ko">자산 단위의 개별 투자에 그치지 않고, 플랫폼 단위의 포트폴리오 구축을 핵심 전략으로 삼아 규모의 경제와 운영 시너지가 실현 가능한 투자 기회를 발굴합니다.</p></div>
 </div>
 <div class="advantage-item reveal">
-<div><div class="advantage-number">02</div><h3 class="advantage-title" lang="en">Structural Value Enhancement</h3><h3 class="advantage-title" lang="ko">구조적 가치 향상</h3></div>
-<div class="advantage-content"><p lang="en">Our proactive approach to structural value enhancement elevates the intrinsic value of portfolio companies.</p><p lang="ko">피투자기업의 본질적 가치를 높여 투자 회수 시 우수한 성과로 연결됩니다.</p></div>
+<div><div class="advantage-number">02</div><h3 class="advantage-title lang-en">Structural Value Enhancement</h3><h3 class="advantage-title lang-ko">구조적 가치 향상</h3></div>
+<div class="advantage-content"><p class="lang-en">Even after investment, we enhance the intrinsic value of portfolio companies through proactive operational improvements and strategic support, which ultimately translates into superior performance at exit.</p><p class="lang-ko">투자 이후에도 능동적인 운영 개선과 전략적 지원을 통해 피투자기업의 본질적 가치를 제고하고, 이는 장기적으로 투자 회수 단계에서의 우수한 성과로 이어집니다.</p></div>
 </div>
 <div class="advantage-item reveal">
-<div><div class="advantage-number">03</div><h3 class="advantage-title" lang="en">Global + Local Capability</h3><h3 class="advantage-title" lang="ko">글로벌+로컬 이중 역량</h3></div>
-<div class="advantage-content"><p lang="en">This capability combines global experience with local expertise. Our founder built Brookfield's Korea investment team as Head of Korea.</p><p lang="ko">글로벌 경험과 현지 전문성을 결합한 역량입니다. 창립자는 브룩필드자산운용 한국 투자팀을 창립한 한국대표 출신입니다.</p></div>
+<div><div class="advantage-number">03</div><h3 class="advantage-title lang-en">Global + Local Capability</h3><h3 class="advantage-title lang-ko">글로벌 + 로컬 이중 역량</h3></div>
+<div class="advantage-content"><p class="lang-en">We possess execution capabilities that combine global investment experience with deep understanding of the Korean market. Silverstar's founder established and led the Korea investment team at Brookfield Asset Management, a global alternative asset manager, and served as Head of Korea.</p><p class="lang-ko">글로벌 투자 경험과 한국 시장에 대한 깊은 이해를 결합한 실행 역량을 보유하고 있습니다. 실버스타의 창립자는 글로벌 대체자산운용사 브룩필드자산운용에서 한국 투자팀을 창립하고 한국 대표를 역임한 바 있습니다.</p></div>
 </div>
 </div>
 </div>
@@ -385,65 +363,65 @@ SILVERSTAR
 <section id="leadership" class="leadership">
 <div class="section-container">
 <div class="section-header reveal">
-<div class="section-label"><span lang="en">Leadership</span><span lang="ko">경영진</span></div>
-<h2 class="section-title light" lang="en">Experienced Leadership</h2>
-<h2 class="section-title light" lang="ko">검증된 리더십</h2>
-<p class="section-intro light" lang="en">Led by an expert with over 20 years of experience in Korea's alternative investment industry.</p>
-<p class="section-intro light" lang="ko">한국 대체투자 업계에서 20년 이상의 경력을 보유한 전문가가 이끕니다.</p>
+<div class="section-label"><span class="lang-en">Leadership</span><span class="lang-ko">경영진</span></div>
+<h2 class="section-title light lang-en">Experienced Leadership</h2>
+<h2 class="section-title light lang-ko">검증된 리더십</h2>
+<p class="section-intro light lang-en">Led by an expert with over 20 years of experience in Korea's alternative investment industry.</p>
+<p class="section-intro light lang-ko">한국 대체투자 업계에서 20년 이상의 경력을 보유한 전문가가 이끕니다.</p>
 </div>
 <div class="leadership-card reveal">
 <div class="leadership-header">
 <div>
-<h3 class="leadership-name" lang="en">Wonbin Suh</h3><h3 class="leadership-name" lang="ko">서원빈</h3>
-<p class="leadership-role" lang="en">Representative Director · Founder</p><p class="leadership-role" lang="ko">대표이사 · 창립자</p>
+<h3 class="leadership-name lang-en">Wonbin Suh</h3><h3 class="leadership-name lang-ko">서원빈</h3>
+<p class="leadership-role lang-en">Representative Director · Founder</p><p class="leadership-role lang-ko">대표이사 · 창립자</p>
 </div>
-<div class="leadership-badge" lang="en">Former Head of Korea, Brookfield Asset Management</div>
-<div class="leadership-badge" lang="ko">전 브룩필드자산운용 한국대표</div>
+<div class="leadership-badge lang-en">Former Head of Korea, Brookfield Asset Management</div>
+<div class="leadership-badge lang-ko">전 브룩필드자산운용 한국대표</div>
 </div>
 <div class="leadership-body">
 <div class="leadership-section current">
-<h4 lang="en">Current: I Squared Capital Korea Investment Advisory (2025–Present)</h4>
-<h4 lang="ko">현재: I Squared Capital 한국 투자 자문 (2025–현재)</h4>
-<p lang="en">Currently supporting the Korea market entry of <a href="https://www.isquaredcapital.com" target="_blank" rel="noopener">I Squared Capital (ISQ)</a>, a leading global infrastructure investor. Wonbin holds an advisory mandate for logistics (particularly cold chain) and data center infrastructure/platform investments, encompassing deal sourcing, due diligence, execution, and management advisory across M&A, joint ventures, platform establishment, and bolt-on investments.</p>
-<p lang="ko">현재 글로벌 인프라 투자사 <a href="https://www.isquaredcapital.com" target="_blank" rel="noopener">I Squared Capital (ISQ)</a>의 한국 시장 진출을 지원하고 있습니다. 물류(특히 콜드체인) 및 데이터센터 인프라/플랫폼 투자에 대해 M&A, 합작투자, 플랫폼 설립, 볼트온 투자 등의 방식으로 딜 소싱, 실사, 실행 및 경영 관련 자문 역할을 수행 중입니다.</p>
+<h4 class="lang-en">Current: I Squared Capital Korea Investment Advisory (2025–Present)</h4>
+<h4 class="lang-ko">현재: I Squared Capital 한국 투자 자문 (2025–현재)</h4>
+<p class="lang-en">Currently supporting the Korea market entry of <a href="https://www.isquaredcapital.com" target="_blank" rel="noopener">I Squared Capital (ISQ)</a>, a leading global infrastructure investor. Wonbin holds an advisory mandate for logistics (particularly cold chain) and data center infrastructure/platform investments, encompassing deal sourcing, due diligence, execution, and management advisory across M&A, joint ventures, platform establishment, and bolt-on investments.</p>
+<p class="lang-ko">현재 글로벌 인프라 투자사 <a href="https://www.isquaredcapital.com" target="_blank" rel="noopener">I Squared Capital (ISQ)</a>의 한국 시장 진출을 지원하고 있습니다. 물류(특히 콜드체인) 및 데이터센터 인프라/플랫폼 투자에 대해 M&A, 합작투자, 플랫폼 설립, 볼트온 투자 등의 방식으로 딜 소싱, 실사, 실행 및 경영 관련 자문 역할을 수행 중입니다.</p>
 <ul class="leadership-list">
-<li lang="en"><strong>Data Centers:</strong> Identification and evaluation of potential DC partners; due diligence support; advisory on transaction structures; negotiation support; market insights</li>
-<li lang="ko"><strong>데이터센터:</strong> 잠재적 DC 파트너 발굴 및 평가; 실사 지원; 거래 구조 자문; 협상 지원; 시장 인사이트</li>
-<li lang="en"><strong>Logistics:</strong> Identification and evaluation of potential logistics partners; due diligence support; advisory on transaction structures; negotiation support; market insights</li>
-<li lang="ko"><strong>물류:</strong> 잠재적 물류 파트너 발굴 및 평가; 실사 지원; 거래 구조 자문; 협상 지원; 시장 인사이트</li>
+<li class="lang-en"><strong>Data Centers:</strong> Identification and evaluation of potential DC partners; due diligence support; advisory on transaction structures; negotiation support; market insights</li>
+<li class="lang-ko"><strong>데이터센터:</strong> 잠재적 DC 파트너 발굴 및 평가; 실사 지원; 거래 구조 자문; 협상 지원; 시장 인사이트</li>
+<li class="lang-en"><strong>Logistics:</strong> Identification and evaluation of potential logistics partners; due diligence support; advisory on transaction structures; negotiation support; market insights</li>
+<li class="lang-ko"><strong>물류:</strong> 잠재적 물류 파트너 발굴 및 평가; 실사 지원; 거래 구조 자문; 협상 지원; 시장 인사이트</li>
 </ul>
 </div>
 <div class="leadership-section">
-<h4 lang="en">Brookfield Asset Management (2013–2024)</h4>
-<h4 lang="ko">브룩필드자산운용 (2013–2024)</h4>
-<p lang="en">During his tenure at Brookfield from early 2013 to December 2024, Wonbin amassed approximately 12 years of expertise across diverse business verticals. From 2013 to 2017, he worked at Brookfield Financial, the firm's in-house investment bank, specializing in cross-border M&A advisory and capital raise. Transitioning to Brookfield Asset Management (BAM) in 2018, he established and led the Korea investment team, spearheading business development across real estate, infrastructure, renewable energy (solar/wind), data centers, and private equity. From 2021 to December 2024, Wonbin served as the Korea Country Head for Brookfield's Real Estate Group, driving strategic investments and operational excellence in the region.</p>
-<p lang="ko">2013년 초부터 2024년 12월까지 브룩필드에 재직하며, 약 12년간 다양한 사업 영역에서 전문성을 축적했습니다. 2013년부터 2017년까지 브룩필드의 사내 투자은행인 브룩필드 파이낸셜에서 크로스보더 M&A 자문 및 자본조달 업무를 담당했습니다. 2018년 브룩필드자산운용(BAM)으로 이동하여 한국 투자팀을 설립하고 이끌며, 부동산, 인프라, 신재생에너지(태양광/풍력), 데이터센터, 프라이빗에쿼티 전반의 사업개발을 주도했습니다. 2021년부터 2024년 12월까지 브룩필드 부동산그룹의 한국 대표로서 전략적 투자와 운영 역량 강화를 이끌었습니다.</p>
+<h4 class="lang-en">Brookfield Asset Management (2013–2024)</h4>
+<h4 class="lang-ko">브룩필드자산운용 (2013–2024)</h4>
+<p class="lang-en">During his tenure at Brookfield from early 2013 to December 2024, Wonbin amassed approximately 12 years of expertise across diverse business verticals. From 2013 to 2017, he worked at Brookfield Financial, the firm's in-house investment bank, specializing in cross-border M&A advisory and capital raise. Transitioning to Brookfield Asset Management (BAM) in 2018, he established and led the Korea investment team, spearheading business development across real estate, infrastructure, renewable energy (solar/wind), data centers, and private equity. From 2021 to December 2024, Wonbin served as the Korea Country Head for Brookfield's Real Estate Group, driving strategic investments and operational excellence in the region.</p>
+<p class="lang-ko">2013년 초부터 2024년 12월까지 브룩필드에 재직하며, 약 12년간 다양한 사업 영역에서 전문성을 축적했습니다. 2013년부터 2017년까지 브룩필드의 사내 투자은행인 브룩필드 파이낸셜에서 크로스보더 M&A 자문 및 자본조달 업무를 담당했습니다. 2018년 브룩필드자산운용(BAM)으로 이동하여 한국 투자팀을 설립하고 이끌며, 부동산, 인프라, 신재생에너지(태양광/풍력), 데이터센터, 프라이빗에쿼티 전반의 사업개발을 주도했습니다. 2021년부터 2024년 12월까지 브룩필드 부동산그룹의 한국 대표로서 전략적 투자와 운영 역량 강화를 이끌었습니다.</p>
 </div>
 <div class="leadership-section">
-<h4 lang="en">Key Achievements at Brookfield</h4>
-<h4 lang="ko">브룩필드 주요 실적</h4>
-<p lang="en" style="font-weight:500;margin-bottom:.5rem">Head of Korea, Brookfield Real Estate Group (2021–2024)</p>
-<p lang="ko" style="font-weight:500;margin-bottom:.5rem">브룩필드 부동산그룹 한국대표 (2021–2024)</p>
+<h4 class="lang-en">Key Achievements at Brookfield</h4>
+<h4 class="lang-ko">브룩필드 주요 실적</h4>
+<p class="lang-en" style="font-weight:500;margin-bottom:.5rem">Head of Korea, Brookfield Real Estate Group (2021–2024)</p>
+<p class="lang-ko" style="font-weight:500;margin-bottom:.5rem">브룩필드 부동산그룹 한국대표 (2021–2024)</p>
 <ul class="leadership-list">
-<li lang="en">Established Korea investment team from the ground up</li><li lang="ko">한국 투자팀 신규 설립</li>
-<li lang="en">Acquisition of IFC Seoul and its operating company</li><li lang="ko">IFC Seoul 및 운영법인 인수</li>
-<li lang="en">Purchase of Incheon Cheongna Logistics Center and establishment of logistics platform</li><li lang="ko">인천 청라 물류센터 매입 및 물류 플랫폼 설립</li>
-<li lang="en">Formation of joint venture for Gasan Data Center development</li><li lang="ko">가산 데이터센터 개발 합작투자 결성</li>
+<li class="lang-en">Established Korea investment team from the ground up</li><li class="lang-ko">한국 투자팀 신규 설립</li>
+<li class="lang-en">Acquisition of IFC Seoul and its operating company</li><li class="lang-ko">IFC Seoul 및 운영법인 인수</li>
+<li class="lang-en">Purchase of Incheon Cheongna Logistics Center and establishment of logistics platform</li><li class="lang-ko">인천 청라 물류센터 매입 및 물류 플랫폼 설립</li>
+<li class="lang-en">Formation of joint venture for Gasan Data Center development</li><li class="lang-ko">가산 데이터센터 개발 합작투자 결성</li>
 </ul>
-<p lang="en" style="font-weight:500;margin-top:1.5rem;margin-bottom:.5rem">Head of Investment, Brookfield Asset Management Korea (2018–2020)</p>
-<p lang="ko" style="font-weight:500;margin-top:1.5rem;margin-bottom:.5rem">브룩필드자산운용 한국 투자총괄 (2018–2020)</p>
+<p class="lang-en" style="font-weight:500;margin-top:1.5rem;margin-bottom:.5rem">Head of Investment, Brookfield Asset Management Korea (2018–2020)</p>
+<p class="lang-ko" style="font-weight:500;margin-top:1.5rem;margin-bottom:.5rem">브룩필드자산운용 한국 투자총괄 (2018–2020)</p>
 <ul class="leadership-list">
-<li lang="en">Led domestic investment review across all Brookfield verticals: M&A, infrastructure, data centers, renewable energy (solar/wind), and real estate platforms</li>
-<li lang="ko">M&A, 인프라, 데이터센터, 신재생에너지(태양광/풍력), 부동산 플랫폼 등 브룩필드 전 투자영역에 대한 국내 투자검토 총괄</li>
+<li class="lang-en">Led domestic investment review across all Brookfield verticals: M&A, infrastructure, data centers, renewable energy (solar/wind), and real estate platforms</li>
+<li class="lang-ko">M&A, 인프라, 데이터센터, 신재생에너지(태양광/풍력), 부동산 플랫폼 등 브룩필드 전 투자영역에 대한 국내 투자검토 총괄</li>
 </ul>
 </div>
 <div class="leadership-section">
-<h4 lang="en">Prior Experience</h4>
-<h4 lang="ko">이전 경력</h4>
+<h4 class="lang-en">Prior Experience</h4>
+<h4 class="lang-ko">이전 경력</h4>
 <ul class="leadership-list">
-<li lang="en">Brookfield Financial (2013–2017): Cross-border M&A advisory and capital raise</li><li lang="ko">브룩필드 파이낸셜 (2013–2017): 크로스보더 M&A 자문 및 자본조달</li>
-<li lang="en">Global Real Asset Consulting: Feasibility studies for major clients (Lotte, Samsung, CJ, SK, GIC, AIG)</li><li lang="ko">글로벌 실물자산 컨설팅: 주요 고객 대상 타당성 검토 (롯데, 삼성, CJ, SK, GIC, AIG)</li>
-<li lang="en">Samsung C&T Infrastructure Division: Songdo City Development Project</li><li lang="ko">삼성물산 인프라사업본부: 송도 도시개발 프로젝트</li>
+<li class="lang-en">Brookfield Financial (2013–2017): Cross-border M&A advisory and capital raise</li><li class="lang-ko">브룩필드 파이낸셜 (2013–2017): 크로스보더 M&A 자문 및 자본조달</li>
+<li class="lang-en">Global Real Asset Consulting: Feasibility studies for major clients (Lotte, Samsung, CJ, SK, GIC, AIG)</li><li class="lang-ko">글로벌 실물자산 컨설팅: 주요 고객 대상 타당성 검토 (롯데, 삼성, CJ, SK, GIC, AIG)</li>
+<li class="lang-en">Samsung C&T Infrastructure Division: Songdo City Development Project</li><li class="lang-ko">삼성물산 인프라사업본부: 송도 도시개발 프로젝트</li>
 </ul>
 </div>
 </div>
@@ -454,27 +432,27 @@ SILVERSTAR
 <section id="partnership" class="partnership">
 <div class="section-container">
 <div class="section-header reveal">
-<div class="section-label"><span lang="en">Partnership</span><span lang="ko">파트너십</span></div>
-<h2 class="section-title light" lang="en">Your Local Partner in Korea</h2>
-<h2 class="section-title light" lang="ko">한국 시장의 신뢰할 수 있는 파트너</h2>
-<p class="section-intro light" lang="en">We position collaboration with global GPs and LPs as a core strategic pillar.</p>
-<p class="section-intro light" lang="ko">해외 GP 및 LP들과의 협업을 사업 전략의 중요한 축으로 삼습니다.</p>
+<div class="section-label"><span class="lang-en">Partnership</span><span class="lang-ko">파트너십</span></div>
+<h2 class="section-title light lang-en">Your Local Partner in Korea</h2>
+<h2 class="section-title light lang-ko">한국 시장의 신뢰할 수 있는 파트너</h2>
+<p class="section-intro light lang-en">We position collaboration with global GPs and LPs as a core strategic pillar.</p>
+<p class="section-intro light lang-ko">해외 GP 및 LP들과의 협업을 사업 전략의 중요한 축으로 삼습니다.</p>
 </div>
 <div class="partnership-grid">
 <div class="partnership-card reveal">
-<h3 lang="en">Partnership Model</h3><h3 lang="ko">파트너십 모델</h3>
-<p lang="en">We foster transparent and efficient partnership models. We serve as a local partner for global managers entering Korea.</p>
-<p lang="ko">투명하고 효율적인 파트너십 모델을 구축합니다. 글로벌 GP의 한국 시장 진출 시 현지 파트너로서 역할을 수행합니다.</p>
+<h3 class="lang-en">Partnership Model</h3><h3 class="lang-ko">파트너십 모델</h3>
+<p class="lang-en">We foster transparent and efficient partnership models. We serve as a local partner for global managers entering Korea.</p>
+<p class="lang-ko">투명하고 효율적인 파트너십 모델을 구축합니다. 글로벌 GP의 한국 시장 진출 시 현지 파트너로서 역할을 수행합니다.</p>
 </div>
 <div class="partnership-card reveal">
-<h3 lang="en">Local Co-GP Role</h3><h3 lang="ko">현지 공동 GP 역할</h3>
-<p lang="en">Silverstar stands ready to serve as a local co-GP or operating partner with deep local market understanding.</p>
-<p lang="ko">실버스타는 현지 공동 GP 또는 운영 파트너로서 깊은 현지 시장 이해를 바탕으로 역할을 수행합니다.</p>
+<h3 class="lang-en">Local Co-GP Role</h3><h3 class="lang-ko">현지 공동 GP 역할</h3>
+<p class="lang-en">Silverstar stands ready to serve as a local co-GP or operating partner with deep local market understanding.</p>
+<p class="lang-ko">실버스타는 현지 공동 GP 또는 운영 파트너로서 깊은 현지 시장 이해를 바탕으로 역할을 수행합니다.</p>
 </div>
 <div class="partnership-card reveal">
-<h3 lang="en">Long-term Trust</h3><h3 lang="ko">장기적 신뢰 구축</h3>
-<p lang="en">We seek continued co-investment opportunities beyond one-time transactions as strategic partners.</p>
-<p lang="ko">단발적 거래 관계가 아닌 지속적 공동 투자 기회를 전략적 파트너로서 모색합니다.</p>
+<h3 class="lang-en">Long-term Trust</h3><h3 class="lang-ko">장기적 신뢰 구축</h3>
+<p class="lang-en">We seek continued co-investment opportunities beyond one-time transactions as strategic partners.</p>
+<p class="lang-ko">단발적 거래 관계가 아닌 지속적 공동 투자 기회를 전략적 파트너로서 모색합니다.</p>
 </div>
 </div>
 </div>
@@ -483,24 +461,24 @@ SILVERSTAR
 <section id="contact" class="contact">
 <div class="section-container">
 <div class="section-header reveal">
-<div class="section-label"><span lang="en">Contact</span><span lang="ko">연락처</span></div>
-<h2 class="section-title light" lang="en">Get in Touch</h2>
-<h2 class="section-title light" lang="ko">문의하기</h2>
-<p class="section-intro light" lang="en">Thank you for your interest in Silverstar Investment.</p>
-<p class="section-intro light" lang="ko">실버스타인베스트먼트에 관심을 가져주셔서 감사합니다.</p>
+<div class="section-label"><span class="lang-en">Contact</span><span class="lang-ko">연락처</span></div>
+<h2 class="section-title light lang-en">Get in Touch</h2>
+<h2 class="section-title light lang-ko">문의하기</h2>
+<p class="section-intro light lang-en">Thank you for your interest in Silverstar Investment.</p>
+<p class="section-intro light lang-ko">실버스타인베스트먼트에 관심을 가져주셔서 감사합니다.</p>
 </div>
 <div class="contact-grid reveal">
 <div class="contact-item">
-<h4 lang="en">Company</h4><h4 lang="ko">회사</h4>
-<p lang="en">Silverstar Investment Co., Ltd.</p><p lang="ko">(주)실버스타인베스트먼트</p>
+<h4 class="lang-en">Company</h4><h4 class="lang-ko">회사</h4>
+<p class="lang-en">Silverstar Investment Co., Ltd.</p><p class="lang-ko">(주)실버스타인베스트먼트</p>
 </div>
 <div class="contact-item">
-<h4 lang="en">Address</h4><h4 lang="ko">주소</h4>
-<p lang="en">2F, Jeokseon Hyundai Building<br>130 Sajik-ro, Jongno-gu, Seoul</p>
-<p lang="ko">서울특별시 종로구 사직로 130<br>적선현대빌딩 2층</p>
+<h4 class="lang-en">Address</h4><h4 class="lang-ko">주소</h4>
+<p class="lang-en">2F, Jeokseon Hyundai Building<br>130 Sajik-ro, Jongno-gu, Seoul</p>
+<p class="lang-ko">서울특별시 종로구 사직로 130<br>적선현대빌딩 2층</p>
 </div>
 <div class="contact-item">
-<h4 lang="en">Email</h4><h4 lang="ko">이메일</h4>
+<h4 class="lang-en">Email</h4><h4 class="lang-ko">이메일</h4>
 <p><a href="mailto:wonbin.suh@silverstars.co.kr">wonbin.suh@silverstars.co.kr</a></p>
 </div>
 </div>
@@ -509,17 +487,75 @@ SILVERSTAR
 
 <footer>
 <div class="footer-container">
-<p lang="en">© 2025 Silverstar Investment Co., Ltd. All rights reserved. This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities.</p>
-<p lang="ko">© 2025 (주)실버스타인베스트먼트. 본 웹사이트의 내용은 정보 제공 목적으로만 작성되었으며, 투자 권유나 증권의 매수·매도 청약을 구성하지 않습니다.</p>
+<p class="lang-en">© 2025 Silverstar Investment Co., Ltd. All rights reserved. This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities.</p>
+<p class="lang-ko">© 2025 (주)실버스타인베스트먼트. 본 웹사이트의 내용은 정보 제공 목적으로만 작성되었으며, 투자 권유나 증권의 매수·매도 청약을 구성하지 않습니다.</p>
 </div>
 </footer>
 
 <script>
-function toggleLanguage(){var h=document.documentElement;var n=h.getAttribute('lang')==='en'?'ko':'en';h.setAttribute('lang',n);localStorage.setItem('preferredLang',n)}
-document.addEventListener('DOMContentLoaded',function(){var s=localStorage.getItem('preferredLang')||'en';document.documentElement.setAttribute('lang',s)});
-var nav=document.getElementById('nav');window.addEventListener('scroll',function(){if(window.scrollY>80){nav.classList.add('scrolled')}else{nav.classList.remove('scrolled')}});
-var reveals=document.querySelectorAll('.reveal');var revealObs=new IntersectionObserver(function(e){e.forEach(function(entry,i){if(entry.isIntersecting){setTimeout(function(){entry.target.classList.add('active')},i*100)}})},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});reveals.forEach(function(el){revealObs.observe(el)});
-document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t){window.scrollTo({top:t.offsetTop-100,behavior:'smooth'})}})});
+(function() {
+    // Language toggle
+    var langBtn = document.getElementById('langBtn');
+    if (langBtn) {
+        langBtn.addEventListener('click', function() {
+            var html = document.documentElement;
+            var currentLang = html.getAttribute('lang');
+            var newLang = currentLang === 'en' ? 'ko' : 'en';
+            html.setAttribute('lang', newLang);
+            try {
+                localStorage.setItem('preferredLang', newLang);
+            } catch(e) {}
+        });
+    }
+
+    // Load saved language
+    try {
+        var savedLang = localStorage.getItem('preferredLang');
+        if (savedLang) {
+            document.documentElement.setAttribute('lang', savedLang);
+        }
+    } catch(e) {}
+
+    // Navigation scroll effect
+    var nav = document.getElementById('nav');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 80) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+
+    // Reveal on scroll
+    var reveals = document.querySelectorAll('.reveal');
+    var revealObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry, index) {
+            if (entry.isIntersecting) {
+                setTimeout(function() {
+                    entry.target.classList.add('active');
+                }, index * 100);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    reveals.forEach(function(el) {
+        revealObserver.observe(el);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+})();
 </script>
 </body>
 </html>
