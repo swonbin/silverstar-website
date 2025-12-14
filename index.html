@@ -6,16 +6,19 @@
     <title>Silverstar Investment | 실버스타인베스트먼트</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #0a0a0a;
-            --gold: #b89861;
-            --text: #1a1a1a;
-            --text-light: #666;
-            --bg-dark: #0f0f0f;
-            --bg-light: #fafafa;
+            --navy: #0a1929;
+            --navy-light: #1a2942;
+            --gold: #d4af37;
+            --gold-dark: #b8963c;
+            --text: #0f1419;
+            --text-light: #5f6d7e;
+            --bg: #ffffff;
+            --bg-light: #f8f9fb;
+            --bg-cream: #faf8f5;
         }
 
         * {
@@ -29,10 +32,11 @@
         }
 
         body {
-            font-family: 'Malgun Gothic', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Work Sans', 'Malgun Gothic', sans-serif;
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
+            background: var(--bg);
         }
 
         /* Navigation */
@@ -41,76 +45,96 @@
             top: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
+            backdrop-filter: saturate(180%) blur(20px);
             z-index: 1000;
-            transition: all 0.3s;
-            box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(15, 20, 25, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 4px 24px rgba(15, 20, 25, 0.04);
         }
 
         .nav-container {
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 1.2rem 4rem;
+            padding: 1.8rem 4rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-family: 'Archivo', sans-serif;
-            font-size: 1.4rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
             font-weight: 600;
-            letter-spacing: 0.12em;
-            color: var(--primary);
-            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: var(--navy);
         }
 
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 3rem;
+            gap: 3.5rem;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 3rem;
         }
 
         .nav-menu a {
             text-decoration: none;
             color: var(--text);
             font-size: 0.9rem;
-            font-weight: 400;
-            transition: color 0.3s;
+            font-weight: 500;
             letter-spacing: 0.02em;
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
         }
 
         .nav-menu a:hover {
             color: var(--gold);
         }
 
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
         .lang-toggle {
-            padding: 0.5rem 1rem;
-            background: transparent;
-            border: 1px solid #ddd;
-            color: var(--text);
-            font-size: 0.85rem;
+            padding: 0.7rem 1.5rem;
+            background: var(--navy);
+            border: none;
+            color: white;
+            font-size: 0.8rem;
             cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 500;
-            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            font-family: 'Work Sans', sans-serif;
         }
 
         .lang-toggle:hover {
-            border-color: var(--gold);
-            color: var(--gold);
+            background: var(--gold);
+            transform: translateY(-1px);
         }
 
         /* Hero */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+            background: linear-gradient(155deg, var(--navy) 0%, var(--navy-light) 100%);
             display: flex;
             align-items: center;
             padding: 0 4rem;
@@ -121,90 +145,130 @@
         .hero::before {
             content: '';
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(184, 152, 97, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 30%, rgba(184, 152, 97, 0.1) 0%, transparent 40%);
-            animation: pulse 8s ease-in-out infinite;
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            top: -500px;
+            right: -300px;
+            animation: heroFloat 12s ease-in-out infinite;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            bottom: -400px;
+            left: -200px;
+            animation: heroFloat 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-40px, 40px) scale(1.1); }
         }
 
         .hero-container {
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
-            padding: 120px 0 80px;
+            padding: 140px 0 100px;
         }
 
         .hero-content {
-            max-width: 1000px;
+            max-width: 950px;
         }
 
         .hero-label {
-            font-family: 'Archivo', sans-serif;
+            font-family: 'Work Sans', sans-serif;
             font-size: 0.85rem;
-            letter-spacing: 0.3em;
+            letter-spacing: 0.2em;
             color: var(--gold);
-            margin-bottom: 2rem;
-            font-weight: 500;
+            margin-bottom: 2.5rem;
+            font-weight: 600;
             text-transform: uppercase;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
         }
 
         .hero h1 {
-            font-family: 'Archivo', sans-serif;
-            font-size: 4.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
             font-weight: 400;
-            line-height: 1.15;
+            line-height: 1.1;
             color: white;
             margin-bottom: 2.5rem;
             letter-spacing: -0.02em;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
         }
 
         .hero-tagline {
-            font-size: 1.4rem;
-            color: rgba(255,255,255,0.8);
-            max-width: 800px;
+            font-size: 1.35rem;
+            color: rgba(255,255,255,0.85);
             font-weight: 300;
-            line-height: 1.6;
-            margin-bottom: 3rem;
+            line-height: 1.8;
+            margin-bottom: 3.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
         }
 
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 1.1rem 2.5rem;
-            background: transparent;
-            color: white;
+        .cta-button {
+            display: inline-block;
+            padding: 1.3rem 3.5rem;
+            background: var(--gold);
+            color: var(--navy);
             text-decoration: none;
             font-size: 0.9rem;
-            letter-spacing: 0.08em;
-            transition: all 0.3s;
-            border: 1px solid rgba(255,255,255,0.3);
+            font-weight: 600;
+            transition: all 0.3s ease;
             text-transform: uppercase;
-            font-weight: 500;
+            letter-spacing: 0.1em;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
         }
 
-        .hero-cta:hover {
-            background: white;
-            color: var(--primary);
-            border-color: white;
+        .cta-button:hover {
+            background: var(--gold-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
         }
 
         /* Stats */
         .stats {
-            background: linear-gradient(to bottom, #0f0f0f 0%, #1a1a1a 100%);
+            background: linear-gradient(to bottom, var(--navy) 0%, #0d1521 100%);
             padding: 6rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            top: 0;
+            left: 0;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.3;
         }
 
         .stats-container {
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -212,68 +276,78 @@
         }
 
         .stat {
-            text-align: left;
+            text-align: center;
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .stat::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 60%;
+            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.1), transparent);
+        }
+
+        .stat:last-child::after {
+            display: none;
         }
 
         .stat-value {
-            font-family: 'Archivo', sans-serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 4rem;
             font-weight: 300;
             color: var(--gold);
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             letter-spacing: -0.02em;
         }
 
         .stat-label {
             font-size: 0.95rem;
-            color: rgba(255,255,255,0.6);
+            color: rgba(255,255,255,0.65);
+            font-weight: 400;
             letter-spacing: 0.05em;
         }
 
         /* Section Base */
         section {
             padding: 10rem 4rem;
+            position: relative;
         }
 
         .section-container {
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .section-header {
-            max-width: 1000px;
+            max-width: 950px;
             margin-bottom: 6rem;
         }
 
-        .section-label {
-            font-family: 'Archivo', sans-serif;
-            font-size: 0.85rem;
-            letter-spacing: 0.3em;
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-            text-transform: uppercase;
-        }
-
         .section-title {
-            font-family: 'Archivo', sans-serif;
-            font-size: 3.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
             font-weight: 400;
             margin-bottom: 2rem;
             letter-spacing: -0.02em;
-            line-height: 1.2;
+            line-height: 1.15;
+            color: var(--navy);
         }
 
         .section-intro {
             font-size: 1.3rem;
             color: var(--text-light);
-            line-height: 1.7;
+            line-height: 1.8;
             font-weight: 300;
         }
 
         /* About */
         .about {
-            background: white;
+            background: linear-gradient(to bottom, white 0%, var(--bg-cream) 50%, white 100%);
         }
 
         .about-grid {
@@ -283,170 +357,210 @@
         }
 
         .about-card {
-            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
-            padding: 4rem;
-            transition: all 0.4s;
+            background: white;
+            padding: 4.5rem;
+            box-shadow: 0 8px 32px rgba(10, 25, 41, 0.06);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            border-top: 2px solid transparent;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .about-card:hover::before {
+            transform: scaleX(1);
         }
 
         .about-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 64px rgba(10, 25, 41, 0.12);
         }
 
         .about-card h3 {
-            font-family: 'Archivo', sans-serif;
-            font-size: 1.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
             font-weight: 500;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            color: var(--navy);
             letter-spacing: -0.01em;
         }
 
         .about-card p {
             font-size: 1.05rem;
             color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
+            margin-bottom: 1.8rem;
+            line-height: 1.8;
         }
 
         .info-grid {
-            display: grid;
-            gap: 1.2rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-left: 3px solid var(--gold);
         }
 
         .info-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 1.2rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.06);
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 2.5rem;
+            padding: 1.3rem 0;
+            border-bottom: 1px solid rgba(15, 20, 25, 0.08);
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
         }
 
         .info-label {
             color: var(--text-light);
-            font-size: 0.95rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
         }
 
         .info-value {
             font-weight: 500;
-            text-align: right;
-            font-size: 0.95rem;
+            font-size: 0.98rem;
+            color: var(--text);
         }
 
         /* Strategy */
         .strategy {
-            background: linear-gradient(to bottom, #fafafa 0%, white 100%);
+            background: white;
+            position: relative;
+        }
+
+        .strategy::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(15,20,25,0.1), transparent);
         }
 
         .strategy-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 4rem;
+            gap: 3rem;
         }
 
         .strategy-card {
-            background: white;
+            background: var(--bg-light);
             padding: 4rem;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
-            transition: all 0.4s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            overflow: hidden;
+            border-bottom: 3px solid transparent;
         }
 
-        .strategy-card::before {
+        .strategy-card::after {
             content: '';
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
-            transform: scaleX(0);
-            transition: transform 0.4s;
-            transform-origin: left;
-        }
-
-        .strategy-card:hover::before {
-            transform: scaleX(1);
+            width: 0;
+            height: 3px;
+            background: var(--gold);
+            transition: width 0.4s ease;
         }
 
         .strategy-card:hover {
-            box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+            background: white;
+            box-shadow: 0 16px 48px rgba(10, 25, 41, 0.08);
             transform: translateY(-5px);
         }
 
+        .strategy-card:hover::after {
+            width: 100%;
+        }
+
         .strategy-number {
-            font-family: 'Archivo', sans-serif;
-            font-size: 0.85rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
             color: var(--gold);
-            letter-spacing: 0.2em;
+            font-weight: 300;
             margin-bottom: 1.5rem;
             display: block;
-            font-weight: 500;
+            opacity: 0.4;
         }
 
         .strategy-card h3 {
-            font-family: 'Archivo', sans-serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 2rem;
             font-weight: 500;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
+            color: var(--navy);
             letter-spacing: -0.01em;
         }
 
         .strategy-card p {
             font-size: 1.05rem;
             color: var(--text-light);
-            line-height: 1.7;
+            line-height: 1.8;
             margin-bottom: 1.5rem;
         }
 
         .strategy-list {
             list-style: none;
             margin-top: 2rem;
+            padding-left: 0;
         }
 
         .strategy-list li {
-            padding: 1rem 0;
-            padding-left: 1.5rem;
+            padding: 1rem 0 1rem 2rem;
             position: relative;
             color: var(--text-light);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            line-height: 1.7;
+            border-left: 2px solid var(--bg-light);
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
         }
 
         .strategy-list li::before {
             content: '';
             position: absolute;
-            left: 0;
-            top: 1.5rem;
-            width: 4px;
-            height: 4px;
+            left: -2px;
+            top: 0;
+            width: 2px;
+            height: 0;
             background: var(--gold);
-            border-radius: 50%;
+            transition: height 0.3s ease;
+        }
+
+        .strategy-list li:hover::before {
+            height: 100%;
         }
 
         /* Focus */
         .focus {
-            background: var(--bg-dark);
-            color: white;
-        }
-
-        .focus .section-title {
-            color: white;
-        }
-
-        .focus .section-intro {
-            color: rgba(255,255,255,0.7);
+            background: linear-gradient(to bottom, var(--bg-cream) 0%, white 100%);
         }
 
         .focus-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .focus-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            background: white;
             padding: 4rem;
-            transition: all 0.4s;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 24px rgba(10, 25, 41, 0.04);
             position: relative;
             overflow: hidden;
         }
@@ -458,9 +572,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(184, 152, 97, 0.1) 0%, transparent 100%);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.02) 0%, transparent 50%);
             opacity: 0;
-            transition: opacity 0.4s;
+            transition: opacity 0.4s ease;
         }
 
         .focus-card:hover::before {
@@ -468,39 +582,50 @@
         }
 
         .focus-card:hover {
+            box-shadow: 0 16px 48px rgba(10, 25, 41, 0.1);
             transform: translateY(-5px);
         }
 
         .focus-card h3 {
-            font-family: 'Archivo', sans-serif;
-            font-size: 1.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.85rem;
             font-weight: 500;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             line-height: 1.3;
+            color: var(--navy);
             position: relative;
             z-index: 1;
         }
 
         .focus-card p {
             font-size: 1.05rem;
-            color: rgba(255,255,255,0.7);
-            line-height: 1.7;
-            margin-bottom: 1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
             position: relative;
             z-index: 1;
         }
 
         /* Advantages */
         .advantages {
-            background: white;
+            background: var(--navy);
+            color: white;
+        }
+
+        .advantages .section-title {
+            color: white;
+        }
+
+        .advantages .section-intro {
+            color: rgba(255,255,255,0.7);
         }
 
         .advantage-item {
             display: grid;
             grid-template-columns: 350px 1fr;
-            gap: 5rem;
+            gap: 6rem;
             padding: 4rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .advantage-item:last-child {
@@ -508,45 +633,64 @@
         }
 
         .advantage-title {
-            font-family: 'Archivo', sans-serif;
-            font-size: 2rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
             font-weight: 500;
+            color: var(--gold);
             position: sticky;
-            top: 150px;
+            top: 160px;
+            line-height: 1.3;
         }
 
         .advantage-content p {
-            font-size: 1.05rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
+            font-size: 1.08rem;
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 1.8rem;
+            line-height: 1.8;
         }
 
         /* Leadership */
         .leadership {
-            background: linear-gradient(to bottom, #fafafa 0%, white 100%);
+            background: linear-gradient(to bottom, white 0%, var(--bg-light) 100%);
         }
 
         .leadership-content {
             max-width: 1200px;
+            background: white;
+            padding: 5rem;
+            box-shadow: 0 8px 40px rgba(10, 25, 41, 0.08);
         }
 
         .leadership-header {
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(15, 20, 25, 0.1);
+            position: relative;
+        }
+
+        .leadership-header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 120px;
+            height: 3px;
+            background: var(--gold);
         }
 
         .leadership-name {
-            font-family: 'Archivo', sans-serif;
-            font-size: 3rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 0.8rem;
+            color: var(--navy);
             letter-spacing: -0.02em;
         }
 
         .leadership-role {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--text-light);
-            margin-bottom: 3rem;
+            font-weight: 300;
         }
 
         .leadership-details {
@@ -555,47 +699,58 @@
         }
 
         .leadership-section h4 {
-            font-family: 'Archivo', sans-serif;
-            font-size: 1.6rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
             font-weight: 500;
             margin-bottom: 1.5rem;
+            color: var(--navy);
         }
 
         .leadership-section p {
-            font-size: 1.05rem;
+            font-size: 1.08rem;
             color: var(--text-light);
-            line-height: 1.7;
-            margin-bottom: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
         }
 
         .leadership-list {
             list-style: none;
             display: grid;
-            gap: 1rem;
+            gap: 0;
+            margin-top: 1.5rem;
         }
 
         .leadership-list li {
-            padding: 1.2rem 0;
-            padding-left: 1.5rem;
+            padding: 1.2rem 0 1.2rem 2rem;
             position: relative;
             color: var(--text-light);
-            border-bottom: 1px solid rgba(0,0,0,0.06);
+            border-left: 2px solid var(--bg-light);
+            line-height: 1.7;
+            transition: all 0.3s ease;
         }
 
         .leadership-list li::before {
             content: '';
             position: absolute;
-            left: 0;
-            top: 1.7rem;
-            width: 4px;
-            height: 4px;
+            left: -2px;
+            top: 0;
+            width: 2px;
+            height: 0;
             background: var(--gold);
-            border-radius: 50%;
+            transition: height 0.3s ease;
+        }
+
+        .leadership-list li:hover {
+            padding-left: 2.5rem;
+        }
+
+        .leadership-list li:hover::before {
+            height: 100%;
         }
 
         /* Partnership */
         .partnership {
-            background: white;
+            background: var(--bg-cream);
         }
 
         .partnership-content {
@@ -603,26 +758,38 @@
         }
 
         .partnership-block {
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
+            padding: 4rem;
+            background: white;
+            box-shadow: 0 4px 24px rgba(10, 25, 41, 0.04);
+            transition: all 0.4s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .partnership-block:hover {
+            box-shadow: 0 12px 48px rgba(10, 25, 41, 0.08);
+            border-left-color: var(--gold);
+            transform: translateX(5px);
         }
 
         .partnership-block h3 {
-            font-family: 'Archivo', sans-serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 2rem;
             font-weight: 500;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
+            color: var(--navy);
         }
 
         .partnership-block p {
-            font-size: 1.05rem;
+            font-size: 1.08rem;
             color: var(--text-light);
             margin-bottom: 1.5rem;
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
         /* Contact */
         .contact {
-            background: var(--bg-dark);
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
             color: white;
         }
 
@@ -631,45 +798,62 @@
         }
 
         .contact .section-intro {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.75);
         }
 
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 5rem;
-            max-width: 1400px;
+            max-width: 1300px;
+        }
+
+        .contact-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gold), transparent);
         }
 
         .contact-item h4 {
-            font-family: 'Archivo', sans-serif;
-            font-size: 0.85rem;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 0.8rem;
             letter-spacing: 0.15em;
             color: var(--gold);
             margin-bottom: 1.5rem;
             text-transform: uppercase;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .contact-item p {
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.8);
-            line-height: 1.7;
+            font-size: 1.08rem;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.8;
         }
 
         .contact-item a {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.85);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
+            border-bottom: 1px solid transparent;
         }
 
         .contact-item a:hover {
             color: var(--gold);
+            border-bottom-color: var(--gold);
         }
 
         /* Footer */
         footer {
-            background: var(--bg-dark);
+            background: var(--navy);
             color: rgba(255,255,255,0.4);
             padding: 3rem 4rem;
             text-align: center;
@@ -683,7 +867,6 @@
             display: block;
         }
         
-        /* Hide opposite language */
         html[lang="ko"] [lang="en"] {
             display: none !important;
         }
@@ -692,7 +875,6 @@
             display: none !important;
         }
         
-        /* For inline text elements like spans */
         span[lang="ko"],
         span[lang="en"],
         a[lang="ko"],
@@ -714,12 +896,12 @@
         @media (max-width: 1200px) {
             .nav-container,
             section {
-                padding-left: 2rem;
-                padding-right: 2rem;
+                padding-left: 2.5rem;
+                padding-right: 2.5rem;
             }
 
             .hero {
-                padding: 0 2rem;
+                padding: 0 2.5rem;
             }
 
             .stats-container,
@@ -727,6 +909,7 @@
             .strategy-grid,
             .focus-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .advantage-item {
@@ -746,15 +929,15 @@
 
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
 
             .hero-tagline {
-                font-size: 1.1rem;
+                font-size: 1.15rem;
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
             .nav-menu {
@@ -762,7 +945,13 @@
             }
 
             .stat-value {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
+            }
+
+            .about-card,
+            .strategy-card,
+            .focus-card {
+                padding: 3rem;
             }
         }
 
@@ -781,7 +970,7 @@
 </head>
 <body>
 
-<nav>
+<nav id="nav">
     <div class="nav-container">
         <div class="logo">SILVERSTAR</div>
         <div class="nav-right">
@@ -789,7 +978,7 @@
                 <li><a href="#about" lang="ko">회사 소개</a><a href="#about" lang="en">About</a></li>
                 <li><a href="#strategy" lang="ko">투자 전략</a><a href="#strategy" lang="en">Strategy</a></li>
                 <li><a href="#focus" lang="ko">투자 분야</a><a href="#focus" lang="en">Focus</a></li>
-                <li><a href="#advantages" lang="ko">경쟁우위</a><a href="#advantages" lang="en">Competitive Edge</a></li>
+                <li><a href="#advantages" lang="ko">경쟁우위</a><a href="#advantages" lang="en">Edge</a></li>
                 <li><a href="#leadership" lang="ko">경영진</a><a href="#leadership" lang="en">Leadership</a></li>
                 <li><a href="#partnership" lang="ko">파트너십</a><a href="#partnership" lang="en">Partnership</a></li>
                 <li><a href="#contact" lang="ko">연락처</a><a href="#contact" lang="en">Contact</a></li>
@@ -805,8 +994,7 @@
 <section class="hero">
     <div class="hero-container">
         <div class="hero-content">
-            <div class="hero-label" lang="ko">SILVERSTAR INVESTMENT</div>
-            <div class="hero-label" lang="en">SILVERSTAR INVESTMENT</div>
+            <div class="hero-label">SILVERSTAR INVESTMENT</div>
             
             <h1 lang="ko">Infrastructure & Real Asset<br>Platform Investment</h1>
             <h1 lang="en">Infrastructure & Real Asset<br>Platform Investment</h1>
@@ -819,10 +1007,9 @@
                 Silverstar Investment is an institutional alternative investment manager dedicated to building operating platforms in infrastructure and real estate sectors, creating long-term value.
             </p>
             
-            <a href="#about" class="hero-cta">
+            <a href="#about" class="cta-button">
                 <span lang="ko">더 알아보기</span>
                 <span lang="en">Learn More</span>
-                <span>→</span>
             </a>
         </div>
     </div>
@@ -848,7 +1035,7 @@
         <div class="stat">
             <div class="stat-value">Global</div>
             <div class="stat-label" lang="ko">투자 기준</div>
-            <div class="stat-label" lang="en">Investment Standards</div>
+            <div class="stat-label" lang="en">Standards</div>
         </div>
     </div>
 </div>
@@ -856,11 +1043,8 @@
 <section id="about" class="about">
     <div class="section-container">
         <div class="section-header reveal">
-            <div class="section-label" lang="ko">01 — 회사 소개</div>
-            <div class="section-label" lang="en">01 — ABOUT US</div>
-            
-            <h2 class="section-title" lang="ko">Our Mission</h2>
-            <h2 class="section-title" lang="en">Our Mission</h2>
+            <h2 class="section-title" lang="ko">회사 소개</h2>
+            <h2 class="section-title" lang="en">About Us</h2>
             
             <p class="section-intro" lang="ko">
                 실버스타인베스트먼트는 한국 시장에서 실물자산 중심의 대체투자 플랫폼을 구축합니다. 
@@ -876,10 +1060,8 @@
             <div class="about-card reveal">
                 <h3 lang="ko">비전</h3>
                 <h3 lang="en">Vision</h3>
-                <p lang="ko">사회 주요 실물자산 인프라 섹터별 운영 플랫폼을 구축합니다.</p>
-                <p lang="en">We build operating platforms across major real-asset infrastructure sectors.</p>
-                <p lang="ko">각 산업에서 장기 경쟁력을 갖춘 핵심 기업을 육성하며, 국제 자본과 국내 기회를 연결하는 현지 파트너 역할을 수행합니다.</p>
-                <p lang="en">We nurture core enterprises with long-term competitiveness and serve as a local partner connecting international capital with domestic opportunities.</p>
+                <p lang="ko">사회 주요 실물자산 인프라 섹터별 운영 플랫폼을 구축합니다. 각 산업에서 장기 경쟁력을 갖춘 핵심 기업을 육성하며, 국제 자본과 국내 기회를 연결하는 현지 파트너 역할을 수행합니다.</p>
+                <p lang="en">We build operating platforms across major real-asset infrastructure sectors. We nurture core enterprises with long-term competitiveness and serve as a local partner connecting international capital with domestic opportunities.</p>
             </div>
 
             <div class="about-card reveal">
@@ -900,14 +1082,13 @@
                     <div class="info-item">
                         <span class="info-label" lang="ko">등록</span>
                         <span class="info-label" lang="en">Registration</span>
-                        <span class="info-value" lang="ko">기관전용 사모집합투자기구</span>
-                        <span class="info-value" lang="en">Institution-only Private Fund GP</span>
+                        <span class="info-value" lang="ko">기관전용 사모펀드</span>
+                        <span class="info-value" lang="en">Institution-only Private Fund</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label" lang="ko">등록일</span>
                         <span class="info-label" lang="en">Date</span>
-                        <span class="info-value" lang="ko">2025년 1월 21일</span>
-                        <span class="info-value" lang="en">January 21, 2025</span>
+                        <span class="info-value">January 21, 2025</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label" lang="ko">대표이사</span>
@@ -923,10 +1104,7 @@
 <section id="strategy" class="strategy">
     <div class="section-container">
         <div class="section-header reveal">
-            <div class="section-label" lang="ko">02 — 투자 전략</div>
-            <div class="section-label" lang="en">02 — INVESTMENT STRATEGY</div>
-            
-            <h2 class="section-title" lang="ko">Investment Strategy</h2>
+            <h2 class="section-title" lang="ko">투자 전략</h2>
             <h2 class="section-title" lang="en">Investment Strategy</h2>
             
             <p class="section-intro" lang="ko">
@@ -942,10 +1120,8 @@
                 <span class="strategy-number">01</span>
                 <h3 lang="ko">플랫폼 구축</h3>
                 <h3 lang="en">Platform Building</h3>
-                <p lang="ko">섹터별 기업형 운영 플랫폼 구축을 통해 규모의 경제와 시너지 효과를 창출합니다.</p>
-                <p lang="en">Building sector-specific operating platforms to generate economies of scale and synergies.</p>
-                <p lang="ko">단일 자산 투자를 넘어 관련 운영 인력과 시스템을 갖춘 전문 운영법인을 동반 매입하거나 신규 설립합니다.</p>
-                <p lang="en">Beyond single-asset investments, we acquire or establish operating companies with specialized personnel and systems.</p>
+                <p lang="ko">섹터별 기업형 운영 플랫폼 구축을 통해 규모의 경제와 시너지 효과를 창출합니다. 단일 자산 투자를 넘어 관련 운영 인력과 시스템을 갖춘 전문 운영법인을 동반 매입하거나 신규 설립합니다.</p>
+                <p lang="en">Building sector-specific operating platforms to generate economies of scale and synergies. Beyond single-asset investments, we acquire or establish operating companies with specialized personnel and systems.</p>
             </div>
 
             <div class="strategy-card reveal">
@@ -956,9 +1132,9 @@
                 <p lang="en">Driving structural value enhancement through proactive value-up initiatives.</p>
                 <ul class="strategy-list">
                     <li lang="ko">포트폴리오 기업의 운영 효율 개선 및 재무 구조 최적화</li>
-                    <li lang="en">Operational efficiency and financial optimization of portfolio companies</li>
+                    <li lang="en">Operational efficiency and financial optimization</li>
                     <li lang="ko">기업 경영진과 적극 협업하여 성장 전략 수립</li>
-                    <li lang="en">Active collaboration with management to shape growth strategies</li>
+                    <li lang="en">Active collaboration with management</li>
                     <li lang="ko">전략적 제휴를 통한 시너지 창출</li>
                     <li lang="en">Synergy creation through strategic partnerships</li>
                 </ul>
@@ -1002,10 +1178,7 @@
 <section id="focus" class="focus">
     <div class="section-container">
         <div class="section-header reveal">
-            <div class="section-label" lang="ko">03 — 투자 분야</div>
-            <div class="section-label" lang="en">03 — INVESTMENT FOCUS</div>
-            
-            <h2 class="section-title" lang="ko">Investment Focus</h2>
+            <h2 class="section-title" lang="ko">투자 분야</h2>
             <h2 class="section-title" lang="en">Investment Focus</h2>
             
             <p class="section-intro" lang="ko">
@@ -1018,39 +1191,31 @@
 
         <div class="focus-grid">
             <div class="focus-card reveal">
-                <h3 lang="ko">물류 및 콜드체인<br>3PL 인프라</h3>
-                <h3 lang="en">Logistics & Cold Chain<br>3PL Infrastructure</h3>
-                <p lang="ko">이커머스 확산과 유통 환경 변화로 최첨단 물류 인프라 수요가 지속 증가합니다. 콜드체인 특화 3PL에 대한 수요가 특히 높습니다.</p>
-                <p lang="en">With e-commerce growth and evolving distribution, demand for advanced logistics infrastructure, especially cold chain 3PL, continues to rise.</p>
-                <p lang="ko">수도권 및 핵심 거점 지역의 대형 물류센터 개발사업에 주력하며, 기존 물류 자산의 인수 및 리노베이션을 추진합니다.</p>
-                <p lang="en">We focus on large logistics center development in the Seoul metro area and acquire or upgrade existing logistics assets.</p>
+                <h3 lang="ko">물류 및 콜드체인 3PL 인프라</h3>
+                <h3 lang="en">Logistics & Cold Chain 3PL Infrastructure</h3>
+                <p lang="ko">이커머스 확산과 유통 환경 변화로 최첨단 물류 인프라 수요가 지속 증가합니다. 수도권 및 핵심 거점 지역의 대형 물류센터 개발사업에 주력하며, 기존 물류 자산의 인수 및 리노베이션을 추진합니다.</p>
+                <p lang="en">With e-commerce growth and evolving distribution, demand for advanced logistics infrastructure continues to rise. We focus on large logistics center development in the Seoul metro area and acquire or upgrade existing logistics assets.</p>
             </div>
 
             <div class="focus-card reveal">
-                <h3 lang="ko">데이터센터 및<br>디지털 인프라</h3>
-                <h3 lang="en">Data Centers &<br>Digital Infrastructure</h3>
-                <p lang="ko">디지털 경제 시대에 데이터센터는 필수 자산으로 부상했습니다. 국내 하이퍼스케일 데이터센터 수요 증가에 대응합니다.</p>
-                <p lang="en">Data centers have emerged as essential assets in the digital economy. We respond to rising domestic demand for hyperscale data centers.</p>
-                <p lang="ko">전략적 입지에 대형 데이터센터 개발 프로젝트를 모색합니다.</p>
-                <p lang="en">We pursue large-scale data center development projects in strategic locations.</p>
+                <h3 lang="ko">데이터센터 및 디지털 인프라</h3>
+                <h3 lang="en">Data Centers & Digital Infrastructure</h3>
+                <p lang="ko">디지털 경제 시대에 데이터센터는 필수 자산으로 부상했습니다. 국내 하이퍼스케일 데이터센터 수요 증가에 대응하며, 전략적 입지에 대형 데이터센터 개발 프로젝트를 모색합니다.</p>
+                <p lang="en">Data centers have emerged as essential assets in the digital economy. We respond to rising domestic demand for hyperscale data centers and pursue large-scale development projects in strategic locations.</p>
             </div>
 
             <div class="focus-card reveal">
-                <h3 lang="ko">시니어/헬스케어<br>소셜 인프라</h3>
-                <h3 lang="en">Senior & Healthcare<br>Social Infrastructure</h3>
-                <p lang="ko">고령화 사회에서 주간보호센터와 요양원 수요가 빠르게 증가합니다.</p>
-                <p lang="en">In an aging society, demand for day-care centers and nursing homes is rapidly increasing.</p>
-                <p lang="ko">의료·돌봄 서비스와 부동산 주거 기능이 균형 있게 결합된 차별화된 인프라를 구축합니다.</p>
-                <p lang="en">We build differentiated infrastructure that balances healthcare services with residential functions.</p>
+                <h3 lang="ko">시니어/헬스케어 소셜 인프라</h3>
+                <h3 lang="en">Senior & Healthcare Social Infrastructure</h3>
+                <p lang="ko">고령화 사회에서 주간보호센터와 요양원 수요가 빠르게 증가합니다. 의료·돌봄 서비스와 부동산 주거 기능이 균형 있게 결합된 차별화된 인프라를 구축합니다.</p>
+                <p lang="en">In an aging society, demand for day-care centers and nursing homes is rapidly increasing. We build differentiated infrastructure that balances healthcare services with residential functions.</p>
             </div>
 
             <div class="focus-card reveal">
-                <h3 lang="ko">에너지<br>인프라스트럭처</h3>
-                <h3 lang="en">Energy<br>Infrastructure</h3>
-                <p lang="ko">에너지 전환과 탄소중립 트렌드 속에서 에너지 인프라 자산에 주목합니다.</p>
-                <p lang="en">Amid the energy transition and carbon-neutrality trend, we focus on energy infrastructure assets.</p>
-                <p lang="ko">LNG 터미널, 도시가스 네트워크, 태양광·풍력 발전소 등 안정적인 장기 현금흐름을 창출하는 대체투자 자산군입니다.</p>
-                <p lang="en">Including LNG terminals, city gas networks, and solar/wind power plants that generate stable long-term cash flows.</p>
+                <h3 lang="ko">에너지 인프라스트럭처</h3>
+                <h3 lang="en">Energy Infrastructure</h3>
+                <p lang="ko">에너지 전환과 탄소중립 트렌드 속에서 에너지 인프라 자산에 주목합니다. LNG 터미널, 도시가스 네트워크, 태양광·풍력 발전소 등 안정적인 장기 현금흐름을 창출하는 대체투자 자산군입니다.</p>
+                <p lang="en">Amid the energy transition and carbon-neutrality trend, we focus on energy infrastructure assets including LNG terminals, city gas networks, and solar/wind power plants that generate stable long-term cash flows.</p>
             </div>
         </div>
     </div>
@@ -1059,11 +1224,8 @@
 <section id="advantages" class="advantages">
     <div class="section-container">
         <div class="section-header reveal">
-            <div class="section-label" lang="ko">04 — 경쟁우위</div>
-            <div class="section-label" lang="en">04 — COMPETITIVE EDGE</div>
-            
-            <h2 class="section-title" lang="ko">Differentiation</h2>
-            <h2 class="section-title" lang="en">Differentiation</h2>
+            <h2 class="section-title" lang="ko">경쟁우위</h2>
+            <h2 class="section-title" lang="en">Competitive Edge</h2>
             
             <p class="section-intro" lang="ko">
                 전략적 깊이, 운영 전문성, 원칙 준수, 신뢰 구축으로 차별화됩니다.
@@ -1077,10 +1239,8 @@
             <h3 class="advantage-title" lang="ko">플랫폼 구축 역량</h3>
             <h3 class="advantage-title" lang="en">Platform-Building Capability</h3>
             <div class="advantage-content">
-                <p lang="ko">국내 대부분의 사모펀드들이 단일 자산 위주 투자에 집중하는 것과 차별화됩니다.</p>
-                <p lang="en">Unlike most private equity funds in Korea that focus on single-asset investments, our differentiated strength lies in our platform approach.</p>
-                <p lang="ko">여러 자산을 하나의 플랫폼으로 묶어 투자하여 시너지 효과를 극대화하고, 시장 변화에 유연하게 대응할 수 있는 구조를 갖춥니다.</p>
-                <p lang="en">By aggregating multiple assets into a single platform, we maximize synergies and establish a structure that can flexibly adapt to market changes.</p>
+                <p lang="ko">국내 대부분의 사모펀드들이 단일 자산 위주 투자에 집중하는 것과 차별화됩니다. 여러 자산을 하나의 플랫폼으로 묶어 투자하여 시너지 효과를 극대화하고, 시장 변화에 유연하게 대응할 수 있는 구조를 갖춥니다.</p>
+                <p lang="en">Unlike most private equity funds in Korea that focus on single-asset investments, our differentiated strength lies in our platform approach. By aggregating multiple assets into a single platform, we maximize synergies and establish a structure that can flexibly adapt to market changes.</p>
             </div>
         </div>
 
@@ -1088,10 +1248,8 @@
             <h3 class="advantage-title" lang="ko">구조적 가치 향상</h3>
             <h3 class="advantage-title" lang="en">Structural Value Enhancement</h3>
             <div class="advantage-content">
-                <p lang="ko">피투자기업의 본질적 가치를 높여 투자 회수 시 우수한 성과로 연결됩니다.</p>
-                <p lang="en">Our proactive approach to structural value enhancement elevates the intrinsic value of portfolio companies, translating into superior outcomes at exit.</p>
-                <p lang="ko">운용사 자체적으로 운영 전문 인력과 산업 자문단을 보유하여, 딜 체결 이후의 실행 및 관리 능력에서 높은 역량을 보유합니다.</p>
-                <p lang="en">We maintain in-house operating professionals and an industry advisory network, ensuring strong execution and management capabilities beyond deal closing.</p>
+                <p lang="ko">피투자기업의 본질적 가치를 높여 투자 회수 시 우수한 성과로 연결됩니다. 운용사 자체적으로 운영 전문 인력과 산업 자문단을 보유하여, 딜 체결 이후의 실행 및 관리 능력에서 높은 역량을 보유합니다.</p>
+                <p lang="en">Our proactive approach to structural value enhancement elevates the intrinsic value of portfolio companies, translating into superior outcomes at exit. We maintain in-house operating professionals and an industry advisory network, ensuring strong execution and management capabilities beyond deal closing.</p>
             </div>
         </div>
 
@@ -1099,12 +1257,8 @@
             <h3 class="advantage-title" lang="ko">글로벌+로컬 이중 역량</h3>
             <h3 class="advantage-title" lang="en">Global + Local Dual Capability</h3>
             <div class="advantage-content">
-                <p lang="ko">글로벌 경험과 현지 전문성을 결합한 역량입니다. 창립자는 브룩필드자산운용 한국 투자팀을 창립한 한국대표 출신입니다.</p>
-                <p lang="en">This capability combines global experience with local expertise. Our founder built Brookfield's Korea investment team as Head of Korea.</p>
-                <p lang="ko">글로벌 대체자산운용사에서 단련된 투자 원칙과 윤리를 보유하며, 기관급 거버넌스와 투명한 의사결정, 철저한 준법감시 등 글로벌 스탠더드를 준수합니다.</p>
-                <p lang="en">We maintain investment principles and ethics honed at global alternative asset managers, with institutional-grade governance, transparent decision-making, and rigorous compliance.</p>
-                <p lang="ko">한국 시장에 대한 깊은 이해와 네트워크를 갖추었습니다.</p>
-                <p lang="en">We possess deep knowledge of and networks in the Korean market.</p>
+                <p lang="ko">글로벌 경험과 현지 전문성을 결합한 역량입니다. 창립자는 브룩필드자산운용 한국 투자팀을 창립한 한국대표 출신입니다. 글로벌 대체자산운용사에서 단련된 투자 원칙과 윤리를 보유하며, 기관급 거버넌스와 투명한 의사결정, 철저한 준법감시 등 글로벌 스탠더드를 준수합니다.</p>
+                <p lang="en">This capability combines global experience with local expertise. Our founder built Brookfield's Korea investment team as Head of Korea. We maintain investment principles and ethics honed at global alternative asset managers, with institutional-grade governance, transparent decision-making, and rigorous compliance.</p>
             </div>
         </div>
     </div>
@@ -1113,10 +1267,7 @@
 <section id="leadership" class="leadership">
     <div class="section-container">
         <div class="section-header reveal">
-            <div class="section-label" lang="ko">05 — 경영진</div>
-            <div class="section-label" lang="en">05 — LEADERSHIP</div>
-            
-            <h2 class="section-title" lang="ko">Leadership</h2>
+            <h2 class="section-title" lang="ko">경영진</h2>
             <h2 class="section-title" lang="en">Leadership</h2>
             
             <p class="section-intro" lang="ko">
@@ -1173,10 +1324,7 @@
 <section id="partnership" class="partnership">
     <div class="section-container">
         <div class="section-header reveal">
-            <div class="section-label" lang="ko">06 — 파트너십</div>
-            <div class="section-label" lang="en">06 — PARTNERSHIP</div>
-            
-            <h2 class="section-title" lang="ko">Partnership</h2>
+            <h2 class="section-title" lang="ko">파트너십</h2>
             <h2 class="section-title" lang="en">Partnership</h2>
             
             <p class="section-intro" lang="ko">
@@ -1191,28 +1339,22 @@
             <div class="partnership-block reveal">
                 <h3 lang="ko">파트너십 모델</h3>
                 <h3 lang="en">Partnership Model</h3>
-                <p lang="ko">투명하고 효율적인 파트너십 모델을 구축합니다.</p>
-                <p lang="en">We foster transparent and efficient partnership models.</p>
-                <p lang="ko">글로벌 운용사의 한국 시장 진출 시 현지 파트너로서 역할을 수행합니다. 현지 사정을 가장 잘 아는 파트너와의 협력이 성공의 핵심입니다.</p>
-                <p lang="en">We serve as a local partner for global managers entering Korea, recognizing that success often hinges on working with a partner who best understands the local market.</p>
+                <p lang="ko">투명하고 효율적인 파트너십 모델을 구축합니다. 글로벌 운용사의 한국 시장 진출 시 현지 파트너로서 역할을 수행합니다.</p>
+                <p lang="en">We foster transparent and efficient partnership models. We serve as a local partner for global managers entering Korea, recognizing that success often hinges on working with a partner who best understands the local market.</p>
             </div>
 
             <div class="partnership-block reveal">
                 <h3 lang="ko">현지 공동 GP 역할</h3>
                 <h3 lang="en">Local Co-GP Role</h3>
-                <p lang="ko">실버스타는 현지 공동 GP 또는 운영 파트너로서의 역할을 수행할 준비가 되어 있습니다.</p>
-                <p lang="en">Silverstar stands ready to serve as a local co-GP or operating partner.</p>
-                <p lang="ko">글로벌 운용사가 한국 시장에 진출할 때 가장 중요한 것은 현지 시장에 대한 이해와 네트워크입니다.</p>
-                <p lang="en">Understanding of the local market and networks are crucial when global managers enter Korea.</p>
+                <p lang="ko">실버스타는 현지 공동 GP 또는 운영 파트너로서의 역할을 수행할 준비가 되어 있습니다. 글로벌 운용사가 한국 시장에 진출할 때 가장 중요한 것은 현지 시장에 대한 이해와 네트워크입니다.</p>
+                <p lang="en">Silverstar stands ready to serve as a local co-GP or operating partner. Understanding of the local market and networks are crucial when global managers enter Korea.</p>
             </div>
 
             <div class="partnership-block reveal">
                 <h3 lang="ko">장기적 신뢰 구축</h3>
                 <h3 lang="en">Long-term Trust Building</h3>
-                <p lang="ko">단발적 거래 관계가 아닌 지속적 공동 투자 기회를 모색합니다.</p>
-                <p lang="en">We seek continued co-investment opportunities beyond one-time transactions.</p>
-                <p lang="ko">전략적 파트너로서 함께 성장하고 가치를 창출하는 동반자 관계를 지향합니다.</p>
-                <p lang="en">As a strategic partner, we aim to grow together and create value as true collaborators.</p>
+                <p lang="ko">단발적 거래 관계가 아닌 지속적 공동 투자 기회를 모색합니다. 전략적 파트너로서 함께 성장하고 가치를 창출하는 동반자 관계를 지향합니다.</p>
+                <p lang="en">We seek continued co-investment opportunities beyond one-time transactions. As a strategic partner, we aim to grow together and create value as true collaborators.</p>
             </div>
         </div>
     </div>
@@ -1221,10 +1363,7 @@
 <section id="contact" class="contact">
     <div class="section-container">
         <div class="section-header reveal">
-            <div class="section-label" lang="ko">07 — 연락처</div>
-            <div class="section-label" lang="en">07 — CONTACT</div>
-            
-            <h2 class="section-title" lang="ko">Contact</h2>
+            <h2 class="section-title" lang="ko">연락처</h2>
             <h2 class="section-title" lang="en">Contact</h2>
             
             <p class="section-intro" lang="ko">
@@ -1239,8 +1378,7 @@
             <div class="contact-item">
                 <h4 lang="ko">회사</h4>
                 <h4 lang="en">COMPANY</h4>
-                <p lang="ko">주식회사 실버스타인베스트먼트<br>Silverstar Investment Co., Ltd.</p>
-                <p lang="en">Silverstar Investment Co., Ltd.</p>
+                <p>Silverstar Investment Co., Ltd.</p>
             </div>
 
             <div class="contact-item">
@@ -1264,18 +1402,14 @@
 </footer>
 
 <script>
-    // Language Toggle
     function toggleLanguage() {
         const html = document.documentElement;
         const currentLang = html.getAttribute('lang');
         const newLang = currentLang === 'ko' ? 'en' : 'ko';
         html.setAttribute('lang', newLang);
-        
-        // Store preference
         localStorage.setItem('preferredLang', newLang);
     }
     
-    // Load saved language preference
     window.addEventListener('DOMContentLoaded', () => {
         const savedLang = localStorage.getItem('preferredLang');
         if (savedLang) {
@@ -1283,23 +1417,22 @@
         }
     });
 
-    // Nav scroll effect
+    const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
-        const nav = document.querySelector('nav');
-        if (window.scrollY > 100) {
-            nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
         } else {
-            nav.style.boxShadow = '0 1px 0 rgba(0,0,0,0.05)';
+            nav.classList.remove('scrolled');
         }
     });
 
-    // Reveal on scroll
     const reveals = document.querySelectorAll('.reveal');
-    
     const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('active');
+                setTimeout(() => {
+                    entry.target.classList.add('active');
+                }, index * 100);
             }
         });
     }, {
@@ -1311,13 +1444,12 @@
         revealObserver.observe(reveal);
     });
 
-    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                const offset = 80;
+                const offset = 100;
                 const targetPosition = target.offsetTop - offset;
                 window.scrollTo({
                     top: targetPosition,
