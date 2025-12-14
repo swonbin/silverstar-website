@@ -8,1203 +8,188 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@200;300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-    
     <style>
-        :root {
-            --black: #0a0a0a;
-            --charcoal: #1a1a1a;
-            --graphite: #2d2d2d;
-            --steel: #4a4a4a;
-            --silver: #8a8a8a;
-            --platinum: #c0c0c0;
-            --white: #ffffff;
-            --off-white: #f5f5f3;
-            --cream: #fafaf8;
-            --accent: #b8a164;
-            --accent-light: #d4c18a;
-            --accent-dark: #9a8654;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Outfit', 'Pretendard Variable', 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--charcoal);
-            line-height: 1.7;
-            background: var(--white);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Korean specific font settings */
-        html[lang="ko"] body {
-            font-family: 'Pretendard Variable', 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
-            letter-spacing: 0em;
-            word-spacing: 0.08em;
-        }
-
-        html[lang="ko"] .hero h1 {
-            font-family: 'Noto Serif KR', serif;
-            font-weight: 400;
-            letter-spacing: -0.02em;
-            word-spacing: 0.05em;
-            line-height: 1.25;
-        }
-
-        html[lang="ko"] .hero h1 em {
-            font-family: 'Noto Serif KR', serif;
-            font-style: normal;
-            font-weight: 300;
-        }
-
-        html[lang="ko"] .hero-description {
-            letter-spacing: 0.01em;
-            word-spacing: 0.12em;
-            line-height: 2;
-        }
-
-        html[lang="ko"] .hero-eyebrow {
-            letter-spacing: 0.08em;
-        }
-
-        html[lang="ko"] .section-title {
-            font-family: 'Noto Serif KR', serif;
-            font-weight: 500;
-            letter-spacing: -0.02em;
-        }
-
-        html[lang="ko"] .stat-value,
-        html[lang="ko"] .about-info h3,
-        html[lang="ko"] .strategy-card h3,
-        html[lang="ko"] .focus-card h3,
-        html[lang="ko"] .advantage-title,
-        html[lang="ko"] .leadership-name,
-        html[lang="ko"] .leadership-section h4,
-        html[lang="ko"] .partnership-card h3 {
-            font-family: 'Noto Serif KR', serif;
-            font-weight: 500;
-            letter-spacing: -0.01em;
-        }
-
-        html[lang="ko"] .section-intro,
-        html[lang="ko"] .about-content p,
-        html[lang="ko"] .strategy-card p,
-        html[lang="ko"] .focus-card p,
-        html[lang="ko"] .advantage-content p,
-        html[lang="ko"] .leadership-section p,
-        html[lang="ko"] .partnership-card p {
-            letter-spacing: 0.01em;
-            word-spacing: 0.1em;
-            line-height: 1.95;
-        }
-
-        html[lang="ko"] .hero-eyebrow,
-        html[lang="ko"] .section-eyebrow,
-        html[lang="ko"] .stat-label,
-        html[lang="ko"] .contact-item h4,
-        html[lang="ko"] .leadership-badge {
-            font-family: 'Pretendard Variable', 'Pretendard', sans-serif;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-        }
-
-        html[lang="ko"] .info-label {
-            font-family: 'Pretendard Variable', 'Pretendard', sans-serif;
-            font-weight: 500;
-            text-transform: none;
-            letter-spacing: -0.01em;
-            color: var(--steel);
-        }
-
-        html[lang="ko"] .info-value {
-            font-family: 'Pretendard Variable', 'Pretendard', sans-serif;
-            font-weight: 400;
-        }
-
-        ::selection {
-            background: var(--accent);
-            color: var(--white);
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        nav.transparent {
-            background: transparent;
-        }
-
-        nav.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
-        }
-
-        nav.scrolled .logo,
-        nav.scrolled .nav-menu a {
-            color: var(--charcoal);
-        }
-
-        nav.scrolled .lang-toggle {
-            border-color: var(--charcoal);
-            color: var(--charcoal);
-        }
-
-        .nav-container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 2rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: padding 0.5s ease;
-        }
-
-        nav.scrolled .nav-container {
-            padding: 1.2rem 5%;
-        }
-
-        .logo {
-            font-family: 'DM Serif Display', serif;
-            font-size: 1.5rem;
-            font-weight: 400;
-            letter-spacing: 0.08em;
-            color: var(--white);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 3.5rem;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--white);
-            font-size: 0.82rem;
-            font-weight: 400;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--accent);
-            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-
-        .lang-toggle {
-            padding: 0.6rem 1.4rem;
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            color: var(--white);
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.15em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Outfit', sans-serif;
-            text-transform: uppercase;
-        }
-
-        .lang-toggle:hover {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: var(--white);
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        .mobile-menu-btn span {
-            width: 24px;
-            height: 1.5px;
-            background: var(--white);
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled .mobile-menu-btn span {
-            background: var(--charcoal);
-        }
-
-        /* Hero */
-        .hero {
-            min-height: 100vh;
-            background: var(--black);
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(26, 26, 26, 0.9) 100%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-        }
-
-        .hero-gradient {
-            position: absolute;
-            width: 800px;
-            height: 800px;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.15;
-        }
-
-        .hero-gradient-1 {
-            background: var(--accent);
-            top: -400px;
-            right: -200px;
-            animation: float1 20s ease-in-out infinite;
-        }
-
-        .hero-gradient-2 {
-            background: linear-gradient(135deg, var(--accent-dark), var(--graphite));
-            bottom: -400px;
-            left: -200px;
-            animation: float2 25s ease-in-out infinite;
-        }
-
-        @keyframes float1 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-50px, 50px) scale(1.1); }
-        }
-
-        @keyframes float2 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(50px, -30px) scale(1.05); }
-        }
-
-        .hero-container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 160px 5% 100px;
-            position: relative;
-            z-index: 1;
-            width: 100%;
-        }
-
-        .hero-content {
-            max-width: 900px;
-        }
-
-        .hero-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 1rem;
-            letter-spacing: 0.2em;
-            color: var(--accent);
-            margin-bottom: 3rem;
-            text-transform: uppercase;
-            font-weight: 500;
-            opacity: 0;
-            animation: fadeUp 1s ease forwards 0.2s;
-        }
-
-        .hero-eyebrow::before {
-            content: '';
-            width: 40px;
-            height: 1px;
-            background: var(--accent);
-        }
-
-        .hero h1 {
-            font-family: 'DM Serif Display', serif;
-            font-size: clamp(3rem, 6vw, 5.5rem);
-            font-weight: 400;
-            line-height: 1.1;
-            color: var(--white);
-            margin-bottom: 2.5rem;
-            letter-spacing: -0.02em;
-            opacity: 0;
-            animation: fadeUp 1s ease forwards 0.4s;
-        }
-
-        .hero h1 em {
-            font-style: italic;
-            color: var(--accent-light);
-        }
-
-        .hero-description {
-            font-size: 1.2rem;
-            color: var(--platinum);
-            font-weight: 300;
-            line-height: 1.9;
-            margin-bottom: 3.5rem;
-            max-width: 700px;
-            opacity: 0;
-            animation: fadeUp 1s ease forwards 0.6s;
-        }
-
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.2rem 2.5rem;
-            background: transparent;
-            border: 1px solid var(--accent);
-            color: var(--white);
-            text-decoration: none;
-            font-size: 0.82rem;
-            font-weight: 500;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0;
-            animation: fadeUp 1s ease forwards 0.8s;
-        }
-
-        .hero-cta:hover {
-            background: var(--accent);
-            color: var(--black);
-            transform: translateY(-2px);
-        }
-
-        .hero-cta svg {
-            width: 16px;
-            height: 16px;
-            transition: transform 0.3s ease;
-        }
-
-        .hero-cta:hover svg {
-            transform: translateX(4px);
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Stats Strip */
-        .stats {
-            background: var(--charcoal);
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        .stats-container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 5rem 5%;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 3rem;
-        }
-
-        .stat {
-            text-align: center;
-            position: relative;
-        }
-
-        .stat::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 1px;
-            height: 50%;
-            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), transparent);
-        }
-
-        .stat:last-child::after {
-            display: none;
-        }
-
-        .stat-value {
-            font-family: 'DM Serif Display', serif;
-            font-size: 3.5rem;
-            font-weight: 400;
-            color: var(--white);
-            margin-bottom: 0.8rem;
-            letter-spacing: -0.02em;
-        }
-
-        .stat-plus {
-            font-size: 0.85rem;
-            vertical-align: super;
-            margin-left: 0.02em;
-            font-weight: 300;
-        }
-
-        .stat-label {
-            font-size: 0.95rem;
-            color: var(--silver);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            font-weight: 400;
-        }
-
-        /* Section Base */
-        section {
-            padding: 10rem 5%;
-            position: relative;
-        }
-
-        .section-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            margin-bottom: 6rem;
-        }
-
-        .section-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 1.05rem;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-
-        .section-eyebrow::before {
-            content: '';
-            width: 30px;
-            height: 1px;
-            background: var(--accent);
-        }
-
-        .section-title {
-            font-family: 'DM Serif Display', serif;
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-            color: var(--charcoal);
-        }
-
-        .section-intro {
-            font-size: 1.15rem;
-            color: var(--steel);
-            line-height: 1.9;
-            font-weight: 300;
-            max-width: 700px;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--cream);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 5rem;
-            align-items: start;
-        }
-
-        .about-content p {
-            font-size: 1.1rem;
-            color: var(--steel);
-            line-height: 1.9;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .about-info {
-            background: var(--white);
-            padding: 3.5rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.04);
-        }
-
-        .about-info h3 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 2.5rem;
-            color: var(--charcoal);
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--off-white);
-        }
-
-        .info-item {
-            display: grid;
-            grid-template-columns: 100px 1fr;
-            gap: 2.5rem;
-            padding: 1.2rem 0;
-            border-bottom: 1px solid var(--off-white);
-            align-items: baseline;
-        }
-
-        html[lang="ko"] .info-item {
-            grid-template-columns: 80px 1fr;
-        }
-
-        .info-item:last-child {
-            border-bottom: none;
-        }
-
-        .info-label {
-            font-size: 0.95rem;
-            color: var(--silver);
-            font-weight: 500;
-        }
-
-        .info-value {
-            font-size: 0.95rem;
-            color: var(--charcoal);
-            font-weight: 400;
-        }
-
-        /* Strategy Section */
-        .strategy {
-            background: var(--white);
-        }
-
-        .strategy-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .strategy-card {
-            background: var(--cream);
-            padding: 3.5rem;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .strategy-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 3px;
-            height: 0;
-            background: var(--accent);
-            transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .strategy-card:hover::before {
-            height: 100%;
-        }
-
-        .strategy-card:hover {
-            background: var(--white);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
-            transform: translateY(-8px);
-        }
-
-        .strategy-number {
-            font-family: 'DM Serif Display', serif;
-            font-size: 3.5rem;
-            color: var(--platinum);
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-            transition: color 0.5s ease;
-        }
-
-        .strategy-card:hover .strategy-number {
-            color: var(--accent);
-        }
-
-        .strategy-card h3 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 1.8rem;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-            color: var(--charcoal);
-        }
-
-        .strategy-card p {
-            font-size: 1.1rem;
-            color: var(--steel);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
-
-        .strategy-list {
-            list-style: none;
-            margin-top: 1.5rem;
-        }
-
-        .strategy-list li {
-            padding: 0.9rem 0 0.9rem 1.5rem;
-            position: relative;
-            color: var(--steel);
-            font-size: 1.05rem;
-            line-height: 1.7;
-            font-weight: 400;
-        }
-
-        .strategy-list li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 1.3rem;
-            width: 6px;
-            height: 1px;
-            background: var(--accent);
-        }
-
-        /* Focus Section */
-        .focus {
-            background: var(--black);
-            color: var(--white);
-        }
-
-        .focus .section-title {
-            color: var(--white);
-        }
-
-        .focus .section-intro {
-            color: var(--platinum);
-        }
-
-        .focus-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .focus-card {
-            background: var(--charcoal);
-            padding: 3.5rem;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            border: 1px solid transparent;
-        }
-
-        .focus-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .focus-card:hover {
-            border-color: rgba(184, 161, 100, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .focus-card:hover::after {
-            width: 100%;
-        }
-
-        .focus-icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 2rem;
-            color: var(--accent);
-        }
-
-        .focus-card h3 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-            line-height: 1.3;
-        }
-
-        .focus-card p {
-            font-size: 0.98rem;
-            color: var(--platinum);
-            line-height: 1.8;
-            font-weight: 300;
-        }
-
-        /* Advantages Section */
-        .advantages {
-            background: var(--cream);
-        }
-
-        .advantage-items {
-            display: flex;
-            flex-direction: column;
-            gap: 4rem;
-        }
-
-        .advantage-item {
-            display: grid;
-            grid-template-columns: 400px 1fr;
-            gap: 5rem;
-            padding: 3rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-        }
-
-        .advantage-item:last-child {
-            border-bottom: none;
-        }
-
-        .advantage-title {
-            font-family: 'DM Serif Display', serif;
-            font-size: 2.4rem;
-            font-weight: 400;
-            color: var(--charcoal);
-            position: sticky;
-            top: 140px;
-            line-height: 1.3;
-        }
-
-        .advantage-title span {
-            display: block;
-            font-size: 0.85rem;
-            font-family: 'Outfit', sans-serif;
-            color: var(--accent);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .advantage-content p {
-            font-size: 1.1rem;
-            color: var(--steel);
-            line-height: 1.9;
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
-
-        /* Leadership Section */
-        .leadership {
-            background: var(--white);
-        }
-
-        .leadership-card {
-            background: var(--cream);
-            padding: 5rem;
-            max-width: 1000px;
-        }
-
-        .leadership-header {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 3rem;
-            margin-bottom: 4rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            align-items: end;
-        }
-
-        .leadership-name {
-            font-family: 'DM Serif Display', serif;
-            font-size: 3rem;
-            font-weight: 400;
-            color: var(--charcoal);
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .leadership-role {
-            font-size: 1.1rem;
-            color: var(--steel);
-            font-weight: 300;
-        }
-
-        .leadership-badge {
-            background: var(--charcoal);
-            color: var(--white);
-            padding: 1rem 2rem;
-            font-size: 0.72rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-
-        .leadership-details {
-            display: grid;
-            gap: 3rem;
-        }
-
-        .leadership-section h4 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 1.4rem;
-            font-weight: 400;
-            margin-bottom: 1.2rem;
-            color: var(--charcoal);
-        }
-
-        .leadership-section p {
-            font-size: 1.02rem;
-            color: var(--steel);
-            line-height: 1.9;
-            font-weight: 300;
-        }
-
-        .leadership-list {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .leadership-list li {
-            padding: 1rem 0 1rem 2rem;
-            position: relative;
-            color: var(--steel);
-            font-size: 0.98rem;
-            line-height: 1.7;
-            font-weight: 300;
-            border-left: 1px solid var(--off-white);
-            transition: all 0.3s ease;
-        }
-
-        .leadership-list li:hover {
-            border-left-color: var(--accent);
-            padding-left: 2.5rem;
-        }
-
-        /* Partnership Section */
-        .partnership {
-            background: var(--charcoal);
-            color: var(--white);
-        }
-
-        .partnership .section-title {
-            color: var(--white);
-        }
-
-        .partnership .section-intro {
-            color: var(--platinum);
-        }
-
-        .partnership-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .partnership-card {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 3rem;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: all 0.5s ease;
-        }
-
-        .partnership-card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(184, 161, 100, 0.3);
-            transform: translateY(-5px);
-        }
-
-        .partnership-card h3 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 1.4rem;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-        }
-
-        .partnership-card p {
-            font-size: 0.95rem;
-            color: var(--platinum);
-            line-height: 1.8;
-            font-weight: 300;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--black);
-            color: var(--white);
-        }
-
-        .contact .section-title {
-            color: var(--white);
-        }
-
-        .contact .section-intro {
-            color: var(--platinum);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 4rem;
-            margin-top: 4rem;
-        }
-
-        .contact-item {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .contact-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 1px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--accent), transparent);
-        }
-
-        .contact-item h4 {
-            font-size: 0.72rem;
-            letter-spacing: 0.2em;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-
-        .contact-item p {
-            font-size: 1rem;
-            color: var(--platinum);
-            line-height: 1.9;
-            font-weight: 300;
-        }
-
-        .contact-item a {
-            color: var(--platinum);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: var(--accent);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--black);
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 3rem 5%;
-        }
-
-        .footer-container {
-            max-width: 1600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        footer p {
-            font-size: 0.8rem;
-            color: var(--silver);
-            font-weight: 300;
-            line-height: 1.8;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        /* Language Toggle */
-        [lang="ko"],
-        [lang="en"] {
-            display: block;
-        }
-        
-        html[lang="ko"] [lang="en"] {
-            display: none !important;
-        }
-
-        html[lang="en"] [lang="ko"] {
-            display: none !important;
-        }
-        
-        span[lang="ko"],
-        span[lang="en"],
-        a[lang="ko"],
-        a[lang="en"] {
-            display: inline;
-        }
-        
-        html[lang="ko"] span[lang="en"],
-        html[lang="ko"] a[lang="en"] {
-            display: none !important;
-        }
-        
-        html[lang="en"] span[lang="ko"],
-        html[lang="en"] a[lang="ko"] {
-            display: none !important;
-        }
-
-        /* Scroll Reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .advantage-item {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .advantage-title {
-                position: static;
-            }
-
-            .partnership-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-
-            .stat::after {
-                display: none;
-            }
-
-            .strategy-grid,
-            .focus-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .leadership-header {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .leadership-badge {
-                justify-self: start;
-            }
-        }
-
-        @media (max-width: 768px) {
-            section {
-                padding: 6rem 5%;
-            }
-
-            .nav-menu {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-description {
-                font-size: 1.05rem;
-            }
-
-            .stats-container {
-                grid-template-columns: 1fr;
-            }
-
-            .stat-value {
-                font-size: 2.5rem;
-            }
-
-            .strategy-card,
-            .focus-card,
-            .partnership-card {
-                padding: 2.5rem;
-            }
-
-            .leadership-card {
-                padding: 2.5rem;
-            }
-
-            .leadership-name {
-                font-size: 2rem;
-            }
-
-            .footer-container {
-                flex-direction: column;
-                gap: 1.5rem;
-                text-align: center;
-            }
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--charcoal);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--steel);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent);
-        }
+:root{--black:#0a0a0a;--charcoal:#141414;--graphite:#1e1e1e;--steel:#4a4a4a;--silver:#8a8a8a;--platinum:#b0b0b0;--white:#fff;--off-white:#f7f7f5;--cream:#f0ede6;--accent:#c9a962;--accent-light:#e0c989;--accent-dark:#a68b4b}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit','Pretendard Variable','Noto Sans KR',sans-serif;color:var(--charcoal);line-height:1.7;background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+html[lang="ko"] body{font-family:'Pretendard Variable','Noto Sans KR',sans-serif;word-spacing:.08em}
+html[lang="ko"] .hero h1,html[lang="ko"] .section-title,html[lang="ko"] .stat-value,html[lang="ko"] .strategy-card h3,html[lang="ko"] .focus-card h3,html[lang="ko"] .advantage-title,html[lang="ko"] .leadership-name,html[lang="ko"] .partnership-card h3{font-family:'Noto Serif KR',serif;font-weight:500}
+html[lang="ko"] .hero h1 em{font-family:'Noto Serif KR',serif;font-style:normal;font-weight:300}
+html[lang="ko"] .hero-description,html[lang="ko"] .section-intro,html[lang="ko"] .about-content p,html[lang="ko"] .strategy-card p,html[lang="ko"] .advantage-content p{word-spacing:.1em;line-height:1.95}
+::selection{background:var(--accent);color:var(--white)}
+.grain{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+nav{position:fixed;top:0;width:100%;z-index:1000;transition:all .5s cubic-bezier(.4,0,.2,1)}
+nav.transparent{background:transparent}
+nav.scrolled{background:rgba(10,10,10,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.05)}
+.nav-container{max-width:1600px;margin:0 auto;padding:1.8rem 5%;display:flex;justify-content:space-between;align-items:center;transition:padding .5s ease}
+nav.scrolled .nav-container{padding:1.2rem 5%}
+.logo{font-family:'DM Serif Display',serif;font-size:1.4rem;letter-spacing:.15em;color:var(--white);text-decoration:none;position:relative}
+.logo::after{content:'';position:absolute;bottom:-4px;left:0;width:24px;height:2px;background:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:4rem}
+.nav-menu{display:flex;list-style:none;gap:3rem}
+.nav-menu a{text-decoration:none;color:rgba(255,255,255,.7);font-size:.82rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;transition:all .3s ease;position:relative;padding:.5rem 0}
+.nav-menu a:hover{color:var(--white)}
+.nav-menu a::before{content:'';position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:4px;height:4px;background:var(--accent);border-radius:50%;opacity:0;transition:all .3s ease}
+.nav-menu a:hover::before{opacity:1}
+.lang-toggle{padding:.6rem 1.4rem;background:transparent;border:1px solid rgba(255,255,255,.2);color:var(--white);font-size:.72rem;font-weight:500;letter-spacing:.15em;cursor:pointer;transition:all .3s ease;font-family:'Outfit',sans-serif;text-transform:uppercase}
+.lang-toggle:hover{background:var(--accent);border-color:var(--accent);color:var(--black)}
+.mobile-menu-btn{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:10px}
+.mobile-menu-btn span{width:24px;height:1.5px;background:var(--white)}
+.hero{min-height:100vh;background:var(--black);display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse 80% 50% at 20% 40%,rgba(201,169,98,.08) 0%,transparent 50%),radial-gradient(ellipse 60% 40% at 80% 60%,rgba(201,169,98,.05) 0%,transparent 50%),linear-gradient(180deg,var(--black) 0%,var(--charcoal) 100%)}
+.hero-lines{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;opacity:.4}
+.hero-line{position:absolute;width:1px;height:100%;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.03) 50%,transparent)}
+.hero-line:nth-child(1){left:20%}.hero-line:nth-child(2){left:40%}.hero-line:nth-child(3){left:60%}.hero-line:nth-child(4){left:80%}
+.hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(100px);opacity:.12;background:var(--accent);top:20%;right:10%;animation:heroGlow 8s ease-in-out infinite alternate}
+@keyframes heroGlow{0%{transform:translate(0,0) scale(1);opacity:.12}100%{transform:translate(-30px,30px) scale(1.1);opacity:.18}}
+.hero-container{max-width:1600px;margin:0 auto;padding:160px 5% 100px;position:relative;z-index:1;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-content{max-width:700px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:1rem;font-size:1rem;letter-spacing:.2em;color:var(--accent);margin-bottom:2.5rem;text-transform:uppercase;font-weight:500;opacity:0;animation:fadeUp 1s ease forwards .2s}
+.hero-eyebrow::before{content:'';width:50px;height:1px;background:linear-gradient(90deg,var(--accent),transparent)}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.8rem,5vw,4.5rem);font-weight:400;line-height:1.15;color:var(--white);margin-bottom:2rem;letter-spacing:-.02em;opacity:0;animation:fadeUp 1s ease forwards .4s}
+.hero h1 em{font-style:italic;background:linear-gradient(135deg,var(--accent-light),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-description{font-size:1.15rem;color:rgba(255,255,255,.65);font-weight:300;line-height:1.9;margin-bottom:3rem;opacity:0;animation:fadeUp 1s ease forwards .6s}
+.hero-cta{display:inline-flex;align-items:center;gap:1rem;padding:1.1rem 2.2rem;background:transparent;border:1px solid var(--accent);color:var(--accent);text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;transition:all .4s cubic-bezier(.4,0,.2,1);opacity:0;animation:fadeUp 1s ease forwards .8s;position:relative;overflow:hidden}
+.hero-cta::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--accent);transition:left .4s ease;z-index:-1}
+.hero-cta:hover{color:var(--black)}.hero-cta:hover::before{left:0}
+.hero-cta svg{width:16px;height:16px;transition:transform .3s ease}.hero-cta:hover svg{transform:translateX(4px)}
+.hero-visual{position:relative;height:500px;opacity:0;animation:fadeUp 1s ease forwards 1s}
+.hero-visual-card{position:absolute;background:rgba(255,255,255,.03);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.08);border-radius:2px;padding:2rem;transition:all .5s ease}
+.hero-visual-card:hover{border-color:rgba(201,169,98,.3);transform:translateY(-5px)}
+.hero-visual-card.card-1{top:10%;right:20%;width:280px}.hero-visual-card.card-2{top:40%;right:5%;width:240px}.hero-visual-card.card-3{bottom:10%;right:25%;width:260px}
+.hero-card-label{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem}
+.hero-card-value{font-family:'DM Serif Display',serif;font-size:2.2rem;color:var(--white);margin-bottom:.5rem}
+.hero-card-desc{font-size:.85rem;color:rgba(255,255,255,.5)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+.stats{background:var(--charcoal);position:relative;overflow:hidden}
+.stats::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.5}
+.stats-container{max-width:1600px;margin:0 auto;padding:5rem 5%;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.stat{text-align:center;position:relative;padding:2rem;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);transition:all .4s ease}
+.stat:hover{background:rgba(255,255,255,.04);border-color:rgba(201,169,98,.2);transform:translateY(-5px)}
+.stat-value{font-family:'DM Serif Display',serif;font-size:3.2rem;font-weight:400;color:var(--white);margin-bottom:.8rem;letter-spacing:-.02em}
+.stat-plus{font-size:.85rem;vertical-align:super;margin-left:.02em;font-weight:300}
+.stat-label{font-size:.95rem;color:var(--platinum);text-transform:uppercase;letter-spacing:.1em;font-weight:400}
+section{padding:10rem 5%;position:relative}
+.section-container{max-width:1400px;margin:0 auto}
+.section-header{margin-bottom:5rem;position:relative}
+.section-eyebrow{display:inline-flex;align-items:center;gap:1rem;font-size:1.05rem;letter-spacing:.1em;color:var(--accent);margin-bottom:1.5rem;text-transform:uppercase;font-weight:500}
+.section-eyebrow::before{content:'';width:40px;height:1px;background:var(--accent)}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:400;margin-bottom:1.5rem;letter-spacing:-.02em;line-height:1.2;color:var(--charcoal)}
+.section-intro{font-size:1.1rem;color:var(--steel);line-height:1.9;font-weight:400;max-width:700px}
+.about{background:var(--off-white);position:relative}
+.about::before{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:linear-gradient(135deg,transparent 50%,rgba(201,169,98,.03) 100%)}
+.about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:5rem;align-items:start}
+.about-content p{font-size:1.1rem;color:var(--steel);line-height:1.9;margin-bottom:2rem;font-weight:400}
+.about-content p:first-of-type::first-letter{font-family:'DM Serif Display',serif;font-size:4rem;float:left;line-height:1;margin-right:1rem;margin-top:.5rem;color:var(--accent)}
+.about-info{background:var(--white);padding:3rem;box-shadow:0 30px 80px rgba(0,0,0,.06);position:relative}
+.about-info::before{content:'';position:absolute;top:-3px;left:0;width:80px;height:3px;background:var(--accent)}
+.about-info h3{font-family:'DM Serif Display',serif;font-size:1.4rem;font-weight:400;margin-bottom:2rem;color:var(--charcoal);padding-bottom:1.5rem;border-bottom:1px solid var(--off-white)}
+.info-item{display:grid;grid-template-columns:80px 1fr;gap:2rem;padding:1rem 0;border-bottom:1px solid var(--off-white);align-items:baseline}
+html[lang="ko"] .info-item{grid-template-columns:70px 1fr}
+.info-item:last-child{border-bottom:none}
+.info-label{font-size:.95rem;color:var(--silver);font-weight:500}
+.info-value{font-size:.95rem;color:var(--charcoal);font-weight:400}
+.strategy{background:var(--white);position:relative;overflow:hidden}
+.strategy::before{content:'';position:absolute;top:50%;left:-10%;width:500px;height:500px;border:1px solid rgba(201,169,98,.1);border-radius:50%;transform:translateY(-50%)}
+.strategy-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+.strategy-card{background:var(--off-white);padding:3rem;transition:all .5s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
+.strategy-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(201,169,98,.05) 0%,transparent 50%);opacity:0;transition:opacity .5s ease}
+.strategy-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-light));transition:width .5s ease}
+.strategy-card:hover::before{opacity:1}
+.strategy-card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.1)}
+.strategy-card:hover::after{width:100%}
+.strategy-number{font-family:'DM Serif Display',serif;font-size:4rem;color:var(--platinum);font-weight:400;margin-bottom:1rem;line-height:1;transition:color .5s ease;position:relative;z-index:1}
+.strategy-card:hover .strategy-number{color:var(--accent)}
+.strategy-card h3{font-family:'DM Serif Display',serif;font-size:1.8rem;font-weight:400;margin-bottom:1.5rem;color:var(--charcoal);position:relative;z-index:1}
+.strategy-card p{font-size:1.1rem;color:var(--steel);line-height:1.8;margin-bottom:1.5rem;font-weight:400;position:relative;z-index:1}
+.strategy-list{list-style:none;margin-top:1.5rem;position:relative;z-index:1}
+.strategy-list li{padding:.9rem 0 .9rem 1.5rem;position:relative;color:var(--steel);font-size:1.05rem;line-height:1.7;font-weight:400}
+.strategy-list li::before{content:'';position:absolute;left:0;top:1.4rem;width:8px;height:1px;background:var(--accent)}
+.focus{background:var(--black);color:var(--white);position:relative;overflow:hidden}
+.focus::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse 50% 50% at 100% 0%,rgba(201,169,98,.08) 0%,transparent 50%),radial-gradient(ellipse 50% 50% at 0% 100%,rgba(201,169,98,.05) 0%,transparent 50%)}
+.focus .section-title{color:var(--white)}
+.focus .section-intro{color:var(--platinum)}
+.focus-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;position:relative;z-index:1}
+.focus-card{background:rgba(255,255,255,.02);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.06);padding:3rem;transition:all .5s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
+.focus-card::before{content:'';position:absolute;top:0;left:0;width:60px;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .5s ease}
+.focus-card:hover::before{transform:scaleX(1)}
+.focus-card:hover{background:rgba(255,255,255,.05);border-color:rgba(201,169,98,.3);transform:translateY(-5px)}
+.focus-icon{width:48px;height:48px;margin-bottom:2rem;color:var(--accent)}
+.focus-card h3{font-family:'DM Serif Display',serif;font-size:1.5rem;font-weight:400;margin-bottom:1.5rem;color:var(--white);line-height:1.3}
+.focus-card p{font-size:1rem;color:var(--platinum);line-height:1.8;font-weight:400}
+.advantages{background:linear-gradient(180deg,var(--off-white) 0%,var(--white) 100%);position:relative}
+.advantages::before{content:'';position:absolute;top:50%;right:5%;width:400px;height:400px;border:1px solid rgba(201,169,98,.15);border-radius:50%;transform:translateY(-50%)}
+.advantage-items{display:flex;flex-direction:column;gap:0}
+.advantage-item{display:grid;grid-template-columns:380px 1fr;gap:5rem;padding:4rem 0;border-bottom:1px solid rgba(0,0,0,.08);position:relative}
+.advantage-item::before{content:'';position:absolute;bottom:-1px;left:0;width:0;height:1px;background:var(--accent);transition:width .5s ease}
+.advantage-item:hover::before{width:100%}
+.advantage-item:last-child{border-bottom:none}
+.advantage-title{font-family:'DM Serif Display',serif;font-size:2.4rem;font-weight:400;color:var(--charcoal);position:sticky;top:140px;line-height:1.3}
+.advantage-title span{display:block;font-size:.85rem;font-family:'Outfit',sans-serif;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem;font-weight:500}
+.advantage-content p{font-size:1.1rem;color:var(--steel);line-height:1.9;margin-bottom:1.5rem;font-weight:400}
+.leadership{background:var(--white);position:relative}
+.leadership-card{background:linear-gradient(135deg,var(--off-white) 0%,var(--cream) 100%);padding:4rem;max-width:1100px;position:relative;overflow:hidden}
+.leadership-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--accent),var(--accent-light),var(--accent))}
+.leadership-card::after{content:'';position:absolute;bottom:-200px;right:-200px;width:400px;height:400px;border:1px solid rgba(201,169,98,.1);border-radius:50%}
+.leadership-header{display:grid;grid-template-columns:1fr auto;gap:3rem;margin-bottom:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(0,0,0,.08);align-items:end;position:relative;z-index:1}
+.leadership-name{font-family:'DM Serif Display',serif;font-size:2.8rem;font-weight:400;color:var(--charcoal);margin-bottom:.5rem;letter-spacing:-.02em}
+.leadership-role{font-size:1.1rem;color:var(--steel);font-weight:400}
+.leadership-badge{background:var(--charcoal);color:var(--white);padding:.8rem 1.5rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500}
+.leadership-details{display:grid;gap:2.5rem;position:relative;z-index:1}
+.leadership-section{padding:2rem;background:rgba(255,255,255,.5);border-left:3px solid var(--accent)}
+.leadership-section h4{font-family:'DM Serif Display',serif;font-size:1.3rem;font-weight:400;margin-bottom:1rem;color:var(--charcoal)}
+.leadership-section p{font-size:1rem;color:var(--steel);line-height:1.9;font-weight:400}
+.leadership-list{list-style:none;margin-top:1rem}
+.leadership-list li{padding:.8rem 0 .8rem 1.5rem;position:relative;color:var(--steel);font-size:.95rem;line-height:1.7;font-weight:400;border-left:1px solid rgba(201,169,98,.3);margin-left:.5rem;transition:all .3s ease}
+.leadership-list li:hover{border-left-color:var(--accent);padding-left:2rem;background:rgba(201,169,98,.03)}
+.partnership{background:var(--charcoal);color:var(--white);position:relative;overflow:hidden}
+.partnership::before{content:'';position:absolute;top:-50%;left:-20%;width:800px;height:800px;border:1px solid rgba(255,255,255,.03);border-radius:50%}
+.partnership .section-title{color:var(--white)}
+.partnership .section-intro{color:var(--platinum)}
+.partnership-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;position:relative;z-index:1}
+.partnership-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);padding:2.5rem;transition:all .5s ease;position:relative;overflow:hidden}
+.partnership-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(201,169,98,.1) 0%,transparent 50%);opacity:0;transition:opacity .5s ease}
+.partnership-card:hover::before{opacity:1}
+.partnership-card:hover{border-color:rgba(201,169,98,.4);transform:translateY(-8px)}
+.partnership-card h3{font-family:'DM Serif Display',serif;font-size:1.4rem;font-weight:400;margin-bottom:1.5rem;color:var(--white);position:relative;z-index:1}
+.partnership-card p{font-size:.95rem;color:var(--platinum);line-height:1.8;font-weight:400;position:relative;z-index:1}
+.contact{background:var(--black);color:var(--white);position:relative;overflow:hidden}
+.contact::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:50%;background:linear-gradient(180deg,transparent,rgba(201,169,98,.03))}
+.contact .section-title{color:var(--white)}
+.contact .section-intro{color:var(--platinum)}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4rem;margin-top:4rem;position:relative;z-index:1}
+.contact-item{position:relative;padding:2rem;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);transition:all .4s ease}
+.contact-item:hover{border-color:rgba(201,169,98,.3)}
+.contact-item::before{content:'';position:absolute;top:0;left:0;width:40px;height:3px;background:var(--accent)}
+.contact-item h4{font-size:.75rem;letter-spacing:.15em;color:var(--accent);margin-bottom:1.5rem;text-transform:uppercase;font-weight:500}
+.contact-item p{font-size:1rem;color:var(--platinum);line-height:1.9;font-weight:400}
+.contact-item a{color:var(--platinum);text-decoration:none;transition:color .3s ease;position:relative}
+.contact-item a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--accent);transition:width .3s ease}
+.contact-item a:hover{color:var(--accent)}
+.contact-item a:hover::after{width:100%}
+footer{background:var(--black);border-top:1px solid rgba(255,255,255,.05);padding:3rem 5%}
+.footer-container{max-width:1600px;margin:0 auto;text-align:center}
+footer p{font-size:.8rem;color:var(--silver);font-weight:300;line-height:1.8;max-width:900px;margin:0 auto}
+[lang="ko"],[lang="en"]{display:block}
+html[lang="ko"] [lang="en"]{display:none !important}
+html[lang="en"] [lang="ko"]{display:none !important}
+span[lang="ko"],span[lang="en"],a[lang="ko"],a[lang="en"]{display:inline}
+html[lang="ko"] span[lang="en"],html[lang="ko"] a[lang="en"]{display:none !important}
+html[lang="en"] span[lang="ko"],html[lang="en"] a[lang="ko"]{display:none !important}
+.reveal{opacity:0;transform:translateY(50px);transition:all 1s cubic-bezier(.4,0,.2,1)}
+.reveal.active{opacity:1;transform:translateY(0)}
+@media(max-width:1200px){.hero-container{grid-template-columns:1fr}.hero-visual{display:none}.about-grid{grid-template-columns:1fr;gap:3rem}.advantage-item{grid-template-columns:1fr;gap:2rem}.advantage-title{position:static}.partnership-grid{grid-template-columns:1fr}}
+@media(max-width:992px){.stats-container{grid-template-columns:repeat(2,1fr)}.strategy-grid,.focus-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr;gap:2rem}.leadership-header{grid-template-columns:1fr;gap:1.5rem}.leadership-badge{justify-self:start}}
+@media(max-width:768px){section{padding:6rem 5%}.nav-menu{display:none}.mobile-menu-btn{display:flex}.hero h1{font-size:2.2rem}.stats-container{grid-template-columns:1fr}.stat-value{font-size:2.5rem}.strategy-card,.focus-card,.partnership-card,.leadership-card{padding:2rem}.leadership-name{font-size:2rem}}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--charcoal)}
+::-webkit-scrollbar-thumb{background:var(--steel);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent)}
     </style>
 </head>
 <body>
+<div class="grain"></div>
 
 <nav id="nav" class="transparent">
     <div class="nav-container">
@@ -1219,305 +204,152 @@
                 <li><a href="#partnership"><span lang="en">Partnership</span><span lang="ko">파트너십</span></a></li>
                 <li><a href="#contact"><span lang="en">Contact</span><span lang="ko">연락처</span></a></li>
             </ul>
-            <button class="lang-toggle" onclick="toggleLanguage()">
-                <span lang="en">KR</span>
-                <span lang="ko">EN</span>
-            </button>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <button class="lang-toggle" onclick="toggleLanguage()"><span lang="en">KR</span><span lang="ko">EN</span></button>
+            <button class="mobile-menu-btn"><span></span><span></span><span></span></button>
         </div>
     </div>
 </nav>
 
-<!-- Hero Section -->
 <section class="hero">
     <div class="hero-bg"></div>
-    <div class="hero-gradient hero-gradient-1"></div>
-    <div class="hero-gradient hero-gradient-2"></div>
-    
+    <div class="hero-lines"><div class="hero-line"></div><div class="hero-line"></div><div class="hero-line"></div><div class="hero-line"></div></div>
+    <div class="hero-glow"></div>
     <div class="hero-container">
         <div class="hero-content">
-            <div class="hero-eyebrow">
-                <span lang="en">Institutional Alternative Investment</span>
-                <span lang="ko">기관전용 대체투자</span>
-            </div>
-            
+            <div class="hero-eyebrow"><span lang="en">Institutional Alternative Investment</span><span lang="ko">기관전용 대체투자</span></div>
             <h1 lang="en">Building <em>Enduring</em><br>Infrastructure Platforms</h1>
             <h1 lang="ko"><em>지속가능한</em> 인프라<br>플랫폼을 구축합니다</h1>
-            
-            <p class="hero-description" lang="en">
-                Silverstar Investment is an institutional alternative investment manager 
-                creating long-term value through operating platforms in infrastructure 
-                and real asset sectors.
-            </p>
-            <p class="hero-description" lang="ko">
-                실버스타인베스트먼트는 인프라 및 실물자산 섹터에서 운영형 플랫폼을 구축하고
-                장기적 가치를 창출하는 기관전용 사모펀드 GP입니다.
-            </p>
-            
-            <a href="#about" class="hero-cta">
-                <span lang="en">Discover More</span>
-                <span lang="ko">더 알아보기</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
+            <p class="hero-description" lang="en">Silverstar Investment is an institutional alternative investment manager creating long-term value through operating platforms in infrastructure and real asset sectors.</p>
+            <p class="hero-description" lang="ko">실버스타인베스트먼트는 인프라 및 실물자산 섹터에서 운영형 플랫폼을 구축하고 장기적 가치를 창출하는 기관전용 사모펀드 GP입니다.</p>
+            <a href="#about" class="hero-cta"><span lang="en">Discover More</span><span lang="ko">더 알아보기</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-visual-card card-1"><div class="hero-card-label" lang="en">Founded</div><div class="hero-card-label" lang="ko">설립</div><div class="hero-card-value">2025</div><div class="hero-card-desc" lang="en">Institutional-only Private Fund GP</div><div class="hero-card-desc" lang="ko">기관전용 사모펀드 GP</div></div>
+            <div class="hero-visual-card card-2"><div class="hero-card-label" lang="en">Experience</div><div class="hero-card-label" lang="ko">경력</div><div class="hero-card-value">20<span class="stat-plus">+</span></div><div class="hero-card-desc" lang="en">Years in Alternative Investments</div><div class="hero-card-desc" lang="ko">대체투자 경력</div></div>
+            <div class="hero-visual-card card-3"><div class="hero-card-label" lang="en">Focus Areas</div><div class="hero-card-label" lang="ko">핵심 분야</div><div class="hero-card-value">4</div><div class="hero-card-desc" lang="en">Core Investment Sectors</div><div class="hero-card-desc" lang="ko">핵심 투자 섹터</div></div>
         </div>
     </div>
 </section>
 
-<!-- Stats Section -->
 <div class="stats">
     <div class="stats-container">
-        <div class="stat">
-            <div class="stat-value">2025</div>
-            <div class="stat-label" lang="en">Founded</div>
-            <div class="stat-label" lang="ko">설립</div>
-        </div>
-        <div class="stat">
-            <div class="stat-value">4</div>
-            <div class="stat-label" lang="en">Core Sectors</div>
-            <div class="stat-label" lang="ko">핵심 투자 분야</div>
-        </div>
-        <div class="stat">
-            <div class="stat-value">20<span class="stat-plus">+</span></div>
-            <div class="stat-label" lang="en">Founder's Years of Experience</div>
-            <div class="stat-label" lang="ko">창립자 경력 (년)</div>
-        </div>
-        <div class="stat">
-            <div class="stat-value">Global</div>
-            <div class="stat-label" lang="en">Standards</div>
-            <div class="stat-label" lang="ko">투자 기준</div>
-        </div>
+        <div class="stat"><div class="stat-value">2025</div><div class="stat-label" lang="en">Founded</div><div class="stat-label" lang="ko">설립</div></div>
+        <div class="stat"><div class="stat-value">4</div><div class="stat-label" lang="en">Core Sectors</div><div class="stat-label" lang="ko">핵심 투자 분야</div></div>
+        <div class="stat"><div class="stat-value">20<span class="stat-plus">+</span></div><div class="stat-label" lang="en">Founder's Years of Experience</div><div class="stat-label" lang="ko">창립자 경력 (년)</div></div>
+        <div class="stat"><div class="stat-value">Global</div><div class="stat-label" lang="en">Standards</div><div class="stat-label" lang="ko">투자 기준</div></div>
     </div>
 </div>
 
-<!-- About Section -->
 <section id="about" class="about">
     <div class="section-container">
         <div class="section-header reveal">
-            <div class="section-eyebrow">
-                <span lang="en">About Us</span>
-                <span lang="ko">회사 소개</span>
-            </div>
+            <div class="section-eyebrow"><span lang="en">About Us</span><span lang="ko">회사 소개</span></div>
             <h2 class="section-title" lang="en">Creating Structural Value<br>Through Platform Building</h2>
             <h2 class="section-title" lang="ko">플랫폼 구축을 통한<br>구조적 가치 창출</h2>
         </div>
-
         <div class="about-grid">
             <div class="about-content reveal">
-                <p lang="en">
-                    Silverstar Investment builds a real-asset-focused alternative investment platform in the Korean market. 
-                    We create structural value by combining global operational experience with local execution capabilities.
-                </p>
-                <p lang="ko">
-                    실버스타인베스트먼트는 한국 시장에서 실물자산 중심의 대체투자 플랫폼을 구축합니다. 
-                    글로벌 운용 경험과 현지 실행 역량을 결합하여 구조적 가치를 만듭니다.
-                </p>
-                
-                <p lang="en">
-                    We build operating platforms across major real-asset infrastructure sectors. We nurture core enterprises 
-                    with long-term competitiveness and serve as a local partner connecting international capital with 
-                    domestic opportunities.
-                </p>
-                <p lang="ko">
-                    사회 주요 실물자산 인프라 섹터별 운영 플랫폼을 구축합니다. 각 산업에서 장기 경쟁력을 갖춘 핵심 기업을 
-                    육성하며, 국제 자본과 국내 기회를 연결하는 현지 파트너 역할을 수행합니다.
-                </p>
+                <p lang="en">Silverstar Investment builds a real-asset-focused alternative investment platform in the Korean market. We create structural value by combining global operational experience with local execution capabilities.</p>
+                <p lang="ko">실버스타인베스트먼트는 한국 시장에서 실물자산 중심의 대체투자 플랫폼을 구축합니다. 글로벌 운용 경험과 현지 실행 역량을 결합하여 구조적 가치를 만듭니다.</p>
+                <p lang="en">We build operating platforms across major real-asset infrastructure sectors. We nurture core enterprises with long-term competitiveness and serve as a local partner connecting international capital with domestic opportunities.</p>
+                <p lang="ko">사회 주요 실물자산 인프라 섹터별 운영 플랫폼을 구축합니다. 각 산업에서 장기 경쟁력을 갖춘 핵심 기업을 육성하며, 국제 자본과 국내 기회를 연결하는 현지 파트너 역할을 수행합니다.</p>
             </div>
-
             <div class="about-info reveal">
-                <h3 lang="en">Company Information</h3>
-                <h3 lang="ko">회사 정보</h3>
-                
-                <div class="info-item">
-                    <span class="info-label" lang="en">Company</span>
-                    <span class="info-label" lang="ko">회사명</span>
-                    <span class="info-value" lang="en">Silverstar Investment Co., Ltd.</span>
-                    <span class="info-value" lang="ko">(주)실버스타인베스트먼트</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label" lang="en">Address</span>
-                    <span class="info-label" lang="ko">소재지</span>
-                    <span class="info-value" lang="en">130 Sajik-ro, Jongno-gu, Seoul</span>
-                    <span class="info-value" lang="ko">서울 종로구 사직로 130</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label" lang="en">Registration</span>
-                    <span class="info-label" lang="ko">등록</span>
-                    <span class="info-value" lang="en">Institution-only Private Fund</span>
-                    <span class="info-value" lang="ko">기관전용 사모펀드</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label" lang="en">Date</span>
-                    <span class="info-label" lang="ko">등록일</span>
-                    <span class="info-value" lang="en">January 21, 2025</span>
-                    <span class="info-value" lang="ko">2025년 1월 21일</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label" lang="en">CEO</span>
-                    <span class="info-label" lang="ko">대표이사</span>
-                    <span class="info-value" lang="en">Wonbin Suh</span>
-                    <span class="info-value" lang="ko">서원빈</span>
-                </div>
+                <h3 lang="en">Company Information</h3><h3 lang="ko">회사 정보</h3>
+                <div class="info-item"><span class="info-label" lang="en">Company</span><span class="info-label" lang="ko">회사명</span><span class="info-value" lang="en">Silverstar Investment Co., Ltd.</span><span class="info-value" lang="ko">(주)실버스타인베스트먼트</span></div>
+                <div class="info-item"><span class="info-label" lang="en">Address</span><span class="info-label" lang="ko">소재지</span><span class="info-value" lang="en">130 Sajik-ro, Jongno-gu, Seoul</span><span class="info-value" lang="ko">서울 종로구 사직로 130</span></div>
+                <div class="info-item"><span class="info-label" lang="en">Registration</span><span class="info-label" lang="ko">등록</span><span class="info-value" lang="en">Institution-only Private Fund</span><span class="info-value" lang="ko">기관전용 사모펀드</span></div>
+                <div class="info-item"><span class="info-label" lang="en">Date</span><span class="info-label" lang="ko">등록일</span><span class="info-value" lang="en">January 21, 2025</span><span class="info-value" lang="ko">2025년 1월 21일</span></div>
+                <div class="info-item"><span class="info-label" lang="en">CEO</span><span class="info-label" lang="ko">대표이사</span><span class="info-value" lang="en">Wonbin Suh</span><span class="info-value" lang="ko">서원빈</span></div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Strategy Section -->
 <section id="strategy" class="strategy">
     <div class="section-container">
         <div class="section-header reveal">
-            <div class="section-eyebrow">
-                <span lang="en">Investment Strategy</span>
-                <span lang="ko">투자 전략</span>
-            </div>
+            <div class="section-eyebrow"><span lang="en">Investment Strategy</span><span lang="ko">투자 전략</span></div>
             <h2 class="section-title" lang="en">Four Principles<br>Driving Performance</h2>
             <h2 class="section-title" lang="ko">네 가지 핵심 원칙에 기반한<br>차별화된 투자 성과</h2>
-            <p class="section-intro" lang="en">
-                We deliver differentiated investment performance and partnership value based on four core principles.
-            </p>
-            <p class="section-intro" lang="ko">
-                네 가지 핵심 원칙에 기반하여 차별화된 투자 성과와 파트너십 가치를 창출합니다.
-            </p>
+            <p class="section-intro" lang="en">We deliver differentiated investment performance and partnership value based on four core principles.</p>
+            <p class="section-intro" lang="ko">네 가지 핵심 원칙에 기반하여 차별화된 투자 성과와 파트너십 가치를 창출합니다.</p>
         </div>
-
         <div class="strategy-grid">
             <div class="strategy-card reveal">
                 <div class="strategy-number">01</div>
-                <h3 lang="en">Platform Building</h3>
-                <h3 lang="ko">플랫폼 구축</h3>
+                <h3 lang="en">Platform Building</h3><h3 lang="ko">플랫폼 구축</h3>
                 <p lang="en">Building sector-specific operating platforms to generate economies of scale and synergies. Beyond single-asset investments, we acquire or establish operating companies with specialized personnel and systems.</p>
                 <p lang="ko">섹터별 기업형 운영 플랫폼 구축을 통해 규모의 경제와 시너지 효과를 창출합니다. 단일 자산 투자를 넘어 관련 운영 인력과 시스템을 갖춘 전문 운영법인을 동반 매입하거나 신규 설립합니다.</p>
             </div>
-
             <div class="strategy-card reveal">
                 <div class="strategy-number">02</div>
-                <h3 lang="en">Structural Value Creation</h3>
-                <h3 lang="ko">구조적 가치 창출</h3>
+                <h3 lang="en">Structural Value Creation</h3><h3 lang="ko">구조적 가치 창출</h3>
                 <p lang="en">Driving structural value enhancement through proactive value-up initiatives.</p>
                 <p lang="ko">능동적 밸류업 활동을 통해 투자 자산의 가치를 구조적으로 높입니다.</p>
                 <ul class="strategy-list">
-                    <li lang="en">Operational efficiency and financial optimization</li>
-                    <li lang="ko">포트폴리오 기업의 운영 효율 개선 및 재무 구조 최적화</li>
-                    <li lang="en">Active collaboration with management</li>
-                    <li lang="ko">기업 경영진과 적극 협업하여 성장 전략 수립</li>
-                    <li lang="en">Synergy creation through strategic partnerships</li>
-                    <li lang="ko">전략적 제휴를 통한 시너지 창출</li>
+                    <li lang="en">Operational efficiency and financial optimization</li><li lang="ko">포트폴리오 기업의 운영 효율 개선 및 재무 구조 최적화</li>
+                    <li lang="en">Active collaboration with management</li><li lang="ko">기업 경영진과 적극 협업하여 성장 전략 수립</li>
+                    <li lang="en">Synergy creation through strategic partnerships</li><li lang="ko">전략적 제휴를 통한 시너지 창출</li>
                 </ul>
             </div>
-
             <div class="strategy-card reveal">
                 <div class="strategy-number">03</div>
-                <h3 lang="en">Disciplined Value Investing</h3>
-                <h3 lang="ko">가치 투자 원칙</h3>
+                <h3 lang="en">Disciplined Value Investing</h3><h3 lang="ko">가치 투자 원칙</h3>
                 <p lang="en">Executing investments only at entry valuations well below intrinsic value.</p>
                 <p lang="ko">내재가치 대비 충분히 낮은 진입 밸류에이션에서만 투자를 실행합니다.</p>
                 <ul class="strategy-list">
-                    <li lang="en">Rigorous fundamental analysis and risk assessment</li>
-                    <li lang="ko">엄격한 펀더멘탈 분석 및 리스크 평가</li>
-                    <li lang="en">Global-standard investment committee process</li>
-                    <li lang="ko">글로벌 기준의 투자위원회 프로세스</li>
-                    <li lang="en">Downside protection and margin of safety</li>
-                    <li lang="ko">다운사이드 보호 및 안전마진 확보</li>
+                    <li lang="en">Rigorous fundamental analysis and risk assessment</li><li lang="ko">엄격한 펀더멘탈 분석 및 리스크 평가</li>
+                    <li lang="en">Global-standard investment committee process</li><li lang="ko">글로벌 기준의 투자위원회 프로세스</li>
+                    <li lang="en">Downside protection and margin of safety</li><li lang="ko">다운사이드 보호 및 안전마진 확보</li>
                 </ul>
             </div>
-
             <div class="strategy-card reveal">
                 <div class="strategy-number">04</div>
-                <h3 lang="en">Entrepreneurial Partnership</h3>
-                <h3 lang="ko">기업가 파트너십</h3>
+                <h3 lang="en">Entrepreneurial Partnership</h3><h3 lang="ko">기업가 파트너십</h3>
                 <p lang="en">Fostering collaborative partnerships with founders and management.</p>
                 <p lang="ko">창업자 및 경영진과 동반자적 파트너십을 구축합니다.</p>
                 <ul class="strategy-list">
-                    <li lang="en">Business strategy development</li>
-                    <li lang="ko">경영 전략 수립 지원</li>
-                    <li lang="en">Key talent acquisition</li>
-                    <li lang="ko">핵심 인재 영입</li>
-                    <li lang="en">Global market expansion support</li>
-                    <li lang="ko">글로벌 시장 진출 지원</li>
+                    <li lang="en">Business strategy development</li><li lang="ko">경영 전략 수립 지원</li>
+                    <li lang="en">Key talent acquisition</li><li lang="ko">핵심 인재 영입</li>
+                    <li lang="en">Global market expansion support</li><li lang="ko">글로벌 시장 진출 지원</li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Focus Section -->
 <section id="focus" class="focus">
     <div class="section-container">
         <div class="section-header reveal">
-            <div class="section-eyebrow">
-                <span lang="en">Investment Focus</span>
-                <span lang="ko">투자 분야</span>
-            </div>
+            <div class="section-eyebrow"><span lang="en">Investment Focus</span><span lang="ko">투자 분야</span></div>
             <h2 class="section-title" lang="en">Four Sectors<br>Shaping Tomorrow</h2>
             <h2 class="section-title" lang="ko">미래를 만드는<br>네 가지 투자 분야</h2>
-            <p class="section-intro" lang="en">
-                We focus on alternative investment sectors that combine both growth potential and stability.
-            </p>
-            <p class="section-intro" lang="ko">
-                성장성과 안정성을 모두 갖춘 대체투자 분야에 중점을 둡니다.
-            </p>
+            <p class="section-intro" lang="en">We focus on alternative investment sectors that combine both growth potential and stability.</p>
+            <p class="section-intro" lang="ko">성장성과 안정성을 모두 갖춘 대체투자 분야에 중점을 둡니다.</p>
         </div>
-
         <div class="focus-grid">
             <div class="focus-card reveal">
-                <svg class="focus-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <rect x="4" y="20" width="12" height="24" rx="1"/>
-                    <rect x="18" y="12" width="12" height="32" rx="1"/>
-                    <rect x="32" y="4" width="12" height="40" rx="1"/>
-                    <path d="M10 28h0M24 20h0M38 12h0" stroke-width="3" stroke-linecap="round"/>
-                </svg>
-                <h3 lang="en">Logistics & Cold Chain Infrastructure</h3>
-                <h3 lang="ko">물류 및 콜드체인 3PL 인프라</h3>
+                <svg class="focus-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="20" width="12" height="24" rx="1"/><rect x="18" y="12" width="12" height="32" rx="1"/><rect x="32" y="4" width="12" height="40" rx="1"/></svg>
+                <h3 lang="en">Logistics & Cold Chain Infrastructure</h3><h3 lang="ko">물류 및 콜드체인 3PL 인프라</h3>
                 <p lang="en">With e-commerce growth and evolving distribution, demand for advanced logistics infrastructure continues to rise. We focus on large logistics center development in the Seoul metro area and acquire or upgrade existing logistics assets.</p>
                 <p lang="ko">이커머스 확산과 유통 환경 변화로 최첨단 물류 인프라 수요가 지속 증가합니다. 수도권 및 핵심 거점 지역의 대형 물류센터 개발사업에 주력하며, 기존 물류 자산의 인수 및 리노베이션을 추진합니다.</p>
             </div>
-
             <div class="focus-card reveal">
-                <svg class="focus-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <rect x="8" y="8" width="32" height="32" rx="2"/>
-                    <circle cx="24" cy="24" r="8"/>
-                    <path d="M24 16v16M16 24h16"/>
-                    <circle cx="12" cy="12" r="2" fill="currentColor"/>
-                    <circle cx="36" cy="12" r="2" fill="currentColor"/>
-                    <circle cx="12" cy="36" r="2" fill="currentColor"/>
-                    <circle cx="36" cy="36" r="2" fill="currentColor"/>
-                </svg>
-                <h3 lang="en">Data Centers & Digital Infrastructure</h3>
-                <h3 lang="ko">데이터센터 및 디지털 인프라</h3>
+                <svg class="focus-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="32" height="32" rx="2"/><circle cx="24" cy="24" r="8"/><path d="M24 16v16M16 24h16"/></svg>
+                <h3 lang="en">Data Centers & Digital Infrastructure</h3><h3 lang="ko">데이터센터 및 디지털 인프라</h3>
                 <p lang="en">Data centers have emerged as essential assets in the digital economy. We respond to rising domestic demand for hyperscale data centers and pursue large-scale development projects in strategic locations.</p>
                 <p lang="ko">디지털 경제 시대에 데이터센터는 필수 자산으로 부상했습니다. 국내 하이퍼스케일 데이터센터 수요 증가에 대응하며, 전략적 입지에 대형 데이터센터 개발 프로젝트를 모색합니다.</p>
             </div>
-
             <div class="focus-card reveal">
-                <svg class="focus-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M24 4v8M24 36v8M4 24h8M36 24h8"/>
-                    <circle cx="24" cy="24" r="12"/>
-                    <path d="M18 24c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6"/>
-                    <path d="M24 18v6l4 2"/>
-                </svg>
-                <h3 lang="en">Senior & Healthcare Social Infrastructure</h3>
-                <h3 lang="ko">시니어/헬스케어 소셜 인프라</h3>
+                <svg class="focus-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 4v8M24 36v8M4 24h8M36 24h8"/><circle cx="24" cy="24" r="12"/></svg>
+                <h3 lang="en">Senior & Healthcare Social Infrastructure</h3><h3 lang="ko">시니어/헬스케어 소셜 인프라</h3>
                 <p lang="en">In an aging society, demand for day-care centers and nursing homes is rapidly increasing. We build differentiated infrastructure that balances healthcare services with residential functions.</p>
                 <p lang="ko">고령화 사회에서 주간보호센터와 요양원 수요가 빠르게 증가합니다. 의료·돌봄 서비스와 부동산 주거 기능이 균형 있게 결합된 차별화된 인프라를 구축합니다.</p>
             </div>
-
             <div class="focus-card reveal">
-                <svg class="focus-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <circle cx="24" cy="24" r="20"/>
-                    <path d="M24 8c-8.8 0-16 7.2-16 16"/>
-                    <path d="M24 12c-6.6 0-12 5.4-12 12"/>
-                    <path d="M24 16c-4.4 0-8 3.6-8 8"/>
-                    <circle cx="24" cy="24" r="3" fill="currentColor"/>
-                    <path d="M24 24l8-12"/>
-                </svg>
-                <h3 lang="en">Energy Infrastructure</h3>
-                <h3 lang="ko">에너지 인프라스트럭처</h3>
+                <svg class="focus-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="20"/><path d="M24 8c-8.8 0-16 7.2-16 16"/><circle cx="24" cy="24" r="3" fill="currentColor"/></svg>
+                <h3 lang="en">Energy Infrastructure</h3><h3 lang="ko">에너지 인프라스트럭처</h3>
                 <p lang="en">Amid the energy transition and carbon-neutrality trend, we focus on energy infrastructure assets including LNG terminals, city gas networks, and solar/wind power plants that generate stable long-term cash flows.</p>
                 <p lang="ko">에너지 전환과 탄소중립 트렌드 속에서 에너지 인프라 자산에 주목합니다. LNG 터미널, 도시가스 네트워크, 태양광·풍력 발전소 등 안정적인 장기 현금흐름을 창출하는 대체투자 자산군입니다.</p>
             </div>
@@ -1525,55 +357,32 @@
     </div>
 </section>
 
-<!-- Advantages Section -->
 <section id="advantages" class="advantages">
     <div class="section-container">
         <div class="section-header reveal">
-            <div class="section-eyebrow">
-                <span lang="en">Competitive Edge</span>
-                <span lang="ko">경쟁우위</span>
-            </div>
+            <div class="section-eyebrow"><span lang="en">Competitive Edge</span><span lang="ko">경쟁우위</span></div>
             <h2 class="section-title" lang="en">What Sets Us Apart</h2>
             <h2 class="section-title" lang="ko">차별화된 경쟁력</h2>
-            <p class="section-intro" lang="en">
-                We differentiate through strategic depth, operational expertise, principled discipline, and trust building.
-            </p>
-            <p class="section-intro" lang="ko">
-                전략적 깊이, 운영 전문성, 원칙 준수, 신뢰 구축으로 차별화됩니다.
-            </p>
+            <p class="section-intro" lang="en">We differentiate through strategic depth, operational expertise, principled discipline, and trust building.</p>
+            <p class="section-intro" lang="ko">전략적 깊이, 운영 전문성, 원칙 준수, 신뢰 구축으로 차별화됩니다.</p>
         </div>
-
         <div class="advantage-items">
             <div class="advantage-item reveal">
-                <div class="advantage-title">
-                    <span>01</span>
-                    <span lang="en">Platform-Building Capability</span>
-                    <span lang="ko">플랫폼 구축 역량</span>
-                </div>
+                <div class="advantage-title"><span>01</span><span lang="en">Platform-Building Capability</span><span lang="ko">플랫폼 구축 역량</span></div>
                 <div class="advantage-content">
                     <p lang="en">Unlike most private equity funds in Korea that focus on single-asset investments, our differentiated strength lies in our platform approach. By aggregating multiple assets into a single platform, we maximize synergies and establish a structure that can flexibly adapt to market changes.</p>
                     <p lang="ko">국내 대부분의 사모펀드들이 단일 자산 위주 투자에 집중하는 것과 차별화됩니다. 여러 자산을 하나의 플랫폼으로 묶어 투자하여 시너지 효과를 극대화하고, 시장 변화에 유연하게 대응할 수 있는 구조를 갖춥니다.</p>
                 </div>
             </div>
-
             <div class="advantage-item reveal">
-                <div class="advantage-title">
-                    <span>02</span>
-                    <span lang="en">Structural Value Enhancement</span>
-                    <span lang="ko">구조적 가치 향상</span>
-                </div>
+                <div class="advantage-title"><span>02</span><span lang="en">Structural Value Enhancement</span><span lang="ko">구조적 가치 향상</span></div>
                 <div class="advantage-content">
                     <p lang="en">Our proactive approach to structural value enhancement elevates the intrinsic value of portfolio companies, translating into superior outcomes at exit. We maintain in-house operating professionals and an industry advisory network, ensuring strong execution and management capabilities beyond deal closing.</p>
                     <p lang="ko">피투자기업의 본질적 가치를 높여 투자 회수 시 우수한 성과로 연결됩니다. 자체적으로 운영 전문 인력과 산업 자문단을 보유하여, 딜 체결 이후의 실행 및 관리 능력에서 높은 역량을 보유합니다.</p>
                 </div>
             </div>
-
             <div class="advantage-item reveal">
-                <div class="advantage-title">
-                    <span>03</span>
-                    <span lang="en">Global + Local Dual Capability</span>
-                    <span lang="ko">글로벌+로컬 이중 역량</span>
-                </div>
+                <div class="advantage-title"><span>03</span><span lang="en">Global + Local Dual Capability</span><span lang="ko">글로벌+로컬 이중 역량</span></div>
                 <div class="advantage-content">
                     <p lang="en">This capability combines global experience with local expertise. Our founder built Brookfield's Korea investment team as Head of Korea. We maintain investment principles and ethics honed at global alternative asset managers, with institutional-grade governance, transparent decision-making, and rigorous compliance.</p>
                     <p lang="ko">글로벌 경험과 현지 전문성을 결합한 역량입니다. 창립자는 브룩필드자산운용 한국 투자팀을 창립한 한국대표 출신입니다. 글로벌 대체투자사에서 단련된 투자 원칙과 윤리를 보유하며, 기관급 거버넌스와 투명한 의사결정, 철저한 준법감시 등 글로벌 스탠더드를 준수합니다.</p>
@@ -1583,84 +392,55 @@
     </div>
 </section>
 
-<!-- Leadership Section -->
 <section id="leadership" class="leadership">
     <div class="section-container">
         <div class="section-header reveal">
-            <div class="section-eyebrow">
-                <span lang="en">Leadership</span>
-                <span lang="ko">경영진</span>
-            </div>
+            <div class="section-eyebrow"><span lang="en">Leadership</span><span lang="ko">경영진</span></div>
             <h2 class="section-title" lang="en">Experienced Leadership</h2>
             <h2 class="section-title" lang="ko">검증된 리더십</h2>
-            <p class="section-intro" lang="en">
-                Led by an expert with over 20 years of experience in Korea's alternative investment industry.
-            </p>
-            <p class="section-intro" lang="ko">
-                한국 대체투자 업계에서 20년 이상의 경력을 보유한 전문가가 이끕니다.
-            </p>
+            <p class="section-intro" lang="en">Led by an expert with over 20 years of experience in Korea's alternative investment industry.</p>
+            <p class="section-intro" lang="ko">한국 대체투자 업계에서 20년 이상의 경력을 보유한 전문가가 이끕니다.</p>
         </div>
-
         <div class="leadership-card reveal">
             <div class="leadership-header">
                 <div>
-                    <h3 class="leadership-name" lang="en">Wonbin Suh</h3>
-                    <h3 class="leadership-name" lang="ko">서원빈</h3>
-                    <p class="leadership-role" lang="en">Representative Director · Founder</p>
-                    <p class="leadership-role" lang="ko">대표이사 · 창립자</p>
+                    <h3 class="leadership-name" lang="en">Wonbin Suh</h3><h3 class="leadership-name" lang="ko">서원빈</h3>
+                    <p class="leadership-role" lang="en">Representative Director · Founder</p><p class="leadership-role" lang="ko">대표이사 · 창립자</p>
                 </div>
                 <div class="leadership-badge" lang="en">Former Head of Korea, Brookfield</div>
                 <div class="leadership-badge" lang="ko">전 브룩필드자산운용 한국대표</div>
             </div>
-
             <div class="leadership-details">
                 <div class="leadership-section">
-                    <h4 lang="en">Leadership Across Investment Strategies in Korea</h4>
-                    <h4 lang="ko">한국 투자 전략 전반의 리더십</h4>
+                    <h4 lang="en">Leadership Across Investment Strategies in Korea</h4><h4 lang="ko">한국 투자 전략 전반의 리더십</h4>
                     <p lang="en">Since joining Brookfield in early 2013, Wonbin has amassed approximately 12 years of expertise across diverse business verticals. From 2013 to 2017, he worked at Brookfield Financial, the firm's in-house investment bank, specializing in cross-border M&A advisory and capital raise. Transitioning to Brookfield Asset Management (BAM) in 2018, he established and led the Korea investment team, spearheading business development across real estate, infrastructure, renewable energy, and private equity. Since 2020, Wonbin has served as the Korea Country Head for Brookfield's Real Estate Group, driving strategic investments and operational excellence in the region.</p>
                     <p lang="ko">2013년 초 브룩필드 입사 이후, 약 12년간 다양한 사업 영역에서 전문성을 축적했습니다. 2013년부터 2017년까지 브룩필드의 사내 투자은행인 브룩필드 파이낸셜에서 크로스보더 M&A 자문 및 자본조달 업무를 담당했습니다. 2018년 브룩필드자산운용(BAM)으로 이동하여 한국 투자팀을 설립하고 이끌며, 부동산, 인프라, 신재생에너지, 프라이빗에쿼티 전반의 사업개발을 주도했습니다. 2020년부터는 브룩필드 부동산그룹의 한국 대표로서 전략적 투자와 운영 역량 강화를 이끌었습니다.</p>
                 </div>
-
                 <div class="leadership-section">
-                    <h4 lang="en">Key Achievements at Brookfield</h4>
-                    <h4 lang="ko">브룩필드 주요 실적</h4>
-                    <p lang="en">As Head of Korea, Brookfield Real Estate Group (2020-2024)</p>
-                    <p lang="ko">브룩필드 부동산그룹 한국대표 (2020-2024)</p>
+                    <h4 lang="en">Key Achievements at Brookfield</h4><h4 lang="ko">브룩필드 주요 실적</h4>
+                    <p lang="en">As Head of Korea, Brookfield Real Estate Group (2020-2024)</p><p lang="ko">브룩필드 부동산그룹 한국대표 (2020-2024)</p>
                     <ul class="leadership-list">
-                        <li lang="en">Established Korea investment team from the ground up</li>
-                        <li lang="ko">한국 투자팀 신규 설립</li>
-                        <li lang="en">Acquisition of IFC Seoul and its operating company</li>
-                        <li lang="ko">IFC Seoul 및 운영법인 인수</li>
-                        <li lang="en">Purchase of Incheon Cheongna Logistics Center and establishment of logistics platform</li>
-                        <li lang="ko">인천 청라 물류센터 매입 및 물류 플랫폼 설립</li>
-                        <li lang="en">Formation of joint venture for Gasan Data Center development</li>
-                        <li lang="ko">가산 데이터센터 개발 합작투자 결성</li>
+                        <li lang="en">Established Korea investment team from the ground up</li><li lang="ko">한국 투자팀 신규 설립</li>
+                        <li lang="en">Acquisition of IFC Seoul and its operating company</li><li lang="ko">IFC Seoul 및 운영법인 인수</li>
+                        <li lang="en">Purchase of Incheon Cheongna Logistics Center and establishment of logistics platform</li><li lang="ko">인천 청라 물류센터 매입 및 물류 플랫폼 설립</li>
+                        <li lang="en">Formation of joint venture for Gasan Data Center development</li><li lang="ko">가산 데이터센터 개발 합작투자 결성</li>
                     </ul>
                 </div>
-
                 <div class="leadership-section">
-                    <h4 lang="en">Head of Investment, Brookfield Asset Management (2018-2020)</h4>
-                    <h4 lang="ko">브룩필드자산운용 투자총괄 (2018-2020)</h4>
+                    <h4 lang="en">Head of Investment, Brookfield Asset Management (2018-2020)</h4><h4 lang="ko">브룩필드자산운용 투자총괄 (2018-2020)</h4>
                     <p lang="en">Led domestic investment review across all Brookfield investment verticals including M&A, infrastructure, data centers, renewable energy (solar, wind), and real estate platforms in Korea.</p>
                     <p lang="ko">국내 다양한 M&A, 인프라, 데이터센터, 신재생에너지(태양광, 풍력), 부동산 플랫폼 등 브룩필드의 모든 투자영역에 대한 국내 투자검토 업무를 총괄 수행했습니다.</p>
                 </div>
-
                 <div class="leadership-section">
-                    <h4 lang="en">Notable Transactions at Brookfield Financial (2013-2017)</h4>
-                    <h4 lang="ko">브룩필드 파이낸셜 주요 딜 (2013-2017)</h4>
+                    <h4 lang="en">Notable Transactions at Brookfield Financial (2013-2017)</h4><h4 lang="ko">브룩필드 파이낸셜 주요 딜 (2013-2017)</h4>
                     <ul class="leadership-list">
-                        <li lang="en">Advised on long-term joint venture between POBA and Dream Global REIT in Germany (8-asset office portfolio)</li>
-                        <li lang="ko">독일에서 POBA와 Dream Global REIT 간 장기 합작투자 자문 (8개 오피스 자산 포트폴리오)</li>
-                        <li lang="en">Advised Blackstone on its first commercial real estate investment in Korea (major Gangnam office building)</li>
-                        <li lang="ko">블랙스톤의 한국 첫 상업용 부동산 투자 자문 (강남 대형 오피스 빌딩)</li>
-                        <li lang="en">Advised Brookfield on divestiture of North American wind power portfolio</li>
-                        <li lang="ko">브룩필드 북미지역 풍력발전소 포트폴리오 매각 자문</li>
+                        <li lang="en">Advised on long-term joint venture between POBA and Dream Global REIT in Germany (8-asset office portfolio)</li><li lang="ko">독일에서 POBA와 Dream Global REIT 간 장기 합작투자 자문 (8개 오피스 자산 포트폴리오)</li>
+                        <li lang="en">Advised Blackstone on its first commercial real estate investment in Korea (major Gangnam office building)</li><li lang="ko">블랙스톤의 한국 첫 상업용 부동산 투자 자문 (강남 대형 오피스 빌딩)</li>
+                        <li lang="en">Advised Brookfield on divestiture of North American wind power portfolio</li><li lang="ko">브룩필드 북미지역 풍력발전소 포트폴리오 매각 자문</li>
                     </ul>
                 </div>
-
                 <div class="leadership-section">
-                    <h4 lang="en">Prior Experience</h4>
-                    <h4 lang="ko">이전 경력</h4>
+                    <h4 lang="en">Prior Experience</h4><h4 lang="ko">이전 경력</h4>
                     <ul class="leadership-list">
                         <li lang="en">Global Real Asset Consulting Firm: Conducted feasibility studies, research, and valuations for large-scale mixed-use real estate portfolios and platforms for major domestic and international clients including Lotte Group, Samsung Group, CJ Group, SK Group, GIC, and AIG across Korea, China, India, Southeast Asia, and Africa</li>
                         <li lang="ko">글로벌 실물자산 컨설팅회사에서 국내외 대기업 고객들의 대규모 복합부동산 포트폴리오 및 플랫폼에 대한 개발타당성 검토, 리서치, 평가 등 수행 (국내: 롯데그룹, 삼성그룹, CJ그룹, SK그룹 외 다수 / 해외: GIC, AIG 등 / 지역: 한국, 중국, 인도, 동남아시아, 아프리카 등)</li>
@@ -1675,42 +455,28 @@
     </div>
 </section>
 
-<!-- Partnership Section -->
 <section id="partnership" class="partnership">
     <div class="section-container">
         <div class="section-header reveal">
-            <div class="section-eyebrow">
-                <span lang="en">Partnership</span>
-                <span lang="ko">파트너십</span>
-            </div>
+            <div class="section-eyebrow"><span lang="en">Partnership</span><span lang="ko">파트너십</span></div>
             <h2 class="section-title" lang="en">Your Local Partner<br>in Korea</h2>
             <h2 class="section-title" lang="ko">한국 시장의<br>신뢰할 수 있는 파트너</h2>
-            <p class="section-intro" lang="en">
-                We position collaboration with global GPs and LPs as a core strategic pillar.
-            </p>
-            <p class="section-intro" lang="ko">
-                해외 GP 및 LP들과의 협업을 사업 전략의 중요한 축으로 삼습니다.
-            </p>
+            <p class="section-intro" lang="en">We position collaboration with global GPs and LPs as a core strategic pillar.</p>
+            <p class="section-intro" lang="ko">해외 GP 및 LP들과의 협업을 사업 전략의 중요한 축으로 삼습니다.</p>
         </div>
-
         <div class="partnership-grid">
             <div class="partnership-card reveal">
-                <h3 lang="en">Partnership Model</h3>
-                <h3 lang="ko">파트너십 모델</h3>
+                <h3 lang="en">Partnership Model</h3><h3 lang="ko">파트너십 모델</h3>
                 <p lang="en">We foster transparent and efficient partnership models. We serve as a local partner for global managers entering Korea, recognizing that success often hinges on working with a partner who best understands the local market.</p>
                 <p lang="ko">투명하고 효율적인 파트너십 모델을 구축합니다. 글로벌 GP의 한국 시장 진출 시 현지 파트너로서 역할을 수행합니다.</p>
             </div>
-
             <div class="partnership-card reveal">
-                <h3 lang="en">Local Co-GP Role</h3>
-                <h3 lang="ko">현지 공동 GP 역할</h3>
+                <h3 lang="en">Local Co-GP Role</h3><h3 lang="ko">현지 공동 GP 역할</h3>
                 <p lang="en">Silverstar stands ready to serve as a local co-GP or operating partner. Understanding of the local market and networks are crucial when global managers enter Korea.</p>
                 <p lang="ko">실버스타는 현지 공동 GP 또는 운영 파트너로서의 역할을 수행할 준비가 되어 있습니다. 글로벌 GP가 한국 시장에 진출할 때 가장 중요한 것은 현지 시장에 대한 이해와 네트워크입니다.</p>
             </div>
-
             <div class="partnership-card reveal">
-                <h3 lang="en">Long-term Trust</h3>
-                <h3 lang="ko">장기적 신뢰 구축</h3>
+                <h3 lang="en">Long-term Trust</h3><h3 lang="ko">장기적 신뢰 구축</h3>
                 <p lang="en">We seek continued co-investment opportunities beyond one-time transactions. As a strategic partner, we aim to grow together and create value as true collaborators.</p>
                 <p lang="ko">단발적 거래 관계가 아닌 지속적 공동 투자 기회를 모색합니다. 전략적 파트너로서 함께 성장하고 가치를 창출하는 동반자 관계를 지향합니다.</p>
             </div>
@@ -1718,49 +484,33 @@
     </div>
 </section>
 
-<!-- Contact Section -->
 <section id="contact" class="contact">
     <div class="section-container">
         <div class="section-header reveal">
-            <div class="section-eyebrow">
-                <span lang="en">Contact</span>
-                <span lang="ko">연락처</span>
-            </div>
+            <div class="section-eyebrow"><span lang="en">Contact</span><span lang="ko">연락처</span></div>
             <h2 class="section-title" lang="en">Get in Touch</h2>
             <h2 class="section-title" lang="ko">문의하기</h2>
-            <p class="section-intro" lang="en">
-                Thank you for your interest in Silverstar Investment.
-            </p>
-            <p class="section-intro" lang="ko">
-                실버스타인베스트먼트에 관심을 가져주셔서 감사합니다.
-            </p>
+            <p class="section-intro" lang="en">Thank you for your interest in Silverstar Investment.</p>
+            <p class="section-intro" lang="ko">실버스타인베스트먼트에 관심을 가져주셔서 감사합니다.</p>
         </div>
-        
         <div class="contact-grid reveal">
             <div class="contact-item">
-                <h4 lang="en">Company</h4>
-                <h4 lang="ko">회사</h4>
-                <p lang="en">Silverstar Investment Co., Ltd.</p>
-                <p lang="ko">(주)실버스타인베스트먼트</p>
+                <h4 lang="en">Company</h4><h4 lang="ko">회사</h4>
+                <p lang="en">Silverstar Investment Co., Ltd.</p><p lang="ko">(주)실버스타인베스트먼트</p>
             </div>
-
             <div class="contact-item">
-                <h4 lang="en">Address</h4>
-                <h4 lang="ko">주소</h4>
+                <h4 lang="en">Address</h4><h4 lang="ko">주소</h4>
                 <p lang="en">2F, Jeokseon Hyundai Building<br>130 Sajik-ro, Jongno-gu, Seoul</p>
                 <p lang="ko">서울특별시 종로구 사직로 130<br>적선현대빌딩 2층</p>
             </div>
-
             <div class="contact-item">
-                <h4 lang="en">Email</h4>
-                <h4 lang="ko">이메일</h4>
-                <p><a href="/cdn-cgi/l/email-protection#c4b3abaaa6adaaeab7b1ac84b7ada8b2a1b6b7b0a5b6b7eaa7abeaafb6"><span class="__cf_email__" data-cfemail="92e5fdfcf0fbfcbce1e7fad2e1fbfee4f7e0e1e6f3e0e1bcf1fdbcf9e0">[email&#160;protected]</span></a></p>
+                <h4 lang="en">Email</h4><h4 lang="ko">이메일</h4>
+                <p><a href="mailto:wonbin.suh@silverstars.co.kr">wonbin.suh@silverstars.co.kr</a></p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Footer -->
 <footer>
     <div class="footer-container">
         <p lang="en">© 2025 Silverstar Investment Co., Ltd. All rights reserved. This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities.</p>
@@ -1768,123 +518,19 @@
     </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Language Toggle
-    function toggleLanguage() {
-        const html = document.documentElement;
-        const currentLang = html.getAttribute('lang');
-        const newLang = currentLang === 'en' ? 'ko' : 'en';
-        html.setAttribute('lang', newLang);
-        localStorage.setItem('preferredLang', newLang);
-    }
-    
-    // Load saved language preference (default to English)
-    window.addEventListener('DOMContentLoaded', () => {
-        const savedLang = localStorage.getItem('preferredLang') || 'en';
-        document.documentElement.setAttribute('lang', savedLang);
-    });
-
-    // Navigation scroll effect
-    const nav = document.getElementById('nav');
-    let lastScroll = 0;
-
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.scrollY;
-        
-        if (currentScroll > 100) {
-            nav.classList.add('scrolled');
-            nav.classList.remove('transparent');
-        } else {
-            nav.classList.remove('scrolled');
-            nav.classList.add('transparent');
-        }
-        
-        lastScroll = currentScroll;
-    });
-
-    // Scroll reveal animation
-    const reveals = document.querySelectorAll('.reveal');
-    
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.classList.add('active');
-                }, index * 80);
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -80px 0px'
-    });
-
-    reveals.forEach(reveal => {
-        revealObserver.observe(reveal);
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const offset = 100;
-                const targetPosition = target.offsetTop - offset;
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Mobile menu toggle (placeholder)
-    function toggleMobileMenu() {
-        // Add mobile menu functionality if needed
-        console.log('Mobile menu toggled');
-    }
-
-    // Counter animation for stats
-    function animateCounter(element, target, suffix = '', duration = 2000) {
-        let start = 0;
-        const increment = target / (duration / 16);
-        
-        function updateCounter() {
-            start += increment;
-            if (start < target) {
-                element.textContent = Math.floor(start) + suffix;
-                requestAnimationFrame(updateCounter);
-            } else {
-                element.textContent = target + suffix;
-            }
-        }
-        
-        updateCounter();
-    }
-
-    // Observe stats for animation
-    const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const statValue = entry.target.querySelector('.stat-value');
-                const value = statValue.textContent;
-                const numMatch = value.match(/^(\d+)(.*)$/);
-                
-                if (numMatch) {
-                    const num = parseInt(numMatch[1]);
-                    const suffix = numMatch[2] || '';
-                    animateCounter(statValue, num, suffix);
-                }
-                
-                statsObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    document.querySelectorAll('.stat').forEach(stat => {
-        statsObserver.observe(stat);
-    });
+<script>
+function toggleLanguage(){const h=document.documentElement,n=h.getAttribute('lang')==='en'?'ko':'en';h.setAttribute('lang',n);localStorage.setItem('preferredLang',n)}
+window.addEventListener('DOMContentLoaded',()=>{document.documentElement.setAttribute('lang',localStorage.getItem('preferredLang')||'en')});
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{if(window.scrollY>100){nav.classList.add('scrolled');nav.classList.remove('transparent')}else{nav.classList.remove('scrolled');nav.classList.add('transparent')}});
+const reveals=document.querySelectorAll('.reveal');
+const revealObs=new IntersectionObserver((e)=>{e.forEach((en,i)=>{if(en.isIntersecting){setTimeout(()=>en.target.classList.add('active'),i*100)}})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+reveals.forEach(r=>revealObs.observe(r));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)window.scrollTo({top:t.offsetTop-100,behavior:'smooth'})})});
+function animateCounter(el,target,suffix='',dur=2000){let s=0;const inc=target/(dur/16);function u(){s+=inc;if(s<target){el.innerHTML=Math.floor(s)+suffix;requestAnimationFrame(u)}else{el.innerHTML=target+suffix}}u()}
+const statsObs=new IntersectionObserver((e)=>{e.forEach(en=>{if(en.isIntersecting){const sv=en.target.querySelector('.stat-value');if(sv){const m=sv.textContent.match(/^(\d+)(.*)$/);if(m)animateCounter(sv,parseInt(m[1]),m[2]||'')}statsObs.unobserve(en.target)}})},{threshold:.5});
+document.querySelectorAll('.stat').forEach(s=>statsObs.observe(s));
+window.addEventListener('scroll',()=>{const sc=window.pageYOffset;const g=document.querySelector('.hero-glow');if(g&&sc<window.innerHeight){g.style.transform=`translate(${sc*.05}px,${sc*.1}px)`}});
 </script>
-
 </body>
 </html>
